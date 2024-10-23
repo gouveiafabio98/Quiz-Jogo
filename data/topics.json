@@ -1,0 +1,24 @@
+{
+    "topics": [
+        { "topicName": "Geography" },
+        { "topicName": "Science" },
+        { "topicName": "Literature" },
+        { "topicName": "History" },
+        { "topicName": "Mathematics" },
+        { "topicName": "Art" },
+        { "topicName": "Music" },
+        { "topicName": "Technology" },
+        { "topicName": "Sports" },
+        { "topicName": "Movies" },
+        { "topicName": "Food" },
+        { "topicName": "Travel" },
+        { "topicName": "Nature" },
+        { "topicName": "Politics" },
+        { "topicName": "Health" },
+        { "topicName": "Education" },
+        { "topicName": "Philosophy" },
+        { "topicName": "Psychology" },
+        { "topicName": "Economics" },
+        { "topicName": "Religion" }
+    ]
+}

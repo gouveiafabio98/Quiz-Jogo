@@ -1,0 +1,74 @@
+{
+    "topics": [
+      {
+        "topicName": "Geography",
+        "questions": [
+          {
+            "question": "What is the capital of France?",
+            "answers": [
+              {"option": "A", "text": "Berlin", "isCorrect": false},
+              {"option": "B", "text": "Madrid", "isCorrect": false},
+              {"option": "C", "text": "Paris", "isCorrect": true},
+              {"option": "D", "text": "Rome", "isCorrect": false}
+            ]
+          },
+          {
+            "question": "What is the largest ocean on Earth?",
+            "answers": [
+              {"option": "A", "text": "Atlantic Ocean", "isCorrect": false},
+              {"option": "B", "text": "Indian Ocean", "isCorrect": false},
+              {"option": "C", "text": "Arctic Ocean", "isCorrect": false},
+              {"option": "D", "text": "Pacific Ocean", "isCorrect": true}
+            ]
+          }
+        ]
+      },
+      {
+        "topicName": "Science",
+        "questions": [
+          {
+            "question": "Which planet is known as the Red Planet?",
+            "answers": [
+              {"option": "A", "text": "Venus", "isCorrect": false},
+              {"option": "B", "text": "Mars", "isCorrect": true},
+              {"option": "C", "text": "Jupiter", "isCorrect": false},
+              {"option": "D", "text": "Saturn", "isCorrect": false}
+            ]
+          },
+          {
+            "question": "What is the chemical symbol for water?",
+            "answers": [
+              {"option": "A", "text": "H2O", "isCorrect": true},
+              {"option": "B", "text": "O2", "isCorrect": false},
+              {"option": "C", "text": "CO2", "isCorrect": false},
+              {"option": "D", "text": "H2", "isCorrect": false}
+            ]
+          }
+        ]
+      },
+      {
+        "topicName": "Literature",
+        "questions": [
+          {
+            "question": "Who wrote 'Hamlet'?",
+            "answers": [
+              {"option": "A", "text": "Charles Dickens", "isCorrect": false},
+              {"option": "B", "text": "Mark Twain", "isCorrect": false},
+              {"option": "C", "text": "William Shakespeare", "isCorrect": true},
+              {"option": "D", "text": "Jane Austen", "isCorrect": false}
+            ]
+          },
+          {
+            "question": "In which novel does the character 'Atticus Finch' appear?",
+            "answers": [
+              {"option": "A", "text": "1984", "isCorrect": false},
+              {"option": "B", "text": "To Kill a Mockingbird", "isCorrect": true},
+              {"option": "C", "text": "Moby Dick", "isCorrect": false},
+              {"option": "D", "text": "The Great Gatsby", "isCorrect": false}
+            ]
+          }
+        ]
+      }
+    ]
+  }
+  
