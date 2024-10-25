@@ -39,9 +39,14 @@ const cityData = {
     "Penacova": {
         "x": 3455,
         "y": 1478
+    },
+    "Roulette": {
+        "x": 2855,
+        "y": 1800
     }
 };
 
+let rouletteX = 2855, rouletteY = 1800;
 
 // Preload the map image
 function preload() {
@@ -52,44 +57,85 @@ function preload() {
 // Setup the canvas and graphics buffer
 function setup() {
     createCanvas(windowWidth, windowHeight);
+    frameRate(60);
 
     setData();
 
-    graphicsBuffer = createGraphics(mapImage.width, mapImage.height);
-    graphicsBuffer.image(mapImage, 0, 0);  // Draw the map onto the offscreen buffer
-
-    // Constrain offsetX and offsetY so the panning doesn't go beyond the map edges
-    scaledWidth = mapImage.width;
-    scaledHeight = mapImage.height;
-
-    offsetX = cityData["Cantanhede"].x  - width / 2;;
-    offsetY = cityData["Cantanhede"].y  - height / 2;;
-    targetX = offsetX;
-    targetY = offsetY;
+    loadMap();
+    initMap("Roulette");
+    
+    rouletteX = cityData["Roulette"].x;
+    rouletteY = cityData["Roulette"].y;
 }
 
-// Main drawing loop
 function draw() {
     background(200);
     // Smooth panning
     updatePan();
     offsetX = constrain(offsetX, 0, scaledWidth - width);
     offsetY = constrain(offsetY, 0, scaledHeight - height);
+
+
     // Display the map
     image(graphicsBuffer, 0, 0, width, height,
         offsetX + (width * (1 - currentZoom) / 2), offsetY + (height * (1 - currentZoom) / 2),
         width * currentZoom, height * currentZoom);
 
-        
-    drawRolette();
+
+    //drawRolette();
+    updateRoulette();
+    drawGraphicsBuffer();
 }
 
-/* Handle window resizing */
-function windowResized() {
-    resizeCanvas(windowWidth, windowHeight);
+
+
+
+
+
+
+/* Interactions */
+
+function mousePressed() {
+    if (!isSpinning) {
+        isSpinning = true;
+        spinSpeed = random(0.2, 0.5);
+    }
+    console.log(spinSpeed);
 }
 
-/* Function to smoothly pan to a specific location on the map */
+function keyPressed() {
+    if (key === ' ') {
+      goToLocation("Roulette");
+    }
+  }
+
+
+/* Map Navigation */
+
+function drawGraphicsBuffer() {
+    graphicsBuffer.image(mapImage, 0, 0);
+    drawRoulette(graphicsBuffer);
+}
+
+function loadMap() {
+    graphicsBuffer = createGraphics(mapImage.width, mapImage.height);
+    graphicsBuffer.image(mapImage, 0, 0);
+    scaledWidth = mapImage.width;
+    scaledHeight = mapImage.height;
+
+    drawRoulette(graphicsBuffer);
+}
+
+function initMap(cityName) {
+    let city = cityData[cityName];
+    let x = city.x, y = city.y;
+
+    offsetX = x - width / 2;;
+    offsetY = y - height / 2;;
+    targetX = offsetX;
+    targetY = offsetY;
+}
+
 function goToLocation(cityName) {
     let city = cityData[cityName];
     let x = city.x, y = city.y;
@@ -97,37 +143,21 @@ function goToLocation(cityName) {
     targetX = x - width / 2;
     targetY = y - height / 2;
     targetZoom = outZoom;
-    // After a delay, zoom back in
+
     setTimeout(() => {
-        targetZoom = inZoom;  // Zoom back to normal (100%)
-    }, 1000);  // 1 second delay before zooming back in
+        targetZoom = inZoom;
+    }, 1000);
 }
 
 function updatePan() {
-    // Smoothly interpolate towards the target location using lerp
     offsetX = lerp(offsetX, targetX, panSpeed);
     offsetY = lerp(offsetY, targetY, panSpeed);
     currentZoom = lerp(currentZoom, targetZoom, panSpeed);
-
 }
 
-function keyPressed() {
-    if (key == '1') {
-        goToLocation("Cantanhede"); // Pan to Cantanhede
-    }
-    if (key == '2') {
-        goToLocation("Figueira da Foz"); // Pan to Figueira da Foz
-    }
-    if (key == '3') {
-        goToLocation("Mira"); // Pan to Mira
-    }
-    if (key == '4') {
-        goToLocation("Montemor-o-Velho"); // Pan to Montemor-o-Velho
-    }
-    if (key == '5') {
-        goToLocation("Mealhada"); // Pan to Mealhada
-    }
-    if (key == '6') {
-        goToLocation("Penacova"); // Pan to Penacova
-    }
+
+/* Handle window resizing */
+
+function windowResized() {
+    resizeCanvas(windowWidth, windowHeight);
 }
