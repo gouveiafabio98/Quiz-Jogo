@@ -63,7 +63,7 @@ function setup() {
 
     loadMap();
     initMap("Roulette");
-    
+
     rouletteX = cityData["Roulette"].x;
     rouletteY = cityData["Roulette"].y;
 }
@@ -95,19 +95,53 @@ function draw() {
 
 /* Interactions */
 
+let selectedSections = new Set();
+let spinsRemaining = 12;
+let lastChosenIndex = -1;
+
 function mousePressed() {
     if (!isSpinning) {
+        if (spinsRemaining <= numSections && selectedSections.size < numSections) { // Forcing to debug, as you mentioned
+            // Force selection of remaining sections in the last spins
+            let remainingSections = [...Array(numSections).keys()].filter(i => !selectedSections.has(i));
+            console.log("Remaining Sections:", remainingSections); // Log remaining sections
+            let forcedIndex = remainingSections[Math.floor(Math.random() * remainingSections.length)];
+            console.log("Forced Index:", forcedIndex); // Log forced index
+            
+            // Calculate the angle to ensure this section is chosen
+            let desiredAngle = (HALF_PI * 3 - forcedIndex * anglePerSection - anglePerSection / 2) % TWO_PI;
+            let currentDegrees = (currentAngle) % TWO_PI;
+            let angleDifference = (desiredAngle - currentDegrees) % TWO_PI; //NEGATIVOS CHECKAR ISTO DEPOIS
+
+            console.log("Desired Angle:", desiredAngle);
+            console.log("Current Degrees:", currentDegrees);
+            console.log("Angle Difference:", angleDifference);
+
+            // To simulate the spin
+            let randomTurns = floor(random(3, 6));  // Adjust the number of full spins as needed
+            let totalAngle = angleDifference + randomTurns * TWO_PI;
+            spinSpeed = totalAngle / 100; // Dividing by 100 to get a reasonable speed
+            isSpinning = true;
+            lastChosenIndex = forcedIndex;
+            console.log("Forced");
+        } else {
+            // Randomly spin
+            isSpinning = true;
+            spinSpeed = random(0.2, 0.5);
+            console.log("Random");
+        }
+        
+        spinsRemaining--;
         isSpinning = true;
-        spinSpeed = random(0.2, 0.5);
     }
-    console.log(spinSpeed);
 }
+
 
 function keyPressed() {
     if (key === ' ') {
-      goToLocation("Roulette");
+        goToLocation("Roulette");
     }
-  }
+}
 
 
 /* Map Navigation */

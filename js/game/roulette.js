@@ -56,25 +56,32 @@ function drawRoulette(map) {
 }
 
 function updateRoulette() {
-    // Gerenciar a rotação da roleta
+    // Manage the rotation of the roulette
     if (isSpinning) {
         currentAngle += spinSpeed;
-        spinSpeed *= 0.99; // Diminuir a velocidade gradualmente
-
+        spinSpeed *= 0.99; // Gradually decrease speed
         if (spinSpeed < 0.01) {
-            isSpinning = false; // Parar a roleta quando a velocidade for suficientemente baixa
-
-            // Normalizar o ângulo
+            isSpinning = false; // Stop the roulette when speed is sufficiently low
+            // Normalize the angle
             currentAngle = currentAngle % TWO_PI;
-
-            // Ajustar o cálculo para alinhar o ângulo com a seta no topo (posição 12 horas)
-            let degrees = (currentAngle * 180 / Math.PI + 90) % 360; // Ajuste para a posição de 12 horas
-            let arcd = (anglePerSection * 180 / Math.PI); // O tamanho de cada seção em graus
-
-            // Calcular qual seção está no topo
+            // Adjust calculation to align the angle with the top (12 o'clock position)
+            let degrees = (currentAngle * 180 / Math.PI + 90) % 360; // Adjust to 12 o'clock position
+            let arcd = (anglePerSection * 180 / Math.PI); // Size of each section in degrees
+            // Calculate which section is at the top
             let chosenTopicIndex = Math.floor((360 - degrees) / arcd) % numSections;
 
-            //console.log("Tópico escolhido:", quizTopics[chosenTopicIndex]);
+            // Add the chosen section to the set
+            selectedSections.add(chosenTopicIndex);
+            
+            // Reset the spinner if all spins are used up
+            if (spinsRemaining === 0) {
+                selectedSections.clear();
+                spinsRemaining = 12;
+            }
+
+            // Log chosen topic
+            console.log("Chosen Topic:", quizTopics[chosenTopicIndex], chosenTopicIndex, selectedSections);
+
             goToLocation(quizTopics[chosenTopicIndex]);
         }
     }
