@@ -81,6 +81,7 @@ function updateRoulette() {
 
             // Log chosen topic
             console.log("Chosen Topic:", quizTopics[chosenTopicIndex], chosenTopicIndex, selectedSections);
+            console.log("FINAL ANGLE: ", currentAngle * (180/Math.PI));
 
             goToLocation(quizTopics[chosenTopicIndex]);
         }

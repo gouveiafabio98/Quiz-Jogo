@@ -101,40 +101,39 @@ let lastChosenIndex = -1;
 
 function mousePressed() {
     if (!isSpinning) {
-        if (spinsRemaining <= numSections && selectedSections.size < numSections) { // Forcing to debug, as you mentioned
-            // Force selection of remaining sections in the last spins
-            let remainingSections = [...Array(numSections).keys()].filter(i => !selectedSections.has(i));
-            console.log("Remaining Sections:", remainingSections); // Log remaining sections
-            let forcedIndex = remainingSections[Math.floor(Math.random() * remainingSections.length)];
-            console.log("Forced Index:", forcedIndex); // Log forced index
-            
-            // Calculate the angle to ensure this section is chosen
-            let desiredAngle = (HALF_PI * 3 - forcedIndex * anglePerSection - anglePerSection / 2) % TWO_PI;
-            let currentDegrees = (currentAngle) % TWO_PI;
-            let angleDifference = (desiredAngle - currentDegrees) % TWO_PI; //NEGATIVOS CHECKAR ISTO DEPOIS
-
-            console.log("Desired Angle:", desiredAngle);
-            console.log("Current Degrees:", currentDegrees);
-            console.log("Angle Difference:", angleDifference);
-
-            // To simulate the spin
-            let randomTurns = floor(random(3, 6));  // Adjust the number of full spins as needed
-            let totalAngle = angleDifference + randomTurns * TWO_PI;
-            spinSpeed = totalAngle / 100; // Dividing by 100 to get a reasonable speed
+        /*if (true) {
+            console.log("CURRENT INITIAL ANGLE: ", degrees(currentAngle));
+            let forcedIndex = 0;
+            let desiredAngle = (HALF_PI * 3 - forcedIndex * anglePerSection - anglePerSection / 2 + TWO_PI) % TWO_PI
+            console.log("DESIRE ANGLE: ", degrees(desiredAngle));
+            console.log("CALC: ", degrees((desiredAngle - currentAngle + TWO_PI) % TWO_PI));
+            //currentAngle = desiredAngle;
+            spinSpeed = calculateClockwiseSpinSpeed(currentAngle, desiredAngle);
             isSpinning = true;
-            lastChosenIndex = forcedIndex;
-            console.log("Forced");
-        } else {
+        } else {*/
             // Randomly spin
             isSpinning = true;
             spinSpeed = random(0.2, 0.5);
-            console.log("Random");
-        }
-        
-        spinsRemaining--;
-        isSpinning = true;
+            //console.log("Random");
+       // }
     }
 }
+
+function calculateClockwiseSpinSpeed(currentAngle, desiredAngle, decelerationFactor = 0.99, minSpeed = 0.01) {
+    // Calculate clockwise angular distance
+    let angleDifference = (desiredAngle - currentAngle + TWO_PI) % TWO_PI;
+        
+    // Add additional rotations for sufficient deceleration
+    const additionalRotations = TWO_PI * 5; // Example: 5 full rotations
+    let totalRotation = angleDifference;// + additionalRotations;
+    
+    // Calculate the initial speed to reach totalRotation with deceleration, stopping at minSpeed
+    let n = 300; // Number of deceleration steps
+    let initialSpeed = (totalRotation * (1 - decelerationFactor) + minSpeed * Math.pow(decelerationFactor, n)) / (1 - Math.pow(decelerationFactor, n));
+    
+    return initialSpeed;
+}
+
 
 
 function keyPressed() {
