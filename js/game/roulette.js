@@ -5,11 +5,14 @@ let quizTopics;
 /* Roulette Data */
 let anglePerSection;
 let numSections;
-let spinSpeed = 0;
-let currentAngle = 0;
-let isSpinning = false;
-
 let rouletteSize = 300;
+
+/* Roulette Rotations */
+let currentAngle = 0;
+let minRotation = 2;
+let maxRotation = 5;
+let isSpinning = false;
+let finalAngle;
 
 /* Game Functions */
 function setData() {
@@ -17,6 +20,24 @@ function setData() {
 
     numSections = quizTopics.length;
     anglePerSection = TWO_PI / numSections;
+}
+
+function rouletteRotation() {
+    if (!isSpinning && nRolls < totalRolls) {
+        if (missingOptions.length >= totalRolls - nRolls) {
+            // ---- Forced Rotation
+            // Select a random index
+            let randomOption = missingOptions[int(random(missingOptions.length))];
+            let forcedIndex = quizTopics.indexOf(randomOption);
+            // Calculate the Angle of the Desire Section
+            let desiredAngle = (HALF_PI * 3 - forcedIndex * anglePerSection - anglePerSection / 2 + TWO_PI) % TWO_PI;
+            finalAngle = TWO_PI * int(random(minRotation, maxRotation)) + desiredAngle + random(-anglePerSection / 2 + 0.01, anglePerSection / 2 - 0.01);
+        } else {
+            // ---- Random Rotation
+            finalAngle = TWO_PI * int(random(minRotation, maxRotation)) + random(TWO_PI);
+        }
+        isSpinning = true;
+    }
 }
 
 function drawRoulette(map) {
@@ -58,32 +79,28 @@ function drawRoulette(map) {
 function updateRoulette() {
     // Manage the rotation of the roulette
     if (isSpinning) {
-        currentAngle += spinSpeed;
-        spinSpeed *= 0.99; // Gradually decrease speed
-        if (spinSpeed < 0.01) {
-            isSpinning = false; // Stop the roulette when speed is sufficiently low
-            // Normalize the angle
+        currentAngle = lerp(currentAngle, finalAngle, 0.015);
+        if (finalAngle - currentAngle < 0.01) {
+            isSpinning = false;
             currentAngle = currentAngle % TWO_PI;
-            // Adjust calculation to align the angle with the top (12 o'clock position)
-            let degrees = (currentAngle * 180 / Math.PI + 90) % 360; // Adjust to 12 o'clock position
-            let arcd = (anglePerSection * 180 / Math.PI); // Size of each section in degrees
-            // Calculate which section is at the top
+
+            // Section Obtained
+            let degrees = (currentAngle * 180 / PI + 90) % 360;
+            let arcd = (anglePerSection * 180 / PI);
             let chosenTopicIndex = Math.floor((360 - degrees) / arcd) % numSections;
 
-            // Add the chosen section to the set
-            selectedSections.add(chosenTopicIndex);
-            
-            // Reset the spinner if all spins are used up
-            if (spinsRemaining === 0) {
-                selectedSections.clear();
-                spinsRemaining = 12;
+            if (missingOptions.includes(quizTopics[chosenTopicIndex])) {
+                missingOptions.splice(missingOptions.indexOf(quizTopics[chosenTopicIndex]), 1);
             }
 
-            // Log chosen topic
-            console.log("Chosen Topic:", quizTopics[chosenTopicIndex], chosenTopicIndex, selectedSections);
-            console.log("FINAL ANGLE: ", currentAngle * (180/Math.PI));
+            console.log(quizTopics[chosenTopicIndex]);
+            console.log(missingOptions);
 
-            goToLocation(quizTopics[chosenTopicIndex]);
+            goToCity(quizTopics[chosenTopicIndex]);
+
+            nRolls++;
+
+            console.log("PLAY: " + nRolls + "/" + totalRolls);
         }
     }
 }

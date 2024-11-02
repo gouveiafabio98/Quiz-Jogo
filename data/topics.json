@@ -1,10 +1,220 @@
 {
     "topics": [
-        { "topicName": "Cantanhede" },
-        { "topicName": "Figueira da Foz" },
-        { "topicName": "Mira" },
-        { "topicName": "Montemor-o-Velho" },
-        { "topicName": "Mealhada" },
-        { "topicName": "Penacova" }
+        {
+            "topicName": "Cantanhede",
+            "coordinates": [
+                {
+                    "x": 2475,
+                    "y": 1380
+                }
+            ],
+            "questions": [
+                {
+                    "question": "What is the capital of France?",
+                    "answers": [
+                        {
+                            "option": "A",
+                            "text": "Berlin",
+                            "isCorrect": false
+                        },
+                        {
+                            "option": "B",
+                            "text": "Madrid",
+                            "isCorrect": false
+                        },
+                        {
+                            "option": "C",
+                            "text": "Paris",
+                            "isCorrect": true
+                        },
+                        {
+                            "option": "D",
+                            "text": "Rome",
+                            "isCorrect": false
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "topicName": "Figueira da Foz",
+            "coordinates": [
+                {
+                    "x": 2100,
+                    "y": 1640
+                }
+            ],
+            "questions": [
+                {
+                    "question": "What is the capital of France?",
+                    "answers": [
+                        {
+                            "option": "A",
+                            "text": "Berlin",
+                            "isCorrect": false
+                        },
+                        {
+                            "option": "B",
+                            "text": "Madrid",
+                            "isCorrect": false
+                        },
+                        {
+                            "option": "C",
+                            "text": "Paris",
+                            "isCorrect": true
+                        },
+                        {
+                            "option": "D",
+                            "text": "Rome",
+                            "isCorrect": false
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "topicName": "Mira",
+            "coordinates": [
+                {
+                    "x": 2200,
+                    "y": 1065
+                }
+            ],
+            "questions": [
+                {
+                    "question": "What is the capital of France?",
+                    "answers": [
+                        {
+                            "option": "A",
+                            "text": "Berlin",
+                            "isCorrect": false
+                        },
+                        {
+                            "option": "B",
+                            "text": "Madrid",
+                            "isCorrect": false
+                        },
+                        {
+                            "option": "C",
+                            "text": "Paris",
+                            "isCorrect": true
+                        },
+                        {
+                            "option": "D",
+                            "text": "Rome",
+                            "isCorrect": false
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "topicName": "Montemor-o-Velho",
+            "coordinates": [
+                {
+                    "x": 2390,
+                    "y": 1585
+                }
+            ],
+            "questions": [
+                {
+                    "question": "What is the capital of France?",
+                    "answers": [
+                        {
+                            "option": "A",
+                            "text": "Berlin",
+                            "isCorrect": false
+                        },
+                        {
+                            "option": "B",
+                            "text": "Madrid",
+                            "isCorrect": false
+                        },
+                        {
+                            "option": "C",
+                            "text": "Paris",
+                            "isCorrect": true
+                        },
+                        {
+                            "option": "D",
+                            "text": "Rome",
+                            "isCorrect": false
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "topicName": "Mealhada",
+            "coordinates": [
+                {
+                    "x": 2855,
+                    "y": 1365
+                }
+            ],
+            "questions": [
+                {
+                    "question": "What is the capital of France?",
+                    "answers": [
+                        {
+                            "option": "A",
+                            "text": "Berlin",
+                            "isCorrect": false
+                        },
+                        {
+                            "option": "B",
+                            "text": "Madrid",
+                            "isCorrect": false
+                        },
+                        {
+                            "option": "C",
+                            "text": "Paris",
+                            "isCorrect": true
+                        },
+                        {
+                            "option": "D",
+                            "text": "Rome",
+                            "isCorrect": false
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "topicName": "Penacova",
+            "coordinates": [
+                {
+                    "x": 3455,
+                    "y": 1478
+                }
+            ],
+            "questions": [
+                {
+                    "question": "What is the capital of France?",
+                    "answers": [
+                        {
+                            "option": "A",
+                            "text": "Berlin",
+                            "isCorrect": false
+                        },
+                        {
+                            "option": "B",
+                            "text": "Madrid",
+                            "isCorrect": false
+                        },
+                        {
+                            "option": "C",
+                            "text": "Paris",
+                            "isCorrect": true
+                        },
+                        {
+                            "option": "D",
+                            "text": "Rome",
+                            "isCorrect": false
+                        }
+                    ]
+                }
+            ]
+        }
     ]
 }
