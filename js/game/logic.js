@@ -7,13 +7,14 @@ let playStage = 0; // Roll, Question
 /* Interaction Logic */
 
 function mousePressed() {
-    if(playStage == 0)
+    if (playStage == 0)
         rouletteRotation();
 }
 
 function keyPressed() {
     if (key === ' ') {
         goToObject("Roulette");
+        nextStage();
     }
 }
 
@@ -28,6 +29,17 @@ function windowResized() {
 function newGame() {
     missingOptions = [...quizTopics];
     console.log(missingOptions);
+}
+
+function nextStage() {
+    // 0 - ROLL
+    // 1 - QUESTION
+    if (playStage == 0) {
+        currentQuestion = selectQuestion(quizTopics[currentTopic]);
+        playStage = 1;
+    } else if (playStage == 1) {
+        playStage = 0;
+    }
 }
 
 /* Setup Logic */
@@ -65,6 +77,9 @@ function draw() {
         offsetX + (width * (1 - currentZoom) / 2), offsetY + (height * (1 - currentZoom) / 2),
         width * currentZoom, height * currentZoom);
 
+    if (playStage == 1) { // QUESTION
+        displayQuestion();
+    }
 
     // Display the Roulette
     updateRoulette();

@@ -77,7 +77,6 @@ function drawRoulette(map) {
 }
 
 function updateRoulette() {
-    // Manage the rotation of the roulette
     if (isSpinning) {
         currentAngle = lerp(currentAngle, finalAngle, 0.015);
         if (finalAngle - currentAngle < 0.01) {
@@ -87,20 +86,16 @@ function updateRoulette() {
             // Section Obtained
             let degrees = (currentAngle * 180 / PI + 90) % 360;
             let arcd = (anglePerSection * 180 / PI);
-            let chosenTopicIndex = Math.floor((360 - degrees) / arcd) % numSections;
+            currentTopic = Math.floor((360 - degrees) / arcd) % numSections;
 
-            if (missingOptions.includes(quizTopics[chosenTopicIndex])) {
-                missingOptions.splice(missingOptions.indexOf(quizTopics[chosenTopicIndex]), 1);
+            if (missingOptions.includes(quizTopics[currentTopic])) {
+                missingOptions.splice(missingOptions.indexOf(quizTopics[currentTopic]), 1);
             }
-
-            console.log(quizTopics[chosenTopicIndex]);
-            console.log(missingOptions);
-
-            goToCity(quizTopics[chosenTopicIndex]);
+            
+            goToCity(quizTopics[currentTopic]);
 
             nRolls++;
-
-            console.log("PLAY: " + nRolls + "/" + totalRolls);
+            nextStage();
         }
     }
 }
