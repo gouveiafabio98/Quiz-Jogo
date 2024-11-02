@@ -16,8 +16,8 @@ let rouletteX, rouletteY;
 // Map Objects
 let objectData = {
     "Roulette": {
-        "x": 2855,
-        "y": 1800
+        "x": 2915,
+        "y": 3060
     }
 };
 

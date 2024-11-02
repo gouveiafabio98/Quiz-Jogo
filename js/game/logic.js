@@ -45,7 +45,7 @@ function nextStage() {
 /* Setup Logic */
 
 function preload() {
-    mapImage = loadImage('data/map.webp');
+    mapImage = loadImage('data/map_crop.png');
     quizData = loadJSON('data/topics.json');
 }
 
