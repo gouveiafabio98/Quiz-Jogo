@@ -28,7 +28,6 @@ function windowResized() {
 
 function newGame() {
     missingOptions = [...quizTopics];
-    console.log(missingOptions);
 }
 
 function nextStage() {
@@ -73,9 +72,9 @@ function draw() {
     offsetY = constrain(offsetY, 0, scaledHeight - height);
 
     // Display the map
-    image(graphicsBuffer, 0, 0, width, height,
+    /*image(graphicsBuffer, 0, 0, width, height,
         offsetX + (width * (1 - currentZoom) / 2), offsetY + (height * (1 - currentZoom) / 2),
-        width * currentZoom, height * currentZoom);
+        width * currentZoom, height * currentZoom);*/
 
     if (playStage == 1) { // QUESTION
         displayQuestion();
