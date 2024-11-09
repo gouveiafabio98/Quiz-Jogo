@@ -1,12 +1,12 @@
 /* Quiz Data */
 let quizData;
 let quizTopics;
-
 /* Roulette Data */
 let anglePerSection;
 let numSections;
-let rouletteSize = 300;
-
+let rouletteScale = 0.2;
+let wheelWidth, wheelHeight;
+let millWidth, millHeight;
 /* Roulette Rotations */
 let currentAngle = 0;
 let minRotation = 2;
@@ -14,12 +14,21 @@ let maxRotation = 5;
 let isSpinning = false;
 let finalAngle;
 
+let rouletteImage;
+let rouletteBuffer;
+
 /* Game Functions */
 function setData() {
-    quizTopics = quizData.topics.map(topic => topic.topicName);
+    quizTopics = content.quizData.d.topics.map(topic => topic.topicName);
 
     numSections = quizTopics.length;
     anglePerSection = TWO_PI / numSections;
+    /* Wheel Image */
+    wheelWidth = content.rouletteImage.d.width * rouletteScale;
+    wheelHeight = content.rouletteImage.d.height * rouletteScale;
+    /* Mill Image */
+    millWidth = content.millImage.d.width * rouletteScale;
+    millHeight = content.millImage.d.height * rouletteScale;
 }
 
 function rouletteRotation() {
@@ -41,36 +50,42 @@ function rouletteRotation() {
 }
 
 function drawRoulette(map) {
+    map.noStroke();
+
     map.push();
     map.translate(rouletteX, rouletteY);
     map.push();
     map.rotate(currentAngle);
+    map.translate(-wheelWidth / 2, -wheelHeight / 2);
+    map.image(content.rouletteImage.d, 0, 0, wheelWidth, wheelHeight);
+    map.push();
+    map.translate(wheelWidth / 2, wheelHeight / 2);
+
+    map.textFont(font);
+    map.textAlign(CENTER, BASELINE);
+    map.textSize(16 * (wheelWidth / 300));
+    map.textLeading(map.textSize()*.8);
+    map.fill(0);
+
     for (let i = 0; i < numSections; i++) {
-        let startAngle = i * anglePerSection;
-        // Alternar cores entre as seções
-        if (i % 2 === 0) {
-            map.fill(100, 150, 255);
-        } else {
-            map.fill(255, 150, 100);
-        }
-        // Desenhar cada seção da roleta
-        map.arc(0, 0, rouletteSize, rouletteSize, startAngle, startAngle + anglePerSection, PIE);
         // Desenhar o texto do tópico na seção
-        map.fill(0);
-        map.textSize(16 * (rouletteSize / 500)); // Adjust text size based on roulette size
-        let angleText = startAngle + anglePerSection / 2;
+        let angleText = (i * anglePerSection) + anglePerSection / 2 + HALF_PI;
         map.push();
         map.rotate(angleText);
-        map.translate(rouletteSize / 5, 8 * (rouletteSize / 500)); // Adjust text position based on roulette size
-        map.text(quizTopics[i], 0, 0);
+        map.translate(-wheelWidth/8, -wheelWidth/3.8 - map.textSize());
+        map.text(quizTopics[i].toUpperCase(), 0, 0, wheelWidth/4, 100);
         map.pop();
     }
+
     map.pop();
+    map.pop();
+
     // Desenhar a seta no topo da roleta
-    map.fill(0);
-    map.triangle(-10, -10 - rouletteSize / 2,
-        10, -10 - rouletteSize / 2,
-        0, 10 - rouletteSize / 2); // Draw a downward-pointing triangle
+    map.stroke(0);
+    map.fill('#fed690');
+    map.triangle(-10, -10 - wheelWidth / 2.2,
+        10, -10 - wheelWidth / 2.2,
+        0, 10 - wheelWidth / 2.2); // Draw a downward-pointing triangle
 
 
     map.pop();
@@ -91,7 +106,7 @@ function updateRoulette() {
             if (missingOptions.includes(quizTopics[currentTopic])) {
                 missingOptions.splice(missingOptions.indexOf(quizTopics[currentTopic]), 1);
             }
-            
+
             goToCity(quizTopics[currentTopic]);
 
             nRolls++;

@@ -6,7 +6,7 @@ let offsetX, offsetY;
 let targetX, targetY;
 let panSpeed = 0.05;
 // Camera Zoom
-let inZoom = 0.5, outZoom = 1;
+let inZoom = .5, outZoom = 1;
 let currentZoom = inZoom;
 let targetZoom = inZoom;
 // Map Boundaries
@@ -24,16 +24,22 @@ let objectData = {
 /* Map Navigation */
 
 function drawGraphicsBuffer() {
-    graphicsBuffer.image(mapImage, 0, 0);
+    graphicsBuffer.image(content.mapImage.d, 0, 0);
+
+    graphicsBuffer.imageMode(CENTER);
+    graphicsBuffer.image(content.millImage.d, rouletteX, rouletteY+wheelHeight/2.5, millWidth, millHeight);
+    graphicsBuffer.imageMode(CORNER);
+
     drawRoulette(graphicsBuffer);
 }
 
 function loadMap() {
-    graphicsBuffer = createGraphics(mapImage.width, mapImage.height);
-    graphicsBuffer.image(mapImage, 0, 0);
-    scaledWidth = mapImage.width;
-    scaledHeight = mapImage.height;
+    graphicsBuffer = createGraphics(content.mapImage.d.width, content.mapImage.d.height);
+    graphicsBuffer.image(content.mapImage.d, 0, 0);
+    scaledWidth = content.mapImage.d.width;
+    scaledHeight = content.mapImage.d.height;
 
+    graphicsBuffer.image(content.millImage.d, rouletteX, rouletteY);
     drawRoulette(graphicsBuffer);
 }
 
@@ -51,7 +57,7 @@ function goToObject(objName) {
 }
 
 function goToCity(cityName) {
-    let city = quizData.topics.find(topic => topic.topicName === cityName);
+    let city = content.quizData.d.topics.find(topic => topic.topicName === cityName);
     goToLocation(city.coordinates[0].x, city.coordinates[0].y);
 }
 

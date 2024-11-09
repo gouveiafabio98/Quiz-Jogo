@@ -6,7 +6,7 @@ function displayQuestion() {
 }
 
 function selectQuestion(cityName) {
-    let city = quizData.topics.find(topic => topic.topicName === cityName);
+    let city = content.quizData.d.topics.find(topic => topic.topicName === cityName);
     let randomIndex = Math.floor(Math.random() * city.questions.length);
     return city.questions[randomIndex];
 }
