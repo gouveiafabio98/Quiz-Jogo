@@ -26,6 +26,11 @@ let content = {
         src: 'data/topics.json',
         type: 'JSON',
         d: null
+    },
+    spinButton: {
+        src: 'data/assets/spin_button_asset.png',
+        type: 'PNG',
+        d: null
     }
 };
 let loadPercentage = 0;
@@ -37,8 +42,13 @@ let progress = 0, loadCount = 0, totalAssets;
 /* Interaction Logic */
 
 function mousePressed() {
-    if (playStage == 0)
-        rouletteRotation();
+    if (playStage == 0) {
+        console.log("x");
+        spinButton.onClick(() => {
+            console.log("HERE");
+            rouletteRotation();
+        }, offsetX, offsetY, currentZoom, width, height);
+    }
 }
 
 function keyPressed() {
@@ -125,9 +135,18 @@ function draw() {
         // Display the Roulette
         updateRoulette();
         drawGraphicsBuffer();
+ 
+        noFill();
+        stroke(0);
+        rect(width / 2, height / 2,
+            (wheelWidth / 3) * (currentZoom * 2),
+            (wheelWidth / 3) * (currentZoom * 2)
+        );
 
         textAlign(CENTER);
         textSize(30);
+
+        //rouletteX, rouletteY, wheelWidth / 3, wheelWidth / 3, content.spinButton.d
     }
 
 }
@@ -150,8 +169,7 @@ function finishLoad() {
 
 function assetLoaded() {
     loadCount++;
-    progress = loadCount / totalAssets;
-    //console.log(progress, loadCount, totalAssets);
+    progress = loadCount / (totalAssets + 1);
     if (loadCount === totalAssets) {
         finishLoad();
         loadMap();
@@ -160,5 +178,55 @@ function assetLoaded() {
         initMap(rouletteX, rouletteY);
         newGame();
         progress = 1;
+
+        loadButtons();
+    }
+}
+
+function loadButtons() {
+    spinButton = new Button(rouletteX, rouletteY, wheelWidth / 3, wheelWidth / 3, content.spinButton.d);
+}
+
+class Button {
+    constructor(x, y, w, h, img, text = '', hitboxType = true) {
+        this.x = x;
+        this.y = y;
+        this.w = w;
+        this.h = h;
+        this.img = img;
+        this.text = text;
+        this.hitboxType = hitboxType;
+    }
+
+    display(canvas) {
+        canvas.image(this.img, this.x, this.y, this.w, this.h);
+        if (this.text) {
+            canvas.fill(255);
+            canvas.textAlign(CENTER, CENTER);
+            canvas.text(this.text, this.x + this.w / 2, this.y + this.h / 2);
+        }
+    }
+
+    hitbox(mouseX, mouseY, offsetX, offsetY, currentZoom, canvasWidth, canvasHeight) {
+        let adjX = this.x * currentZoom + offsetX + (canvasWidth * (1 - currentZoom) / 2);
+        let adjY = this.y * currentZoom + offsetY + (canvasHeight * (1 - currentZoom) / 2);
+        let adjW = this.w * currentZoom;
+        let adjH = this.h * currentZoom;
+
+        console.log(">>", mouseX, adjX, adjW, this.x);
+        console.log(">>", mouseY, adjY, adjH, this.y);
+
+        if (this.hitboxType) {
+            return mouseX >= adjX && mouseX <= adjX + adjW && mouseY >= adjY && mouseY <= adjY + adjH;
+        } else if (!this.hitboxType) {
+            let d = dist(mouseX, mouseY, adjX + adjW / 2, adjY + adjH / 2);
+            return d <= adjW / 2;
+        }
+    }
+
+    onClick(callback, offsetX, offsetY, currentZoom, canvasWidth, canvasHeight) {
+        if (this.hitbox(mouseX, mouseY, offsetX, offsetY, currentZoom, canvasWidth, canvasHeight)) {
+            callback();
+        }
     }
 }

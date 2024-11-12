@@ -10,9 +10,11 @@ let millWidth, millHeight;
 /* Roulette Rotations */
 let currentAngle = 0;
 let minRotation = 2;
-let maxRotation = 5;
+let maxRotation = 4;
+let spinSpeed = 0.01;
 let isSpinning = false;
 let finalAngle;
+let spinButton; // Button Class
 
 let rouletteImage;
 let rouletteBuffer;
@@ -93,7 +95,7 @@ function drawRoulette(map) {
 
 function updateRoulette() {
     if (isSpinning) {
-        currentAngle = lerp(currentAngle, finalAngle, 0.015);
+        currentAngle = lerp(currentAngle, finalAngle, spinSpeed);
         if (finalAngle - currentAngle < 0.01) {
             isSpinning = false;
             currentAngle = currentAngle % TWO_PI;

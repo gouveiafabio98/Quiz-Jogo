@@ -6,7 +6,7 @@ let offsetX, offsetY;
 let targetX, targetY;
 let panSpeed = 0.05;
 // Camera Zoom
-let inZoom = .5, outZoom = 1;
+let inZoom = 1, outZoom = 0.5;
 let currentZoom = inZoom;
 let targetZoom = inZoom;
 // Map Boundaries
@@ -31,6 +31,12 @@ function drawGraphicsBuffer() {
     graphicsBuffer.imageMode(CORNER);
 
     drawRoulette(graphicsBuffer);
+
+    /*graphicsBuffer.imageMode(CENTER);
+    graphicsBuffer.image(content.spinButton.d, rouletteX, rouletteY, wheelWidth/3, wheelWidth/3);
+    graphicsBuffer.imageMode(CORNER);*/
+
+    spinButton.display(graphicsBuffer);
 }
 
 function loadMap() {
