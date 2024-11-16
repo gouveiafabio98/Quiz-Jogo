@@ -1,7 +1,7 @@
 // Map Tiles
 let mapTiles = [];
 let mapCols, mapRows;
-let tileSize = 512;
+let tileSize = 512/2;
 
 // Pre-Load Content
 let mainFont;

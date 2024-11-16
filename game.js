@@ -31,8 +31,6 @@ function drawMap() { // Draw Map Tiles
     let endCol = ceil((offsetX + width) / tileSize);
     let endRow = ceil((offsetY + height) / tileSize);
 
-    console.log(startCol, endCol, startRow, endRow);
-
     for (let col = startCol; col < endCol; col++) {
         for (let row = startRow; row < endRow; row++) {
             if (mapTiles[col] && mapTiles[col][row]) {
