@@ -21,6 +21,27 @@ function updateMapMovement() {
     currentZoom = lerp(currentZoom, targetZoom, panSpeed);
 }
 
+/*function drawMap() { // Draw Map Tiles
+    imageMode(CORNER);
+    offsetX = constrain(offsetX, 0, content.mapImage.d.width - width);
+    offsetY = constrain(offsetY, 0, content.mapImage.d.height - height);
+
+    let startCol = floor(offsetX / tileSize);
+    let startRow = floor(offsetY / tileSize);
+    let endCol = ceil((offsetX + width) / tileSize);
+    let endRow = ceil((offsetY + height) / tileSize);
+
+    for (let col = startCol; col < endCol; col++) {
+        for (let row = startRow; row < endRow; row++) {
+            if (mapTiles[col] && mapTiles[col][row]) {
+                image(mapTiles[col][row],
+                    (col * tileSize) - offsetX,
+                    (row * tileSize) - offsetY);
+            }
+        }
+    }
+}*/
+
 function drawMap() { // Draw Map Tiles
     imageMode(CORNER);
     offsetX = constrain(offsetX, 0, content.mapImage.d.width - width);

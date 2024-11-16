@@ -1,7 +1,7 @@
 // Map Tiles
 let mapTiles = [];
 let mapCols, mapRows;
-let tileSize = 512/2;
+let tileSize = 512;
 
 // Pre-Load Content
 let mainFont;
@@ -69,13 +69,13 @@ function assetLoaded() { // Called for each successful load
     progress = loadCount / (totalAssets + loadExtra);
 
     if (loadCount == totalAssets && content.mapImage.d != null && mapTiles.length == 0) { // Extra Load Iteration to Tile the Map
-        tileMap(content.mapImage.d);
+        //tileMap(content.mapImage.d);
+        loadTiles();
         assetLoaded();
     }
 }
 
-function tileMap(img) { // Function to Tile the Map
-
+/*function tileMap(img) { // Function to Tile the Map
     mapCols = ceil(img.width / tileSize);
     mapRows = ceil(img.height / tileSize);
 
@@ -89,6 +89,18 @@ function tileMap(img) { // Function to Tile the Map
                 col * tileSize, row * tileSize, tileSize, tileSize
             );
             mapTiles[col][row] = pg;
+        }
+    }
+}*/
+
+function loadTiles() { // Function to Load the Pre-Tiled Map
+    mapCols = ceil(content.mapImage.d.width / tileSize);
+    mapRows = ceil(content.mapImage.d.height / tileSize);
+
+    for (let col = 0; col < mapCols; col++) {
+        mapTiles[col] = [];
+        for (let row = 0; row < mapRows; row++) {
+            mapTiles[col][row] = loadImage(`data/tiles/tile_${col}_${row}.png`);
         }
     }
 }
