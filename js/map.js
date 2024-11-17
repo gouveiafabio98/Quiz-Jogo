@@ -46,7 +46,7 @@ function drawMap() { // Draw Map Tiles
     }
 }
 
-function drawObject(obj) {
+function drawObject(obj, interaction = true) {
     let pX = obj.x - offsetX;
     let pY = obj.y - offsetY;
 
@@ -54,7 +54,8 @@ function drawObject(obj) {
     translate(width / 2, height / 2);
     scale(currentZoom);
 
-    if (obj.interaction && dist(mouseX, mouseY, obj.x  - offsetX, obj.y  - offsetY) < obj.d.width / 2 * currentZoom){
+    if (obj.interaction && interaction &&
+        dist(mouseX, mouseY, obj.x  - offsetX, obj.y  - offsetY) < obj.d.width / 2 * currentZoom){
         cursorPointer = true;
         scale(1.1);
     }

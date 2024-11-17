@@ -11,6 +11,7 @@ let maxRotation = 4;
 let spinSpeed = 0.01;
 let isSpinning = false;
 let finalAngle;
+let rouletteBlock = false;
 
 function drawRoulette() {
     let pX = content.roulette.x - offsetX;

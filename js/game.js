@@ -3,20 +3,22 @@ let nRolls = 0;
 let totalRolls = 12;
 let missingOptions;
 let playStage = 0;
+// 0 - Boot; 1 - Difficulty; 2 - Roulette; 3 - Question;
 
 let cursorPointer = false;
 
 function draw() {
     cursorPointer = false;
-    if (loadPercentage != 1) {
+    if (loadPercentage != 1 && playStage == 0) {
         loadScreen();
-    } else {
+    } else if(playStage >= 2) {
         background(255);
         updateMapMovement();
         updateRoulette();
 
         drawContent(); // Draw all map and assets content
     }
+
     if (cursorPointer) {
         cursor('pointer');
     } else {
@@ -31,11 +33,15 @@ function keyPressed() {
 }
 
 function mousePressed() {
-    if (loadPercentage == 1 && dist(mouseX, mouseY, content.spinButton.x - offsetX, content.spinButton.y - offsetY) < content.spinButton.d.width / 2 * currentZoom) {
+    console.log(loadPercentage);
+    console.log(loadPercentage == 1, playStage == 2, rouletteBlock);
+    if (loadPercentage == 1 && playStage == 2 && rouletteBlock &&
+        dist(mouseX, mouseY, content.spinButton.x - offsetX, content.spinButton.y - offsetY) < content.spinButton.d.width / 2 * currentZoom) {
         rouletteRotation();
+        rouletteBlock = false;
     }
-    
-    answerSelection();
+
+    if(playStage == 3) answerSelection();
 }
 
 function drawContent() { // Draw all map and assets content
@@ -48,7 +54,7 @@ function drawContent() { // Draw all map and assets content
 
     drawObject(content.mill);
     drawRoulette();
-    drawObject(content.spinButton);
+    drawObject(content.spinButton, rouletteBlock);
 
     imageMode(CENTER);
     image(content.infoButton.d,
@@ -58,11 +64,12 @@ function drawContent() { // Draw all map and assets content
         content.infoButton.h * inZoom
     );
 
-    drawQuestion();
+    if(playStage == 3) drawQuestion();
 }
 
 function newGame() {
     nRolls = 0;
+    rouletteBlock = true;
     missingOptions = [...quizTopics];
 }
 

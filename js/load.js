@@ -73,8 +73,9 @@ function loadScreen() { // Loading Screen
 
     if (loadPercentage < 1 - 0.01)
         loadPercentage = lerp(loadPercentage, loadCount / totalAssets, loadCount * 0.005);
-    else
+    else {
         loadPercentage = 1;
+    }
 
     fill('#f3edb8');
     rect(width / 2 - width / 3 / 2, 100, width / 3, 50, 50);
@@ -96,7 +97,7 @@ function loadContent() { // Function to Load the game content
 
 function assetLoaded() { // Called for each successful load 
     loadCount++;
-    if(totalAssets==loadCount) {
+    if(loadPercentage==loadCount) {
         setData();
         setRoulette();
         newGame();
