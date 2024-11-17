@@ -46,7 +46,7 @@ function drawMap() { // Draw Map Tiles
     }
 }
 
-function drawObject(obj, interaction = true) {
+function drawObject(obj, interaction = false) {
     let pX = obj.x - offsetX;
     let pY = obj.y - offsetY;
 

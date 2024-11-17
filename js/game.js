@@ -53,6 +53,7 @@ function drawContent() { // Draw all map and assets content
     drawObject(content.mill);
     drawRoulette();
     drawObject(content.spinButton, rouletteBlock);
+    drawObject(content.pointer);
 
     imageMode(CENTER);
     image(content.infoButton.d,

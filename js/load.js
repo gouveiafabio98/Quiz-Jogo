@@ -47,6 +47,15 @@ let content = {
         interaction: true,
         w: 0,
         h: 0
+    }, pointer: {
+        src: 'data/pointer.png',
+        type: 'PNG',
+        d: null,
+        x: 6890,
+        y: 5180,
+        interaction: false,
+        w: 0,
+        h: 0
     }
 };
 
