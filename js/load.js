@@ -58,6 +58,7 @@ function setup() { // Setup Content
 
     textFont(mainFont);
     loadContent();
+    scaleResize(windowWidth, windowHeight);
 }
 
 function loadScreen() { // Loading Screen

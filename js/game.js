@@ -55,16 +55,23 @@ function newGame() {
 function windowResized() {
     targetX = targetX + width / 2;
     targetY = targetY + height / 2;
+    
     resizeCanvas(windowWidth, windowHeight);
 
-    if (windowWidth < windowHeight) {
+    scaleResize(windowWidth, windowHeight);
+
+    targetX = targetX - windowWidth / 2;
+    targetY = targetY - windowHeight / 2;
+}
+
+function scaleResize(windowWidth, windowHeight) {
+    if (windowWidth > windowHeight) {
         inZoom = min(1, windowWidth / 1920);
         outZoom = min(0.5, windowWidth * 0.5 / 1920);
     } else {
-        inZoom = min(1, windowHeight / 1080);
-        outZoom = min(0.5, windowHeight * 0.5 / 1080);
+        inZoom = min(1, windowHeight / 1500);
+        outZoom = min(0.5, windowHeight * 0.5 / 1500);
     }
+
     targetZoom = inZoom;
-    targetX = targetX - windowWidth / 2;
-    targetY = targetY - windowHeight / 2;
 }
