@@ -42,11 +42,13 @@ function drawContent() { // Draw all map and assets content
 
     imageMode(CENTER);
     image(content.infoButton.d,
-        width - content.infoButton.d.width,
-        height - content.infoButton.d.height,
+        width - content.infoButton.d.width * inZoom,
+        height - content.infoButton.d.height * inZoom,
+        content.infoButton.w * inZoom,
+        content.infoButton.h * inZoom
     );
 
-    //drawQuestion();
+    drawQuestion();
 }
 
 function newGame() {
@@ -64,6 +66,8 @@ function windowResized() {
 
     targetX = targetX - windowWidth / 2;
     targetY = targetY - windowHeight / 2;
+    
+    updateQuestion();
 }
 
 function scaleResize(windowWidth, windowHeight) {

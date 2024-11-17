@@ -28,19 +28,25 @@ let content = {
         type: 'PNG',
         d: null,
         x: 6890,
-        y: 5755
+        y: 5755,
+        w: 0,
+        h: 0
     }, spinButton: {
         src: 'data/spinButton.png',
         type: 'PNG',
         d: null,
         x: 6890,
         y: 5455,
-        interaction: true
+        interaction: true,
+        w: 0,
+        h: 0
     }, infoButton: {
         src: 'data/infoButton.png',
         type: 'PNG',
         d: null,
-        interaction: true
+        interaction: true,
+        w: 0,
+        h: 0
     }
 };
 
@@ -94,6 +100,7 @@ function assetLoaded() { // Called for each successful load
         setData();
         setRoulette();
         newGame();
+        updateQuestion();
     }
 }
 
@@ -115,4 +122,11 @@ function setData() {
     targetY = content.roulette.y - height / 2
     offsetX = targetX;
     offsetY = targetY;
+
+    for (let key in content) {
+        if (content[key].type === 'PNG' || content[key].type === 'JPG') {
+            content[key].w = content[key].d.width;
+            content[key].h = content[key].d.height;
+        }
+    }
 }

@@ -30,10 +30,8 @@ function drawRoulette() {
 }
 
 function setRoulette() {
-    let w = content.roulette.d.width;
-    let h = content.roulette.d.height;
-    content.roulette.w = w;
-    content.roulette.h = h;
+    let w = content.roulette.w;
+    let h = content.roulette.h;
 
     rouletteGraphic = createGraphics(w, h);
     rouletteGraphic.image(content.roulette.d, 0, 0);
