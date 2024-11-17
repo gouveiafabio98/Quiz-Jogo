@@ -97,10 +97,9 @@ function loadContent() { // Function to Load the game content
 
 function assetLoaded() { // Called for each successful load 
     loadCount++;
-    if(loadPercentage==loadCount) {
+    if(totalAssets==loadCount) {
         setData();
         setRoulette();
-        newGame();
         updateQuestion();
     }
 }

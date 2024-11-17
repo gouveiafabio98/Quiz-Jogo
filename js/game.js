@@ -4,12 +4,13 @@ let totalRolls = 12;
 let missingOptions;
 let playStage = 0;
 // 0 - Boot; 1 - Difficulty; 2 - Roulette; 3 - Question;
+let rightAnswers = 0, wrongAnswers = 0;
 
 let cursorPointer = false;
 
 function draw() {
     cursorPointer = false;
-    if (loadPercentage != 1 && playStage == 0) {
+    if (playStage == 0) {
         loadScreen();
     } else if(playStage >= 2) {
         background(255);
@@ -33,15 +34,12 @@ function keyPressed() {
 }
 
 function mousePressed() {
-    console.log(loadPercentage);
-    console.log(loadPercentage == 1, playStage == 2, rouletteBlock);
-    if (loadPercentage == 1 && playStage == 2 && rouletteBlock &&
+    if(playStage == 0 && loadPercentage == 1) newGame();
+    else if (playStage == 2 && rouletteBlock &&
         dist(mouseX, mouseY, content.spinButton.x - offsetX, content.spinButton.y - offsetY) < content.spinButton.d.width / 2 * currentZoom) {
         rouletteRotation();
         rouletteBlock = false;
-    }
-
-    if(playStage == 3) answerSelection();
+    } else if(playStage == 3) answerSelection();
 }
 
 function drawContent() { // Draw all map and assets content
@@ -65,12 +63,17 @@ function drawContent() { // Draw all map and assets content
     );
 
     if(playStage == 3) drawQuestion();
+
+    drawScore();
 }
 
 function newGame() {
     nRolls = 0;
     rouletteBlock = true;
     missingOptions = [...quizTopics];
+    playStage = 2;
+    rightAnswers = 0;
+    wrongAnswers = 0;
 }
 
 function windowResized() {
@@ -83,8 +86,8 @@ function windowResized() {
 
     targetX = targetX - windowWidth / 2;
     targetY = targetY - windowHeight / 2;
-
-    updateQuestion();
+    
+    if(playStage == 3) updateQuestion();
 }
 
 function scaleResize(windowWidth, windowHeight) {
@@ -97,4 +100,10 @@ function scaleResize(windowWidth, windowHeight) {
     }
 
     targetZoom = inZoom;
+}
+
+function drawScore() {
+    textAlign(RIGHT, TOP);
+    fill(0);
+    text("Pontuação: " + rightAnswers + "/" + totalRolls, width-50, 50);
 }

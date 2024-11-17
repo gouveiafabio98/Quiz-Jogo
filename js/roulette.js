@@ -75,7 +75,10 @@ function updateRoulette() {
             goToCity(quizTopics[currentTopic]);
 
             nRolls++;
-            //nextStage();
+
+            setTimeout(() => {
+                setQuestion(currentTopic);
+            }, 1500);
         }
     }
 }

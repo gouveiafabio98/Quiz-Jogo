@@ -69,6 +69,7 @@ let answerTopicText = {
 
 let answerText = {
     text: ["", "", "", ""],
+    answer: [false, false, false, false],
     w: null,
     h: null,
     x: [null, null, null, null],
@@ -105,7 +106,7 @@ function drawQuestion() {
     fill(topicText.color);
     textSize(topicText.textSize);
     textLeading(topicText.textLeading);
-    text(topicText.text, topicText.x, topicText.y, topicText.w);
+    text(topicText.text, topicText.x, topicText.y);
 
     // Answer Box
     fill(answerBox.color);
@@ -122,7 +123,7 @@ function drawQuestion() {
         }
         translate(-answerBox.w / 2, -answerBox.h / 2);
 
-        rect(0,0, answerBox.w, answerBox.h, answerBox.radius);
+        rect(0, 0, answerBox.w, answerBox.h, answerBox.radius);
         pop();
     }
 
@@ -168,7 +169,7 @@ function updateQuestion() {
 
     // Question Text
     questionText.color = color("#6DB671");
-    questionText.text = "Lorem ipsum dolor sit amet, consectetuer adipiscing elitt?";
+    //questionText.text = "Lorem ipsum dolor sit amet, consectetuer adipiscing elitt?";
     questionText.w = questionBox.w - questionBox.margin * 2;
     questionText.textSize = max(min(50, (width / 1920) * 50), 25);
     questionText.textLeading = questionText.textSize * 1;
@@ -177,9 +178,10 @@ function updateQuestion() {
 
     // Topic Text
     topicText.color = color("#F7EDDC");
-    topicText.text = "Cantanhede".toUpperCase();
     topicText.textSize = max(min(50, (width / 1920) * 50), 25);
     topicText.textLeading = topicText.textSize * 1;
+    textSize(topicText.textSize);
+    textLeading(topicText.textLeading);
     topicText.w = textWidth(topicText.text);
     topicText.h = questionText.textLeading;
 
@@ -247,6 +249,8 @@ function updateQuestion() {
     }
 
     // Answer Topic Text
+    textSize(answerTopicText.textSize);
+    textLeading(answerTopicText.textLeading);
     for (let i = 0; i < 4; i++) {
         let tW = textWidth(answerTopicText.text[i]);
         if (answerTopicText.w < tW) answerTopicText.w = tW;
@@ -262,7 +266,6 @@ function updateQuestion() {
 
     // Answer Text
     answerText.color = color("#F7EDDC");
-    answerText.text = ["Lorem ipsum dolor, Lorem ipsum dolor", "Lorem ipsum dolor", "Lorem ipsum dolor", "Lorem ipsum dolor"];
     answerText.textSize = max(min(25, (width / 1920) * 25), 15);
     answerText.textLeading = answerText.textSize * 1;
     answerText.w = answerBox.w - answerBox.margin * 3 - answerTopicText.w;
@@ -311,7 +314,41 @@ function answerSelection() {
             mouseX < questionBox.translateX + answerBox.x[i] + answerBox.w &&
             mouseY > questionBox.translateY + answerBox.y[i] &&
             mouseY < questionBox.translateY + answerBox.y[i] + answerBox.h) {
-            return i;
+            setScore(answerText.answer[i]);
         }
     }
+}
+
+function setQuestion(topicId) {
+    let topic = content.quizData.d.topics[topicId];
+    topicText.text = topic.topicName.toUpperCase();
+
+    let question = topic.questions[int(random(topic.questions.length))];
+    questionText.text = question.question;
+
+    let answers = shuffleArray(question.answers);
+    for (let i = 0; i < answers.length; i++) {
+        answerText.text[i] = answers[i].text;
+        answerText.answer[i] = answers[i].isCorrect;
+    }
+
+    updateQuestion();
+    playStage = 3;
+}
+
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
+function setScore(point) {
+    if(point) rightAnswers++;
+    else wrongAnswers++;
+    
+    playStage = 2;
+    goToObject(content.roulette);
+    rouletteBlock = true;
 }
