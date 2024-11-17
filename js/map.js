@@ -55,10 +55,8 @@ function drawObject(obj) {
     scale(currentZoom);
 
     if (obj.interaction && dist(mouseX, mouseY, obj.x  - offsetX, obj.y  - offsetY) < obj.d.width / 2 * currentZoom){
-        cursor('pointer');
+        cursorPointer = true;
         scale(1.1);
-    } else {
-        cursor('default');
     }
 
     translate(-width / 2, -height / 2);

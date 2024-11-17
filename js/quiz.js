@@ -9,7 +9,9 @@ let questionBox = {
     radius: 0,
     marginTop: 0,
     margin: 0,
-    color: null
+    color: null,
+    translateX: 0,
+    translateY: 0
 };
 
 let questionText = {
@@ -83,7 +85,7 @@ function drawQuestion() {
     // Draw Question
     push();
     noStroke();
-    translate(width / 2, height / 2 - questionBox.y - questionBox.h / 2);
+    translate(questionBox.translateX, questionBox.translateY);
 
     //Question Box
     fill(questionBox.color);
@@ -108,7 +110,20 @@ function drawQuestion() {
     // Answer Box
     fill(answerBox.color);
     for (let i = 0; i < 4; i++) {
-        rect(answerBox.x[i], answerBox.y[i], answerBox.w, answerBox.h, answerBox.radius);
+        push();
+        translate(answerBox.x[i], answerBox.y[i]);
+        translate(answerBox.w / 2, answerBox.h / 2);
+        if (mouseX > questionBox.translateX + answerBox.x[i] &&
+            mouseX < questionBox.translateX + answerBox.x[i] + answerBox.w &&
+            mouseY > questionBox.translateY + answerBox.y[i] &&
+            mouseY < questionBox.translateY + answerBox.y[i] + answerBox.h) {
+            cursorPointer = true;
+            scale(1.05);
+        }
+        translate(-answerBox.w / 2, -answerBox.h / 2);
+
+        rect(0,0, answerBox.w, answerBox.h, answerBox.radius);
+        pop();
     }
 
     // Answer Topic Text
@@ -259,8 +274,10 @@ function updateQuestion() {
     // -- Y
     answerText.y = answerTopicText.y;
     answerText.h = answerBox.h;
-}
 
+    questionBox.translateX = width / 2;
+    questionBox.translateY = height / 2 - questionBox.y - questionBox.h / 2;
+}
 
 function getTextHeight(data) {
     let txt = data.text;
@@ -286,4 +303,15 @@ function getTextHeight(data) {
     lineCount++;
     let textHeight = lineCount * data.textLeading;
     return textHeight;
+}
+
+function answerSelection() {
+    for (let i = 0; i < 4; i++) {
+        if (mouseX > questionBox.translateX + answerBox.x[i] &&
+            mouseX < questionBox.translateX + answerBox.x[i] + answerBox.w &&
+            mouseY > questionBox.translateY + answerBox.y[i] &&
+            mouseY < questionBox.translateY + answerBox.y[i] + answerBox.h) {
+            return i;
+        }
+    }
 }

@@ -4,7 +4,10 @@ let totalRolls = 12;
 let missingOptions;
 let playStage = 0;
 
+let cursorPointer = false;
+
 function draw() {
+    cursorPointer = false;
     if (loadPercentage != 1) {
         loadScreen();
     } else {
@@ -13,6 +16,11 @@ function draw() {
         updateRoulette();
 
         drawContent(); // Draw all map and assets content
+    }
+    if (cursorPointer) {
+        cursor('pointer');
+    } else {
+        cursor('default');
     }
 }
 
@@ -26,6 +34,8 @@ function mousePressed() {
     if (loadPercentage == 1 && dist(mouseX, mouseY, content.spinButton.x - offsetX, content.spinButton.y - offsetY) < content.spinButton.d.width / 2 * currentZoom) {
         rouletteRotation();
     }
+    
+    answerSelection();
 }
 
 function drawContent() { // Draw all map and assets content
@@ -59,14 +69,14 @@ function newGame() {
 function windowResized() {
     targetX = targetX + width / 2;
     targetY = targetY + height / 2;
-    
+
     resizeCanvas(windowWidth, windowHeight);
 
     scaleResize(windowWidth, windowHeight);
 
     targetX = targetX - windowWidth / 2;
     targetY = targetY - windowHeight / 2;
-    
+
     updateQuestion();
 }
 
