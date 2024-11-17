@@ -52,7 +52,7 @@ let content = {
         type: 'PNG',
         d: null,
         x: 6890,
-        y: 5180,
+        y: 5340,
         interaction: false,
         w: 0,
         h: 0
