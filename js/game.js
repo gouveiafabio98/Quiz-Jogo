@@ -45,6 +45,8 @@ function drawContent() { // Draw all map and assets content
         width - content.infoButton.d.width,
         height - content.infoButton.d.height,
     );
+
+    //drawQuestion();
 }
 
 function newGame() {
