@@ -1,18 +1,10 @@
 // Map Movement Values
 let offsetX = 0, offsetY = 0;
-let targetX = 4578, targetY = 4578;
+let targetX = 0, targetY = 0;
 let panSpeed = 0.1;
 let inZoom = 1, outZoom = 0.5;
 let currentZoom = inZoom;
 let targetZoom = inZoom;
-
-// Map Objects
-let mapObjects = {
-    "Roulette": {
-        "x": 2915,
-        "y": 3060
-    }
-};
 
 function updateMapMovement() { // Update Map Location
     offsetX = lerp(offsetX, targetX, panSpeed);
@@ -25,10 +17,23 @@ function drawMap() { // Draw Map Tiles
     offsetX = constrain(offsetX, 0, (mapCols * tileSize) - width);
     offsetY = constrain(offsetY, 0, (mapRows * tileSize) - height);
 
-    let startCol = floor(offsetX / tileSize);
-    let startRow = floor(offsetY / tileSize);
-    let endCol = ceil((offsetX + width) / tileSize);
-    let endRow = ceil((offsetY + height) / tileSize);
+    let startCol = floor(
+        ((offsetX + width / 2) / tileSize) -
+        (width / 2 * (1 / currentZoom) / tileSize)
+    );
+    let endCol = ceil(
+        ((offsetX + (width / 2)) / tileSize) +
+        (width / 2 * (1 / currentZoom) / tileSize)
+    );
+
+    let startRow = floor(
+        ((offsetY + height / 2) / tileSize) -
+        (height / 2 * (1 / currentZoom) / tileSize)
+    );
+    let endRow = ceil(
+        ((offsetY + height / 2) / tileSize) +
+        (height / 2 * (1 / currentZoom) / tileSize)
+    );
 
     for (let col = startCol; col < endCol; col++) {
         for (let row = startRow; row < endRow; row++) {
@@ -41,9 +46,29 @@ function drawMap() { // Draw Map Tiles
     }
 }
 
-function goToObject(objName) { // Go to a Selected Object
-    let city = objectData[objName];
-    let x = city.x, y = city.y;
+function drawObject(obj) {
+    let pX = obj.x - offsetX;
+    let pY = obj.y - offsetY;
+
+    push();
+    translate(width / 2, height / 2);
+    scale(currentZoom);
+
+    if (obj.interaction && dist(mouseX, mouseY, obj.x  - offsetX, obj.y  - offsetY) < obj.d.width / 2 * currentZoom){
+        cursor('pointer');
+        scale(1.1);
+    } else {
+        cursor('default');
+    }
+
+    translate(-width / 2, -height / 2);
+
+    image(obj.d, pX, pY);
+    pop();
+}
+
+function goToObject(object) { // Go to a Selected Object
+    let x = object.x, y = object.y;
     goToLocation(x, y); // Go to a Selected Position
 }
 

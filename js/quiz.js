@@ -1,0 +1,2 @@
+/* Quiz Data */
+let quizTopics;

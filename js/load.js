@@ -15,6 +15,32 @@ let content = {
         src: 'data/topics.json',
         type: 'JSON',
         d: null
+    }, roulette: {
+        src: 'data/roulette.png',
+        type: 'PNG',
+        d: null,
+        x: 6890,
+        y: 5455,
+        w: 0,
+        h: 0
+    }, mill: {
+        src: 'data/mill.png',
+        type: 'PNG',
+        d: null,
+        x: 6890,
+        y: 5755
+    }, spinButton: {
+        src: 'data/spinButton.png',
+        type: 'PNG',
+        d: null,
+        x: 6890,
+        y: 5455,
+        interaction: true
+    }, infoButton: {
+        src: 'data/infoButton.png',
+        type: 'PNG',
+        d: null,
+        interaction: true
     }
 };
 
@@ -63,6 +89,11 @@ function loadContent() { // Function to Load the game content
 
 function assetLoaded() { // Called for each successful load 
     loadCount++;
+    if(totalAssets==loadCount) {
+        setData();
+        setRoulette();
+        newGame();
+    }
 }
 
 function loadTiles() { // Function to Load the Pre-Tiled Map
@@ -72,4 +103,15 @@ function loadTiles() { // Function to Load the Pre-Tiled Map
             mapTiles[col][row] = loadImage(`data/tiles/tile_${col}_${row}.png`, assetLoaded);
         }
     }
+}
+
+function setData() {
+    quizTopics = content.quizData.d.topics.map(topic => topic.topicName);
+    numSections = quizTopics.length;
+    anglePerSection = TWO_PI / numSections;
+
+    targetX = content.roulette.x - width / 2;
+    targetY = content.roulette.y - height / 2
+    offsetX = targetX;
+    offsetY = targetY;
 }
