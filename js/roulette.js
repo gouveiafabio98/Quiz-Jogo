@@ -6,8 +6,8 @@ let numSections;
 
 /* Roulette Rotations */
 let rouletteAngle = 0;
-let minRotation = 2;
-let maxRotation = 4;
+let minRotation = 3;
+let maxRotation = 5;
 let spinSpeed = 0.01;
 let isSpinning = false;
 let finalAngle;

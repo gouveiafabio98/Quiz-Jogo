@@ -28,7 +28,7 @@ let content = {
         type: 'PNG',
         d: null,
         x: 6890,
-        y: 5755,
+        y: 5720,
         w: 0,
         h: 0
     }, spinButton: {
@@ -56,6 +56,14 @@ let content = {
         interaction: false,
         w: 0,
         h: 0
+    }, rightSong: {
+        src: 'data/sound1.wav',
+        type: 'WAV',
+        d: null
+    }, wrongSong: {
+        src: 'data/sound2.wav',
+        type: 'WAV',
+        d: null
     }
 };
 
@@ -92,13 +100,16 @@ function loadScreen() { // Loading Screen
     rect(width / 2 - width / 3 / 2, 100, width / 3 * loadPercentage, 50, 50);
 }
 
-function loadContent() { // Function to Load the game content
+function loadContent() { 
+    // Function to Load the game content
     totalAssets = Object.keys(content).length + (mapCols * mapRows);
     for (let key in content) {
         if (content[key].type === 'PNG' || content[key].type === 'JPG') {
             content[key].d = loadImage(content[key].src, assetLoaded);
         } else if (content[key].type === 'JSON') {
             content[key].d = loadJSON(content[key].src, assetLoaded);
+        } else if (content[key].type === 'WAV') {
+            content[key].d = loadSound(content[key].src, assetLoaded);
         }
     }
     loadTiles(); // Function to Load the Pre-Tiled Map

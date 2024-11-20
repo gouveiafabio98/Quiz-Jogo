@@ -51,9 +51,12 @@ let answerBox = {
     h: 0,
     x: [0, 0, 0, 0],
     y: [0, 0, 0, 0],
-    color: null,
+    colorActive: null,
+    colorWrong: null,
+    colorDisable: null,
     margin: 0,
-    radius: 0
+    radius: 0,
+    wTopic: 0
 };
 
 let answerTopicText = {
@@ -63,6 +66,10 @@ let answerTopicText = {
     x: [0, 0, 0, 0],
     y: [0, 0, 0, 0],
     color: null,
+    colorActive: null,
+    colorWrong: null,
+    colorDisable: null,
+    colorTopic: null,
     textSize: 0,
     textLeading: 0
 };
@@ -72,11 +79,15 @@ let answerText = {
     answer: [false, false, false, false],
     w: null,
     h: null,
-    x: [null, null, null, null],
-    y: [null, null, null, null],
+    x: null,
+    y: null,
     color: null,
     textSize: 0
 };
+
+let selectedAnswer = null;
+let startTime = 0;
+let countdownTime = 30;
 
 function drawQuestion() {
     // Text Settings
@@ -106,10 +117,10 @@ function drawQuestion() {
     fill(topicText.color);
     textSize(topicText.textSize);
     textLeading(topicText.textLeading);
-    text(topicText.text, topicText.x, topicText.y);
+    textAlign(CENTER, CENTER);
+    text(topicText.text, topicText.x, topicText.y, topicBox.w, topicBox.h - topicText.textLeading/2);
 
     // Answer Box
-    fill(answerBox.color);
     for (let i = 0; i < 4; i++) {
         push();
         translate(answerBox.x[i], answerBox.y[i]);
@@ -117,36 +128,54 @@ function drawQuestion() {
         if (mouseX > questionBox.translateX + answerBox.x[i] &&
             mouseX < questionBox.translateX + answerBox.x[i] + answerBox.w &&
             mouseY > questionBox.translateY + answerBox.y[i] &&
-            mouseY < questionBox.translateY + answerBox.y[i] + answerBox.h) {
+            mouseY < questionBox.translateY + answerBox.y[i] + answerBox.h && !selectedAnswer) {
             cursorPointer = true;
             scale(1.05);
         }
         translate(-answerBox.w / 2, -answerBox.h / 2);
 
-        rect(0, 0, answerBox.w, answerBox.h, answerBox.radius);
-        pop();
-    }
 
-    // Answer Topic Text
-    fill(answerTopicText.color);
-    textAlign(LEFT, CENTER);
-    textSize(answerTopicText.textSize);
-    textLeading(answerTopicText.textLeading);
-    for (let i = 0; i < 4; i++) {
-        text(answerTopicText.text[i], answerTopicText.x[i], answerTopicText.y[i],
+        if (selectedAnswer != null) {
+            if (selectedAnswer==i)
+                if(answerText.answer[i]) fill(answerBox.colorActive);
+                else fill(answerBox.colorWrong);
+            else
+                fill(answerBox.colorDisable);
+        } else {
+            fill(answerBox.colorActive);
+        }
+        rect(0, 0, answerBox.w, answerBox.h, answerBox.radius);
+
+        if (selectedAnswer != null) {
+            if (selectedAnswer==i)
+                if(answerText.answer[i]) fill(answerTopicText.colorActive);
+                else fill(answerTopicText.colorWrong);
+            else
+                fill(answerTopicText.colorDisable);
+        } else {
+            fill(answerTopicText.colorActive);
+        }
+        rect(0, 0, answerBox.h, answerBox.h, answerBox.radius);
+
+        // Answer Topic Text
+        fill(answerTopicText.color);
+        textAlign(CENTER, CENTER);
+        textSize(answerTopicText.textSize);
+        textLeading(answerTopicText.textLeading);
+        text(answerTopicText.text[i], 0, 0,
             answerTopicText.w, answerTopicText.h - textSize() / 2
         );
-    }
 
-    // Answer Text
-    textAlign(LEFT, CENTER);
-    textSize(answerText.textSize);
-    textLeading(answerText.textLeading);
-    fill(answerText.color);
-    for (let i = 0; i < 4; i++) {
-        text(answerText.text[i], answerText.x[i], answerText.y[i],
+        // Answer Text
+        fill(answerText.color);
+        textAlign(LEFT, CENTER);
+        textSize(answerText.textSize);
+        textLeading(answerText.textLeading);
+        text(answerText.text[i], answerText.x, 0,
             answerText.w, answerText.h - textSize() / 2
         );
+
+        pop();
     }
 
     pop();
@@ -186,7 +215,7 @@ function updateQuestion() {
     topicText.h = questionText.textLeading;
 
     // Topic Box
-    topicBox.color = color("#B25757");
+    //topicBox.color = color("#B25757");
     topicBox.radius = max(min(50, (width / 1920) * 50), 25);
     topicBox.margin = max(min(25, (width / 1920) * 25), 15);
     topicBox.w = topicText.w + topicBox.margin * 2;
@@ -201,16 +230,21 @@ function updateQuestion() {
     topicBox.y = questionBox.y - topicBox.h + topicBox.margin;
 
     // Topic Text
-    topicText.x = topicBox.x + topicBox.margin;
-    topicText.y = topicBox.y + topicBox.margin + topicText.h;
+    topicText.x = topicBox.x;
+    topicText.y = topicBox.y;
 
     // Answer Topic Text
     answerTopicText.color = color("#F7EDDC");
+    answerTopicText.colorActive = color("#589359");
+    answerTopicText.colorWrong = color("#B25757");
+    answerTopicText.colorDisable = color("#596770");
     answerTopicText.textSize = max(min(50, (width / 1920) * 50), 25);
     answerTopicText.textLeading = answerTopicText.textSize * 0.8;
 
     // Answer Box
-    answerBox.color = color("#6DB671");
+    answerBox.colorActive = color("#6DB671");
+    answerBox.colorWrong = color("#E27146");
+    answerBox.colorDisable = color("#7A8E9E");
     answerBox.margin = max(min(25, (width / 1920) * 25), 15);
     answerBox.radius = max(min(50, (width / 1920) * 50), 25);
     answerBox.h = answerTopicText.textLeading + answerBox.margin * 2;
@@ -251,16 +285,10 @@ function updateQuestion() {
     // Answer Topic Text
     textSize(answerTopicText.textSize);
     textLeading(answerTopicText.textLeading);
-    for (let i = 0; i < 4; i++) {
-        let tW = textWidth(answerTopicText.text[i]);
-        if (answerTopicText.w < tW) answerTopicText.w = tW;
-    }
+    answerTopicText.w = answerBox.h;
     answerTopicText.h = answerBox.h;
     // -- X
-    answerTopicText.x[0] = answerBox.x[0] + answerBox.margin;
-    answerTopicText.x[1] = answerBox.x[1] + answerBox.margin;
-    answerTopicText.x[2] = answerBox.x[2] + answerBox.margin;
-    answerTopicText.x[3] = answerBox.x[3] + answerBox.margin;
+    answerTopicText.x = 0;
     // -- Y
     answerTopicText.y = answerBox.y;
 
@@ -268,12 +296,9 @@ function updateQuestion() {
     answerText.color = color("#F7EDDC");
     answerText.textSize = max(min(25, (width / 1920) * 25), 15);
     answerText.textLeading = answerText.textSize * 1;
-    answerText.w = answerBox.w - answerBox.margin * 3 - answerTopicText.w;
+    answerText.w = answerBox.h;
     // -- X
-    answerText.x[0] = answerTopicText.x[0] + answerBox.margin + answerTopicText.w;
-    answerText.x[1] = answerTopicText.x[1] + answerBox.margin + answerTopicText.w;
-    answerText.x[2] = answerTopicText.x[2] + answerBox.margin + answerTopicText.w;
-    answerText.x[3] = answerTopicText.x[3] + answerBox.margin + answerTopicText.w;
+    answerText.x = answerTopicText.w + answerBox.margin;
     // -- Y
     answerText.y = answerTopicText.y;
     answerText.h = answerBox.h;
@@ -314,14 +339,15 @@ function answerSelection() {
             mouseX < questionBox.translateX + answerBox.x[i] + answerBox.w &&
             mouseY > questionBox.translateY + answerBox.y[i] &&
             mouseY < questionBox.translateY + answerBox.y[i] + answerBox.h) {
-            setScore(answerText.answer[i]);
+            setScore(i);
         }
     }
 }
 
 function setQuestion(topicId) {
     let topic = content.quizData.d.topics[topicId];
-    topicText.text = topic.topicName.toUpperCase();
+    topicText.text = topic.displayName.toUpperCase();
+    topicBox.color = color(topic.fill);
 
     let question = topic.questions[int(random(topic.questions.length))];
     questionText.text = question.question;
@@ -334,6 +360,7 @@ function setQuestion(topicId) {
 
     updateQuestion();
     playStage = 3;
+    startTime = millis();
 }
 
 function shuffleArray(array) {
@@ -344,11 +371,21 @@ function shuffleArray(array) {
     return array;
 }
 
-function setScore(point) {
-    if(point) rightAnswers++;
+function setScore(i) {
+    if (answerText.answer[i]) rightAnswers++;
     else wrongAnswers++;
-    
-    playStage = 2;
-    goToObject(content.roulette);
-    rouletteBlock = true;
+    selectedAnswer = i;
+    answerSound(answerText.answer[i]);
+
+    setTimeout(() => {
+        playStage = 2;
+        goToObject(content.roulette);
+        rouletteBlock = true;
+        selectedAnswer = null;
+    }, 2500);
+}
+
+function answerSound(answer) {
+    if(answer) content.rightSong.d.play();
+    else content.wrongSong.d.play();
 }

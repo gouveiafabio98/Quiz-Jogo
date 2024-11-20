@@ -2,6 +2,8 @@
     "topics": [
         {
             "topicName": "Cantanhede",
+            "displayName": "Cantanhede",
+            "fill": "#ADCE6F",
             "coordinates": [
                 {
                     "x": 5795,
@@ -63,6 +65,8 @@
         
         {
             "topicName": "Penacova",
+            "displayName": "Penacova",
+            "fill": "#6C9EE8",
             "coordinates": [
                 {
                     "x": 9000,
@@ -124,6 +128,8 @@
 
         {
             "topicName": "Mealhada",
+            "displayName": "Mealhada",
+            "fill": "#EDB498",
             "coordinates": [
                 {
                     "x": 6960,
@@ -185,6 +191,8 @@
 
         {
             "topicName": "Montemor- -o-Velho",
+            "displayName": "Montemor-o-Velho",
+            "fill": "#7A8E9E",
             "coordinates": [
                 {
                     "x": 5510,
@@ -246,6 +254,8 @@
 
         {
             "topicName": "Figueira da Foz",
+            "displayName": "Figueira da Foz",
+            "fill": "#4AB6B6",
             "coordinates": [
                 {
                     "x": 5190,
@@ -307,6 +317,8 @@
 
         {
             "topicName": "Mira",
+            "displayName": "Mira",
+            "fill": "#EDBF77",
             "coordinates": [
                 {
                     "x": 4400,

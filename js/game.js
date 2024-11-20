@@ -12,7 +12,7 @@ function draw() {
     cursorPointer = false;
     if (playStage == 0) {
         loadScreen();
-    } else if(playStage >= 2) {
+    } else if (playStage >= 2) {
         background(255);
         updateMapMovement();
         updateRoulette();
@@ -34,12 +34,12 @@ function keyPressed() {
 }
 
 function mousePressed() {
-    if(playStage == 0 && loadPercentage == 1) newGame();
+    if (playStage == 0 && loadPercentage == 1) newGame();
     else if (playStage == 2 && rouletteBlock &&
         dist(mouseX, mouseY, content.spinButton.x - offsetX, content.spinButton.y - offsetY) < content.spinButton.d.width / 2 * currentZoom) {
         rouletteRotation();
         rouletteBlock = false;
-    } else if(playStage == 3) answerSelection();
+    } else if (playStage == 3) answerSelection();
 }
 
 function drawContent() { // Draw all map and assets content
@@ -63,9 +63,10 @@ function drawContent() { // Draw all map and assets content
         content.infoButton.h * inZoom
     );
 
-    if(playStage == 3) drawQuestion();
+    if (playStage == 3) drawQuestion();
 
     drawScore();
+    drawTimer();
 }
 
 function newGame() {
@@ -75,6 +76,9 @@ function newGame() {
     playStage = 2;
     rightAnswers = 0;
     wrongAnswers = 0;
+    currentZoom = bootZoom;
+    targetZoom = inZoom;
+    currentPanSpeed = bootSpeed;
 }
 
 function windowResized() {
@@ -87,8 +91,8 @@ function windowResized() {
 
     targetX = targetX - windowWidth / 2;
     targetY = targetY - windowHeight / 2;
-    
-    if(playStage == 3) updateQuestion();
+
+    if (playStage == 3) updateQuestion();
 }
 
 function scaleResize(windowWidth, windowHeight) {
@@ -106,5 +110,21 @@ function scaleResize(windowWidth, windowHeight) {
 function drawScore() {
     textAlign(RIGHT, TOP);
     fill(0);
-    text("Pontuação: " + rightAnswers + "/" + totalRolls, width-50, 50);
+    text("Pontuação: " + rightAnswers + "/" + totalRolls, width - 50, 50);
+}
+
+function drawTimer() {
+    textAlign(LEFT, TOP);
+    fill(0);
+
+    let elapsed = millis() - startTime;
+    let remainingTime = countdownTime - floor(elapsed / 1000);
+    let minutes = max(1, floor(remainingTime / 60));
+    let seconds = max(1, remainingTime % 60);
+
+    // Pad minutes and seconds with leading zeros if needed
+    let displayMinutes = nf(minutes, 2);
+    let displaySeconds = nf(seconds, 2);
+
+    text(displayMinutes + ":" + displaySeconds, 50, 50);
 }
