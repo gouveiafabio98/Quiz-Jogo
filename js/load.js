@@ -64,6 +64,10 @@ let content = {
         src: 'data/sound2.wav',
         type: 'WAV',
         d: null
+    }, imgButton: {
+        src: 'data/imgButton.png',
+        type: 'PNG',
+        d: null
     }
 };
 
@@ -102,7 +106,7 @@ function loadScreen() { // Loading Screen
 
 function loadContent() { 
     // Function to Load the game content
-    totalAssets = Object.keys(content).length + (mapCols * mapRows);
+    totalAssets = Object.keys(content).length + Object.keys(quizImages).length + (mapCols * mapRows);
     for (let key in content) {
         if (content[key].type === 'PNG' || content[key].type === 'JPG') {
             content[key].d = loadImage(content[key].src, assetLoaded);
@@ -110,6 +114,15 @@ function loadContent() {
             content[key].d = loadJSON(content[key].src, assetLoaded);
         } else if (content[key].type === 'WAV') {
             content[key].d = loadSound(content[key].src, assetLoaded);
+        }
+    }
+    for (let key in quizImages) {
+        if (quizImages[key].type === 'PNG' || quizImages[key].type === 'JPG') {
+            quizImages[key].d = loadImage(quizImages[key].src, assetLoaded);
+        } else if (quizImages[key].type === 'JSON') {
+            quizImages[key].d = loadJSON(quizImages[key].src, assetLoaded);
+        } else if (quizImages[key].type === 'WAV') {
+            quizImages[key].d = loadSound(quizImages[key].src, assetLoaded);
         }
     }
     loadTiles(); // Function to Load the Pre-Tiled Map

@@ -119,8 +119,8 @@ function drawTimer() {
 
     let elapsed = millis() - startTime;
     let remainingTime = countdownTime - floor(elapsed / 1000);
-    let minutes = max(1, floor(remainingTime / 60));
-    let seconds = max(1, remainingTime % 60);
+    let minutes = max(0, floor(remainingTime / 60));
+    let seconds = max(0, remainingTime % 60);
 
     // Pad minutes and seconds with leading zeros if needed
     let displayMinutes = nf(minutes, 2);
