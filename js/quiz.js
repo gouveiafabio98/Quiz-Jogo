@@ -25,20 +25,24 @@ let questionText = {
     color: null,
     image: {
         display: true,
-        name: false,
         w: 0,
         h: 0,
         mask: null,
+        maskIcon: null,
         maskW: 0,
         maskH: 0,
         maskX: 0,
         maskY: 0,
         mobile: false,
         hide: true,
-        buttonX: 0,
+        /*buttonX: 0,
         buttonY: 0,
         buttonW: 0,
-        buttonH: 0
+        buttonH: 0,*/
+        maskIconX: 0,
+        maskIconY: 0,
+        maskIconW: 0,
+        maskIconH: 0
     }
 };
 
@@ -111,7 +115,14 @@ let answerText = {
 };
 
 let selectedAnswer = null;
-let startTime = 0;
+
+let startTime = {
+    start: 0,
+    margin: 0,
+    textSize: 0,
+    textLeading: 0
+};
+
 let countdownTime = 30;
 
 function drawQuestion() {
@@ -154,7 +165,7 @@ function drawQuestion() {
         push();
         translate(answerBox.x[i], answerBox.y[i]);
         translate(answerBox.w / 2, answerBox.h / 2);
-        if (((!questionText.image.mobile && questionText.image.hide) || questionText.image.mobile) && 
+        if (((!questionText.image.mobile && questionText.image.hide) || questionText.image.mobile) &&
             mouseX > questionBox.translateX + answerBox.x[i] &&
             mouseX < questionBox.translateX + answerBox.x[i] + answerBox.w &&
             mouseY > questionBox.translateY + answerBox.y[i] &&
@@ -214,9 +225,26 @@ function drawQuestion() {
             rect(questionBox.x + questionBox.w, questionBox.y, questionText.image.w, questionText.image.h, 0, topicBox.radius, topicBox.radius, 0);
         else {
             imageMode(CORNER);
-            image(content.imgButton.d,
-                questionText.image.buttonX, questionText.image.buttonY,
-                questionText.image.buttonW, questionText.image.buttonH);
+            if (!questionText.image.hide) {
+                tint(150);
+            }
+            image(questionText.image.maskIcon,
+                questionText.image.maskIconX, questionText.image.maskIconY,
+                questionText.image.maskIconW, questionText.image.maskIconH);
+            tint(255);
+            noFill();
+            stroke(questionBox.color);
+            strokeWeight(4);
+            rect(questionText.image.maskIconX, questionText.image.maskIconY,
+                questionText.image.maskIconW, questionText.image.maskIconH, topicBox.radius);
+            noStroke();
+            if (!questionText.image.hide) {
+                textSize(topicText.textSize);
+                textLeading(topicText.textLeading);
+                fill(questionBox.color);
+                text("X", questionText.image.maskIconX, questionText.image.maskIconY,
+                    questionText.image.maskIconW, questionText.image.maskIconH - topicText.textLeading / 2);
+            }
         }
         if (questionText.image.mobile || !questionText.image.hide) {
             imageMode(CENTER);
@@ -249,7 +277,7 @@ function updateQuestion() {
 
     if (questionText.image.display && width - boxWidth > questionBox.margin * 2) {
         questionText.image.w = min(width - boxWidth - questionBox.margin * 2, 500);
-        if(questionText.image.w < 200) questionText.image.mobile = false;
+        if (questionText.image.w < 200) questionText.image.mobile = false;
     }
 
     // Question Text
@@ -370,12 +398,6 @@ function updateQuestion() {
 
     questionText.image.h = questionBox.h;
 
-    // Button Display Image
-    questionText.image.buttonX = questionBox.w / 2 - topicBox.h;
-    questionText.image.buttonY = topicBox.y;
-    questionText.image.buttonW = topicBox.h;
-    questionText.image.buttonH = topicBox.h;
-
     // Masked Image
     if (imageQuestion) {
         if (questionText.image.mobile) {
@@ -418,6 +440,37 @@ function updateQuestion() {
 
         questionText.image.mask = quizImages.quizData.d.get(imgX, imgY, newW, newH);
         questionText.image.mask.mask(maskedImage);
+
+
+        // Icon Masked Image
+        questionText.image.maskIconX = questionBox.w / 2 - topicBox.h;
+        questionText.image.maskIconY = topicBox.y;
+        questionText.image.maskIconW = topicBox.h;
+        questionText.image.maskIconH = topicBox.h;
+
+        maskedImage = createGraphics(questionText.image.maskIconW, questionText.image.maskIconH);
+        maskedImage.noStroke();
+        maskedImage.fill(255);
+        maskedImage.rect(0, 0,
+            questionText.image.maskIconW, questionText.image.maskIconH,
+            topicBox.radius
+        );
+
+        maskRatio = questionText.image.maskIconW / questionText.image.maskIconH;
+
+        if (imgW / imgH > maskRatio) {
+            newH = imgH;
+            newW = imgH;
+        } else {
+            newW = imgW;
+            newH = imgW;
+        }
+
+        imgX = (imgW - newW) / 2;
+        imgY = (imgH - newH) / 2;
+
+        questionText.image.maskIcon = quizImages.quizData.d.get(imgX, imgY, newW, newH);
+        questionText.image.maskIcon.mask(maskedImage);
     }
 }
 
@@ -456,16 +509,12 @@ function answerSelection() {
             setScore(i);
         }
     }
-    if (mouseX > questionBox.translateX +  questionText.image.buttonX &&
-        mouseX < questionBox.translateX + questionText.image.buttonX + questionText.image.buttonW &&
-        mouseY > questionBox.translateY + questionText.image.buttonY &&
-        mouseY < questionBox.translateY + questionText.image.buttonY + questionText.image.buttonH) {
+    if (mouseX > questionBox.translateX + questionText.image.maskIconX &&
+        mouseX < questionBox.translateX + questionText.image.maskIconX + questionText.image.maskIconW &&
+        mouseY > questionBox.translateY + questionText.image.maskIconY &&
+        mouseY < questionBox.translateY + questionText.image.maskIconY + questionText.image.maskIconH) {
         questionText.image.hide = !questionText.image.hide;
     }
-    console.log(mouseX > questionText.image.buttonX,
-        mouseX < questionText.image.buttonX + questionText.image.buttonW,
-        mouseY > questionText.image.buttonY,
-        mouseY < questionText.image.buttonY + questionText.image.buttonH);
 }
 
 function setQuestion(topicId) {
@@ -485,7 +534,12 @@ function setQuestion(topicId) {
 
     updateQuestion();
     playStage = 3;
-    startTime = millis();
+    startTime.start = millis();
+
+    questionText.image.hide = false;
+    setTimeout(function(){
+        questionText.image.hide = true;
+    }, 1500);
 }
 
 function shuffleArray(array) {

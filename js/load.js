@@ -68,6 +68,10 @@ let content = {
         src: 'data/imgButton.png',
         type: 'PNG',
         d: null
+    }, backButton: {
+        src: 'data/backButton.png',
+        type: 'PNG',
+        d: null
     }
 };
 
@@ -162,4 +166,5 @@ function setData() {
             content[key].h = content[key].d.height;
         }
     }
+    updateElements();
 }

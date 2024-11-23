@@ -93,6 +93,8 @@ function windowResized() {
     targetY = targetY - windowHeight / 2;
 
     if (playStage == 3) updateQuestion();
+
+    updateElements();
 }
 
 function scaleResize(windowWidth, windowHeight) {
@@ -115,9 +117,10 @@ function drawScore() {
 
 function drawTimer() {
     textAlign(LEFT, TOP);
-    fill(0);
+    textSize(startTime.textSize);
+    textLeading(startTime.textLeading);
 
-    let elapsed = millis() - startTime;
+    let elapsed = millis() - startTime.start;
     let remainingTime = countdownTime - floor(elapsed / 1000);
     let minutes = max(0, floor(remainingTime / 60));
     let seconds = max(0, remainingTime % 60);
@@ -126,5 +129,16 @@ function drawTimer() {
     let displayMinutes = nf(minutes, 2);
     let displaySeconds = nf(seconds, 2);
 
-    text(displayMinutes + ":" + displaySeconds, 50, 50);
+    let timerText = displayMinutes + ":" + displaySeconds;
+    
+    noStroke();
+    fill("#589359");
+    rect(width/2, height/2, textWidth(timerText), startTime.textSize);
+    fill(255);
+    text(timerText, width/2, height/2);
+}
+
+function updateElements() {
+    startTime.textSize = max(min(50, (width / 1920) * 50), 25);
+    startTime.textLeading = startTime.textSize * 1;
 }
