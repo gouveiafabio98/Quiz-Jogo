@@ -118,16 +118,38 @@ let selectedAnswer = null;
 
 let startTime = {
     start: 0,
-    margin: 0,
     textSize: 0,
-    textLeading: 0
+    textLeading: 0,
+    x: 0,
+    y: 0,
+    w: 0,
+    h: 0,
+    marginW: 0,
+    marginH: 0,
+    radius: 0
 };
+
+let score = {
+    text: "Pontuação: 00:00",
+    textSize: 0,
+    textLeading: 0,
+    right: 0,
+    wrong: 0,
+    total: 12,
+    x: 0,
+    y: 0,
+    w: 0,
+    h: 0,
+    marginW: 0,
+    marginH: 0,
+}
 
 let countdownTime = 30;
 
 function drawQuestion() {
     // Text Settings
     textFont(mainFont);
+    rectMode(CORNER);
     textAlign(LEFT, BASELINE);
 
     // Draw Question
@@ -472,6 +494,7 @@ function updateQuestion() {
         questionText.image.maskIcon = quizImages.quizData.d.get(imgX, imgY, newW, newH);
         questionText.image.maskIcon.mask(maskedImage);
     }
+    updateElements();
 }
 
 function getTextHeight(data) {

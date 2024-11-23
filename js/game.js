@@ -93,8 +93,6 @@ function windowResized() {
     targetY = targetY - windowHeight / 2;
 
     if (playStage == 3) updateQuestion();
-
-    updateElements();
 }
 
 function scaleResize(windowWidth, windowHeight) {
@@ -110,13 +108,26 @@ function scaleResize(windowWidth, windowHeight) {
 }
 
 function drawScore() {
-    textAlign(RIGHT, TOP);
-    fill(0);
-    text("Pontuação: " + rightAnswers + "/" + totalRolls, width - 50, 50);
+    textAlign(CENTER, CENTER);
+    rectMode(CENTER);
+
+    push();
+    translate(score.translateX, score.translateY);
+
+    noStroke();
+    fill("#589359");
+    rect(0, 0, score.w, score.h, score.radius);
+
+    fill(255);
+    text(score.text, 0, score.y);
+
+    pop();
 }
 
 function drawTimer() {
-    textAlign(LEFT, TOP);
+    textAlign(CENTER, CENTER);
+    rectMode(CENTER);
+
     textSize(startTime.textSize);
     textLeading(startTime.textLeading);
 
@@ -125,20 +136,56 @@ function drawTimer() {
     let minutes = max(0, floor(remainingTime / 60));
     let seconds = max(0, remainingTime % 60);
 
-    // Pad minutes and seconds with leading zeros if needed
     let displayMinutes = nf(minutes, 2);
     let displaySeconds = nf(seconds, 2);
 
     let timerText = displayMinutes + ":" + displaySeconds;
-    
+
+    push();
+    translate(startTime.translateX, startTime.translateY);
+
     noStroke();
     fill("#589359");
-    rect(width/2, height/2, textWidth(timerText), startTime.textSize);
+    rect(0, 0, startTime.w, startTime.h, startTime.radius);
+
     fill(255);
-    text(timerText, width/2, height/2);
+    text(timerText, 0, startTime.y);
+
+    pop();
 }
 
 function updateElements() {
+    // Timer
     startTime.textSize = max(min(50, (width / 1920) * 50), 25);
-    startTime.textLeading = startTime.textSize * 1;
+    startTime.radius = max(min(50, (width / 1920) * 50), 25);
+    startTime.marginW = max(min(20, (width / 1920) * 20), 15);
+    startTime.marginH = max(min(15, (width / 1920) * 15), 10);
+
+    textSize(startTime.textSize);
+    startTime.w = textWidth("88:88") + startTime.marginW * 2;
+    startTime.h = startTime.textSize + startTime.marginH * 2;
+    startTime.y = -startTime.h / 10;
+
+    startTime.translateX = width - startTime.marginW - startTime.w / 2;
+    startTime.translateY = startTime.marginW + startTime.h / 2;
+
+    // Score
+    updateScore();
+}
+
+function updateScore() {
+    score.text = "Pontuação: " + score.right + "/" + score.total;
+
+    score.textSize = max(min(50, (width / 1920) * 50), 25);
+    score.radius = max(min(50, (width / 1920) * 50), 25);
+    score.marginW = max(min(20, (width / 1920) * 20), 15);
+    score.marginH = max(min(15, (width / 1920) * 15), 10);
+
+    textSize(score.textSize);
+    score.w = textWidth(score.text) + score.marginW * 2;
+    score.h = score.textSize + score.marginH * 2;
+    score.y = -score.h / 10;
+
+    score.translateX = score.marginW + score.w/2;
+    score.translateY = score.marginW + score.h/2;
 }
