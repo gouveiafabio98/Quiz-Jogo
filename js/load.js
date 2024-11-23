@@ -7,6 +7,7 @@ let mapRows = 9;
 // Pre-Load Content
 let mainFont;
 let loadingImg;
+let loadingWheel;
 
 // Load Content
 let totalAssets;
@@ -93,6 +94,8 @@ let loadingBackground = {
 function preload() { // Preload Content
     mainFont = loadFont('data/fonts/HubotSans_Condensed-ExtraBold.ttf');
     loadingImg = loadImage('data/loadingScreen.png');
+    loadingWheel = loadImage('data/wheelLoad.png');
+    content.mill.d = loadImage(content.mill.src);
 }
 
 function setup() { // Setup Content
@@ -107,6 +110,8 @@ function setup() { // Setup Content
 
 function loadScreen() { // Loading Screen
     imageMode(CORNER);
+    textAlign(CENTER, CENTER);
+    textSize(40);
 
     image(loadingImg, loadingBackground.x, loadingBackground.y, loadingBackground.w, loadingBackground.h);
 
@@ -116,7 +121,12 @@ function loadScreen() { // Loading Screen
         loadPercentage = 1;
     }
 
-    // Draw the inner bar
+    push();
+    translate(width/2, height/2);
+    text("Jogo", 0, 0);
+    text("GeoAtlântico", 0, 40);
+    text("Rotas do Património", 0, 80);
+
     loadInnerBar.clear();
     loadInnerBar.fill('#bcdfe1');
     loadInnerBar.noStroke();
@@ -125,8 +135,17 @@ function loadScreen() { // Loading Screen
     displayInnerBar = loadInnerBar.get();
     displayInnerBar.mask(loadOuterBar);
     
-    image(loadOuterBar, width / 2 - loadOuterBar.width / 2, loadOuterBar.height);
-    image(displayInnerBar, width / 2 - loadInnerBar.width / 2, loadInnerBar.height);
+
+    image(content.mill.d, -content.mill.d.width/2, -content.mill.d.height/2);
+
+    push();
+    rotate(loadPercentage*TWO_PI*4);
+    image(loadingWheel, -loadingWheel.width/2, -loadingWheel.height/2);
+    pop();
+
+    image(loadOuterBar, - loadOuterBar.width / 2, 160);
+    image(displayInnerBar, - loadInnerBar.width / 2, 160);
+    pop();
 }
 
 function loadContent() {

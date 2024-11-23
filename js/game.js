@@ -5,6 +5,33 @@ let missingOptions;
 let playStage = 0;
 let playStageChange = false;
 let difficulty = 1; // 0 - Clássico; 1 - Desafio;
+let classsicDifficulty = {
+    text: "Clássico",
+    textSize: 0,
+    textLeading: 0,
+    x: 0,
+    y: 0,
+    w: 0,
+    h: 0,
+    marginW: 0,
+    marginH: 0,
+    radius: 0,
+    color: 255
+};
+
+let challengeDifficulty = {
+    text: "Desafio",
+    textSize: 0,
+    textLeading: 0,
+    x: 0,
+    y: 0,
+    w: 0,
+    h: 0,
+    marginW: 0,
+    marginH: 0,
+    radius: 0,
+    color: 255
+};
 // 0 - Boot; 1 - Difficulty; 2 - Roulette; 3 - Question;
 
 let cursorPointer = false;
@@ -13,8 +40,15 @@ function draw() {
     cursorPointer = false;
     if (playStage == 0) {
         loadScreen();
+    } else if (playStage == 1) {
+        background(255, 0, 0);
+        drawButton(classsicDifficulty.text, classsicDifficulty.y,
+            classsicDifficulty.w, classsicDifficulty.h,
+            classsicDifficulty.radius, classsicDifficulty.translateX, classsicDifficulty.translateY, classsicDifficulty.textSize);
+        drawButton(challengeDifficulty.text, challengeDifficulty.y,
+            challengeDifficulty.w, challengeDifficulty.h,
+            challengeDifficulty.radius, challengeDifficulty.translateX, challengeDifficulty.translateY, challengeDifficulty.textSize);
     } else if (playStage >= 2) {
-        background(255);
         updateMapMovement();
         updateRoulette();
 
@@ -35,8 +69,10 @@ function keyPressed() {
 }
 
 function mousePressed() {
-    if (playStage == 0 && loadPercentage == 1) newGame();
-    else if (playStage == 2 && rouletteBlock &&
+    if (playStage == 0 && loadPercentage == 1) {
+        playStage = 1;
+        //newGame();
+    } else if (playStage == 2 && rouletteBlock &&
         dist(mouseX, mouseY, content.spinButton.x - offsetX, content.spinButton.y - offsetY) < content.spinButton.d.width / 2 * currentZoom) {
         rouletteRotation();
         rouletteBlock = false;
@@ -64,7 +100,7 @@ function drawContent() { // Draw all map and assets content
         if (difficulty == 1) drawTimer();
     }
     // Score
-    drawButton(score.text, score.y, score.w, score.h, score.radius, score.translateX, score.translateY);
+    drawButton(score.text, score.y, score.w, score.h, score.radius, score.translateX, score.translateY, score.textSize);
     // Info
     drawIcon(content.infoButton.d,
         content.infoButton.w, content.infoButton.h,
@@ -118,9 +154,10 @@ function scaleResize(windowWidth, windowHeight) {
     targetZoom = inZoom;
 }
 
-function drawButton(txt, y, w, h, radius, tX, tY, color = "#589359") {
+function drawButton(txt, y, w, h, radius, tX, tY, txtSize, color = "#589359") {
     textAlign(CENTER, CENTER);
     rectMode(CENTER);
+    textSize(txtSize);
 
     push();
     translate(tX, tY);
@@ -136,7 +173,6 @@ function drawButton(txt, y, w, h, radius, tX, tY, color = "#589359") {
 }
 
 function drawTimer() {
-
     let elapsed = millis() - startTime.start;
     let remainingTime = countdownTime - floor(elapsed / 1000);
     let minutes = max(0, floor(remainingTime / 60));
@@ -146,14 +182,14 @@ function drawTimer() {
     let displaySeconds = nf(seconds, 2);
 
     let timerText = displayMinutes + ":" + displaySeconds;
-    
+
     textAlign(CENTER, CENTER);
     rectMode(CENTER);
 
     textSize(startTime.textSize);
     textLeading(startTime.textLeading);
 
-    drawButton(timerText, startTime.y, startTime.w, startTime.h, startTime.radius, startTime.translateX, startTime.translateY, color = "#589359")
+    drawButton(timerText, startTime.y, startTime.w, startTime.h, startTime.radius, startTime.translateX, startTime.translateY, startTime.textSize, color = "#589359")
 
     if (remainingTime < 0 && !playStageChange) setScore(false, -1);
 }
@@ -174,6 +210,8 @@ function updateElements() {
     updateScore();
     // Buttons
     updateButtons();
+    // Difficulty
+    updateDifficultyButtons();
 }
 
 function updateTimer() {
@@ -225,3 +263,61 @@ function updateButtons() {
     content.backButton.x = content.backButton.w / 2 + content.backButton.margin;
     content.backButton.y = height - content.backButton.h / 2 - content.backButton.margin;
 }
+
+function updateDifficultyButtons() {
+    // Classic
+    classsicDifficulty.textSize = max(min(50, (width / 1920) * 50), 25);
+    classsicDifficulty.radius = max(min(50, (width / 1920) * 50), 25);
+    classsicDifficulty.marginW = max(min(20, (width / 1920) * 20), 15);
+    classsicDifficulty.marginH = max(min(15, (width / 1920) * 15), 10);
+
+    textSize(classsicDifficulty.textSize);
+    classsicDifficulty.w = textWidth(classsicDifficulty.text) + classsicDifficulty.marginW * 2;
+    classsicDifficulty.h = classsicDifficulty.textSize + classsicDifficulty.marginH * 2;
+    classsicDifficulty.y = -classsicDifficulty.h / 10;
+
+    classsicDifficulty.translateX = width / 2 - classsicDifficulty.marginW - classsicDifficulty.w/2;
+    classsicDifficulty.translateY = height / 2;
+
+    //Challenge
+    challengeDifficulty.textSize = max(min(50, (width / 1920) * 50), 25);
+    challengeDifficulty.radius = max(min(50, (width / 1920) * 50), 25);
+    challengeDifficulty.marginW = max(min(20, (width / 1920) * 20), 15);
+    challengeDifficulty.marginH = max(min(15, (width / 1920) * 15), 10);
+
+    textSize(challengeDifficulty.textSize);
+    challengeDifficulty.w = textWidth(challengeDifficulty.text) + challengeDifficulty.marginW * 2;
+    challengeDifficulty.h = challengeDifficulty.textSize + challengeDifficulty.marginH * 2;
+    challengeDifficulty.y = -challengeDifficulty.h / 10;
+
+    challengeDifficulty.translateX = width / 2 + challengeDifficulty.marginW + challengeDifficulty.w/2;
+    challengeDifficulty.translateY = height / 2;
+}
+
+/*let classsicDifficulty = {
+    text: "Clássico",
+    textSize: 0,
+    textLeading: 0,
+    x: 0,
+    y: 0,
+    w: 0,
+    h: 0,
+    marginW: 0,
+    marginH: 0,
+    radius: 0,
+    color: 255
+};
+
+let challengeDifficulty = {
+    text: "Desafio",
+    textSize: 0,
+    textLeading: 0,
+    x: 0,
+    y: 0,
+    w: 0,
+    h: 0,
+    marginW: 0,
+    marginH: 0,
+    radius: 0,
+    color: 255
+};*/
