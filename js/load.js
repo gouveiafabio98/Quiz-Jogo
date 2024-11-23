@@ -44,9 +44,11 @@ let content = {
         src: 'data/infoButton.png',
         type: 'PNG',
         d: null,
-        interaction: true,
+        x: 0,
+        y: 0,
         w: 0,
-        h: 0
+        h: 0,
+        margin: 0
     }, pointer: {
         src: 'data/pointer.png',
         type: 'PNG',
@@ -64,20 +66,29 @@ let content = {
         src: 'data/sound2.wav',
         type: 'WAV',
         d: null
-    }, imgButton: {
-        src: 'data/imgButton.png',
-        type: 'PNG',
-        d: null
     }, backButton: {
         src: 'data/backButton.png',
         type: 'PNG',
-        d: null
+        d: null,
+        x: 0,
+        y: 0,
+        w: 0,
+        h: 0,
+        margin: 0
     }
 };
 
 // Load Progress
 let loadCount = 0;
 let loadPercentage = 0;
+let loadOuterBar, loadInnerBar, displayInnerBar;
+
+let loadingBackground = {
+    w: 0,
+    h: 0,
+    x: 0,
+    y: 0,
+}
 
 function preload() { // Preload Content
     mainFont = loadFont('data/fonts/HubotSans_Condensed-ExtraBold.ttf');
@@ -90,11 +101,14 @@ function setup() { // Setup Content
     textFont(mainFont);
     loadContent();
     scaleResize(windowWidth, windowHeight);
+
+    updateLoading();
 }
 
 function loadScreen() { // Loading Screen
-    imageMode(CENTER);
-    image(loadingImg, 0, 0);
+    imageMode(CORNER);
+
+    image(loadingImg, loadingBackground.x, loadingBackground.y, loadingBackground.w, loadingBackground.h);
 
     if (loadPercentage < 1 - 0.01)
         loadPercentage = lerp(loadPercentage, loadCount / totalAssets, loadCount * 0.005);
@@ -102,13 +116,20 @@ function loadScreen() { // Loading Screen
         loadPercentage = 1;
     }
 
-    fill('#f3edb8');
-    rect(width / 2 - width / 3 / 2, 100, width / 3, 50, 50);
-    fill('#bcdfe1');
-    rect(width / 2 - width / 3 / 2, 100, width / 3 * loadPercentage, 50, 50);
+    // Draw the inner bar
+    loadInnerBar.clear();
+    loadInnerBar.fill('#bcdfe1');
+    loadInnerBar.noStroke();
+    loadInnerBar.rect(0, 0, width / 3 * loadPercentage, 50, 50);
+
+    displayInnerBar = loadInnerBar.get();
+    displayInnerBar.mask(loadOuterBar);
+    
+    image(loadOuterBar, width / 2 - loadOuterBar.width / 2, loadOuterBar.height);
+    image(displayInnerBar, width / 2 - loadInnerBar.width / 2, loadInnerBar.height);
 }
 
-function loadContent() { 
+function loadContent() {
     // Function to Load the game content
     totalAssets = Object.keys(content).length + Object.keys(quizImages).length + (mapCols * mapRows);
     for (let key in content) {
@@ -134,7 +155,7 @@ function loadContent() {
 
 function assetLoaded() { // Called for each successful load 
     loadCount++;
-    if(totalAssets==loadCount) {
+    if (totalAssets == loadCount) {
         setData();
         setRoulette();
         updateQuestion();
@@ -167,4 +188,33 @@ function setData() {
         }
     }
     updateElements();
+}
+
+function updateLoading() {
+    let screenRatio = width / height;
+
+    let loadWidth = loadingImg.width;
+    let loadHeight = loadingImg.height;
+
+    let loadRatio = loadWidth / loadHeight;
+
+    if (loadRatio > screenRatio) {
+        loadingBackground.h = height;
+        loadingBackground.w = height * loadRatio;
+    } else {
+        loadingBackground.w = width;
+        loadingBackground.h = width / loadRatio;
+    }
+    
+    loadingBackground.x = (width - loadingBackground.w) / 2;
+    loadingBackground.y = (height - loadingBackground.h) / 2;
+
+    // Loading Bar
+    loadOuterBar = createGraphics(width / 3, 50);
+    loadInnerBar = createGraphics(width / 3, 50);
+
+    loadOuterBar.clear();
+    loadOuterBar.fill('#f3edb8');
+    loadOuterBar.noStroke();
+    loadOuterBar.rect(0, 0, width / 3, 50, 50);
 }

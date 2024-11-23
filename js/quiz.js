@@ -35,10 +35,6 @@ let questionText = {
         maskY: 0,
         mobile: false,
         hide: true,
-        /*buttonX: 0,
-        buttonY: 0,
-        buttonW: 0,
-        buttonH: 0,*/
         maskIconX: 0,
         maskIconY: 0,
         maskIconW: 0,
@@ -199,8 +195,8 @@ function drawQuestion() {
 
 
         if (selectedAnswer != null) {
-            if (selectedAnswer == i)
-                if (answerText.answer[i]) fill(answerBox.colorActive);
+            if (selectedAnswer == i || selectedAnswer == -1)
+                if (answerText.answer[i] && !(selectedAnswer == -1)) fill(answerBox.colorActive);
                 else fill(answerBox.colorWrong);
             else
                 fill(answerBox.colorDisable);
@@ -529,7 +525,7 @@ function answerSelection() {
             mouseX < questionBox.translateX + answerBox.x[i] + answerBox.w &&
             mouseY > questionBox.translateY + answerBox.y[i] &&
             mouseY < questionBox.translateY + answerBox.y[i] + answerBox.h) {
-            setScore(i);
+            setScore(answerText.answer[i], i);
         }
     }
     if (mouseX > questionBox.translateX + questionText.image.maskIconX &&
@@ -560,7 +556,7 @@ function setQuestion(topicId) {
     startTime.start = millis();
 
     questionText.image.hide = false;
-    setTimeout(function(){
+    setTimeout(function () {
         questionText.image.hide = true;
     }, 1500);
 }
@@ -573,14 +569,17 @@ function shuffleArray(array) {
     return array;
 }
 
-function setScore(i) {
-    if (answerText.answer[i]) rightAnswers++;
-    else wrongAnswers++;
-    selectedAnswer = i;
-    answerSound(answerText.answer[i]);
+function setScore(result, id) {
+    if (result) score.right++;
+    else score.wrong++;
+    selectedAnswer = id;
+    answerSound(result);
+    playStageChange = true;
+    updateScore();
 
     setTimeout(() => {
         playStage = 2;
+        playStageChange = false;
         goToObject(content.roulette);
         rouletteBlock = true;
         selectedAnswer = null;
