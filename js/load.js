@@ -135,7 +135,7 @@ function loadScreen() { // Loading Screen
 
     image(loadingImg, loadingBackground.x, loadingBackground.y, loadingBackground.w, loadingBackground.h);
 
-    if (loadPercentage < 1 - 0.0015 && totalAssets == loadCount)
+    if (loadPercentage < 1 - 0.0015 && !(totalAssets == loadCount))
         loadPercentage = lerp(loadPercentage, loadCount / totalAssets, loadCount * 0.015);
     else {
         loadPercentage = 1;
