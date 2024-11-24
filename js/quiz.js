@@ -529,10 +529,11 @@ function getTextHeight(data) {
 
 function answerSelection() {
     for (let i = 0; i < 4; i++) {
-        if (mouseX > questionBox.translateX + answerBox.x[i] &&
+        if (((!questionText.image.mobile && questionText.image.hide) || questionText.image.mobile) &&
+            mouseX > questionBox.translateX + answerBox.x[i] &&
             mouseX < questionBox.translateX + answerBox.x[i] + answerBox.w &&
             mouseY > questionBox.translateY + answerBox.y[i] &&
-            mouseY < questionBox.translateY + answerBox.y[i] + answerBox.h) {
+            mouseY < questionBox.translateY + answerBox.y[i] + answerBox.h && !selectedAnswer) {
             setScore(answerText.answer[i], i);
         }
     }
@@ -586,7 +587,7 @@ function setScore(result, id) {
     updateScore();
 
     setTimeout(() => {
-        if (score.right + score.wrong == score.total) {
+        if (score.right + score.wrong >= score.total) {
             playStage = 1;
             mapPosition();
         } else {
