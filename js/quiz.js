@@ -577,7 +577,7 @@ function setScore(result, id) {
     updateScore();
 
     setTimeout(() => {
-        if (true) {
+        if (score.right + score.wrong == score.total) {
             playStage = 1;
             mapPosition();
         } else {
