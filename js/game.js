@@ -115,7 +115,7 @@ function drawContent() { // Draw all map and assets content
     imageMode(CENTER);
 
     if (playStage == 1) {
-        textFont(habitas_bold);
+        textFont(content.HabitasBold.d);
         drawButton(classsicDifficulty.text, classsicDifficulty.y,
             classsicDifficulty.w, classsicDifficulty.h,
             classsicDifficulty.radius, classsicDifficulty.translateX, classsicDifficulty.translateY,
@@ -133,7 +133,7 @@ function drawContent() { // Draw all map and assets content
             if (difficulty == 1) drawTimer();
         }
         // Score
-        textFont(habitas_bold);
+        textFont(content.HabitasBold.d);
         drawButton(score.text, score.y, score.w, score.h, score.radius, score.translateX, score.translateY, score.textSize);
         // Info
         drawIcon(content.infoButton.d,
@@ -273,7 +273,7 @@ function updateTimer() {
     // Timer
     startTime.textSize = max(min(35, (width / 1920) * 35), 20);
     startTime.radius = max(min(50, (width / 1920) * 50), 25);
-    startTime.marginW = max(min(25, (width / 1920) * 25), 15);
+    startTime.marginW = max(min(30, (width / 1920) * 30), 20);
     startTime.marginH = max(min(15, (width / 1920) * 15), 10);
 
     textSize(startTime.textSize);
@@ -286,13 +286,13 @@ function updateTimer() {
 }
 
 function updateScore() {
-    textFont(habitas_bold);
+    textFont(content.HabitasBold.d);
     // Score
     score.text = "PONTUAÇÃO: " + score.right + "/" + score.total;
 
     score.textSize = max(min(35, (width / 1920) * 35), 20);
     score.radius = max(min(50, (width / 1920) * 50), 25);
-    score.marginW = max(min(25, (width / 1920) * 25), 15);
+    score.marginW = max(min(30, (width / 1920) * 30), 20);
     score.marginH = max(min(15, (width / 1920) * 15), 10);
 
     textSize(score.textSize);
@@ -321,11 +321,11 @@ function updateButtons() {
 }
 
 function updateDifficultyButtons() {
-    textFont(habitas_bold);
+    textFont(content.HabitasBold.d);
     // Classic
     classsicDifficulty.textSize = max(min(50, (width / 1920) * 50), 35);
     classsicDifficulty.radius = max(min(50, (width / 1920) * 50), 25);
-    classsicDifficulty.marginW = max(min(20, (width / 1920) * 20), 15);
+    classsicDifficulty.marginW = max(min(30, (width / 1920) * 30), 20);
     classsicDifficulty.marginH = max(min(15, (width / 1920) * 15), 10);
 
     textSize(classsicDifficulty.textSize);
@@ -339,7 +339,7 @@ function updateDifficultyButtons() {
         classsicDifficulty.translateY = height / 2;
     } else {
         classsicDifficulty.translateX = width / 2;
-        classsicDifficulty.translateY = height / 2 - classsicDifficulty.h/2 - classsicDifficulty.marginW;
+        classsicDifficulty.translateY = height / 2 - classsicDifficulty.h / 2 - classsicDifficulty.marginW;
     }
 
     //Challenge
@@ -359,7 +359,7 @@ function updateDifficultyButtons() {
         challengeDifficulty.translateY = height / 2;
     } else {
         challengeDifficulty.translateX = width / 2;
-        challengeDifficulty.translateY = height / 2 + classsicDifficulty.h/2 + classsicDifficulty.marginW;
+        challengeDifficulty.translateY = height / 2 + classsicDifficulty.h / 2 + classsicDifficulty.marginW;
     }
 }
 
@@ -367,5 +367,7 @@ function goBack() {
     if (playStage >= 2) {
         playStage = 1;
         goToObject(menuPosition, false, bootZoom);
+        isSpinning = false;
+        rouletteAngle = rouletteAngle % TWO_PI;
     }
 }

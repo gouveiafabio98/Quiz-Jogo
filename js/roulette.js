@@ -38,10 +38,10 @@ async function setRoulette() {
     rouletteGraphic.image(content.roulette.d, 0, 0);
 
     rouletteGraphic.fill(255);
-    rouletteGraphic.textFont(mainFont);
+    rouletteGraphic.textFont(content.Antom.d);
     rouletteGraphic.textAlign(CENTER, BASELINE);
     rouletteGraphic.textSize(16 * (w / 300));
-    rouletteGraphic.textLeading(rouletteGraphic.textSize() * 0.8);
+    rouletteGraphic.textLeading(rouletteGraphic.textSize());
 
     for (let i = 0; i < numSections; i++) {
         // Calculate the angle for each section

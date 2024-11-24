@@ -59,7 +59,8 @@ let topicBox = {
     w: 0,
     h: 0,
     radius: 0,
-    margin: 0,
+    marginW: 0,
+    marginH: 0,
     color: null
 };
 
@@ -144,7 +145,6 @@ let countdownTime = 30;
 
 function drawQuestion() {
     // Text Settings
-    textFont(mainFont);
     rectMode(CORNER);
     textAlign(LEFT, BASELINE);
 
@@ -166,17 +166,19 @@ function drawQuestion() {
     rect(topicBox.x, topicBox.y, topicBox.w, topicBox.h, topicBox.radius);
 
     // Question Text
+    textFont(content.HabitasBold.d);
     fill(questionText.color);
     textSize(questionText.textSize);
     textLeading(questionText.textLeading);
     text(questionText.text, questionText.x, questionText.y, questionText.w);
 
     // Topic Text
+    textFont(content.HabitasBold.d);
     fill(topicText.color);
     textSize(topicText.textSize);
     textLeading(topicText.textLeading);
     textAlign(CENTER, CENTER);
-    text(topicText.text, topicText.x, topicText.y, topicBox.w, topicBox.h - topicText.textLeading / 2);
+    text(topicText.text, topicText.x, topicText.y, topicBox.w, topicBox.h - topicText.textLeading / 3);
 
     // Answer Box
     for (let i = 0; i < 4; i++) {
@@ -217,21 +219,23 @@ function drawQuestion() {
         rect(0, 0, answerBox.h, answerBox.h, answerBox.radius);
 
         // Answer Topic Text
+        textFont(content.HabitasBold.d);
         fill(answerTopicText.color);
         textAlign(CENTER, CENTER);
         textSize(answerTopicText.textSize);
         textLeading(answerTopicText.textLeading);
         text(answerTopicText.text[i], 0, 0,
-            answerTopicText.w, answerTopicText.h - textSize() / 2
+            answerTopicText.w, answerTopicText.h - answerTopicText.textLeading / 2
         );
 
         // Answer Text
+        textFont(content.HabitasMedium.d);
         fill(answerText.color);
         textAlign(LEFT, CENTER);
         textSize(answerText.textSize);
         textLeading(answerText.textLeading);
         text(answerText.text[i], answerText.x, 0,
-            answerText.w, answerText.h - textSize() / 2
+            answerText.w, answerText.h - answerText.textLeading / 2
         );
 
         pop();
@@ -260,6 +264,7 @@ function drawQuestion() {
                 textSize(topicText.textSize);
                 textLeading(topicText.textLeading);
                 fill(questionBox.color);
+                textFont(content.HabitasBold.d);
                 text("X", questionText.image.maskIconX, questionText.image.maskIconY,
                     questionText.image.maskIconW, questionText.image.maskIconH - topicText.textLeading / 2);
             }
@@ -299,6 +304,7 @@ async function updateQuestion() {
     }
 
     // Question Text
+    textFont(content.HabitasBold.d);
     questionText.color = color("#6DB671");
     questionText.w = questionBox.w - questionBox.margin * 4;
     questionText.textSize = max(min(50, (width / 1920) * 50), 25);
@@ -306,6 +312,7 @@ async function updateQuestion() {
     questionText.h = getTextHeight(questionText);
 
     // Topic Text
+    textFont(content.HabitasBold.d);
     topicText.color = color("#F7EDDC");
     topicText.textSize = max(min(50, (width / 1920) * 50), 25);
     topicText.textLeading = topicText.textSize * 1;
@@ -316,9 +323,10 @@ async function updateQuestion() {
 
     // Topic Box
     topicBox.radius = max(min(50, (width / 1920) * 50), 25);
-    topicBox.margin = max(min(25, (width / 1920) * 25), 15);
-    topicBox.w = topicText.w + topicBox.margin * 2;
-    topicBox.h = topicText.h + topicBox.margin * 2;
+    topicBox.marginW = max(min(35, (width / 1920) * 35), 25);
+    topicBox.marginH = max(min(25, (width / 1920) * 25), 15);
+    topicBox.w = topicText.w + topicBox.marginW * 2;
+    topicBox.h = topicText.h + topicBox.marginH * 2;
 
     // Question Box
     questionBox.x = -questionBox.w / 2;
@@ -332,7 +340,7 @@ async function updateQuestion() {
 
     // Topic Box
     topicBox.x = questionBox.x;
-    topicBox.y = questionBox.y - topicBox.h + topicBox.margin;
+    topicBox.y = questionBox.y - topicBox.h + topicBox.marginW;
 
     // Topic Text
     topicText.x = topicBox.x;
@@ -390,6 +398,7 @@ async function updateQuestion() {
     }
 
     // Answer Topic Text
+    textFont(content.HabitasBold.d);
     textSize(answerTopicText.textSize);
     textLeading(answerTopicText.textLeading);
     answerTopicText.w = answerBox.h;
@@ -400,6 +409,7 @@ async function updateQuestion() {
     answerTopicText.y = answerBox.y;
 
     // Answer Text
+    textFont(content.HabitasMedium.d);
     answerText.color = color("#F7EDDC");
     answerText.textSize = max(min(25, (width / 1920) * 25), 15);
     answerText.textLeading = answerText.textSize * 1;
@@ -496,7 +506,6 @@ function getTextHeight(data) {
     let txt = data.text;
     let w = data.w;
 
-    textFont(mainFont);
     textAlign(LEFT, BASELINE);
     textSize(data.textSize);
     textLeading(data.textLeading);

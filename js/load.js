@@ -9,8 +9,6 @@ let mainFont;
 let loadingImg;
 let loadingWheel;
 
-let habitas_semiBold, habitas_bold, habitas_light;
-
 // Load Content
 let totalAssets;
 let content = {
@@ -86,6 +84,26 @@ let content = {
         w: 0,
         h: 0,
         margin: 0
+    }, Antom: {
+        src: "data/fonts/Anton-Regular.ttf",
+        type: 'TTF',
+        d: null
+    }, HabitasMedium: {
+        src: "data/fonts/Habitas-Medium.otf",
+        type: 'OTF',
+        d: null
+    }, HabitasBold: {
+        src: "data/fonts/Habitas-Bold.otf",
+        type: 'OTF',
+        d: null
+    }, HabitasLight: {
+        src: "data/fonts/Habitas-Light.otf",
+        type: 'OTF',
+        d: null
+    }, HabitasSemibold: {
+        src: "data/fonts/Habitas-Semibold.otf",
+        type: 'OTF',
+        d: null
     }
 };
 
@@ -109,10 +127,9 @@ let loadingTextSize = {
 };
 
 function preload() { // Preload Content
-    mainFont = loadFont('data/fonts/HubotSans_Condensed-ExtraBold.ttf');
-    habitas_semiBold = loadFont('data/fonts/Habitas-Semibold.otf');
-    habitas_bold = loadFont('data/fonts/Habitas-Bold.otf');
-    habitas_light = loadFont('data/fonts/Habitas-Light.otf');
+    content.HabitasBold.d = loadFont(content.HabitasBold.src);
+    content.HabitasSemibold.d = loadFont(content.HabitasSemibold.src);
+    content.HabitasLight.d = loadFont(content.HabitasLight.src);
 
     loadingImg = loadImage('data/loadingScreen.png');
     loadingWheel = loadImage('data/wheelLoad.png');
@@ -122,7 +139,6 @@ function preload() { // Preload Content
 function setup() { // Setup Content
     createCanvas(windowWidth, windowHeight);
 
-    textFont(mainFont);
     loadContent();
     scaleResize(windowWidth, windowHeight);
 
@@ -165,13 +181,13 @@ function loadScreen() { // Loading Screen
     pop();
 
     fill(255);
-    textFont(habitas_semiBold);
+    textFont(content.HabitasSemibold.d);
     textSize(loadingTextSize.lv1);
     text("JOGO", 0, 0);
-    textFont(habitas_bold);
+    textFont(content.HabitasBold.d);
     textSize(loadingTextSize.lv2);
     text("GeoAtlântico", 0, loadingTextSize.lv1 / 2 + loadingTextSize.lv2 / 2);
-    textFont(habitas_light);
+    textFont(content.HabitasLight.d);
     textSize(loadingTextSize.lv3);
     text("Rotas do Património", 0, loadingTextSize.lv1 * 2 + loadingTextSize.lv2 / 2);
 
@@ -182,7 +198,7 @@ function loadScreen() { // Loading Screen
     pop();
     
     if(loadPercentage == 1) {
-        textFont(habitas_bold);
+        textFont(content.HabitasBold.d);
         drawButton(startButton.text, startButton.y,
             startButton.w, startButton.h,
             startButton.radius, startButton.translateX, startButton.translateY,
@@ -200,6 +216,8 @@ function loadContent() {
             content[key].d = loadJSON(content[key].src, assetLoaded);
         } else if (content[key].type === 'WAV' || content[key].type === 'MP3') {
             content[key].d = loadSound(content[key].src, assetLoaded);
+        } else if (content[key].type === 'TTF' || content[key].type === 'OTF') {
+            content[key].d = loadFont(content[key].src, assetLoaded);
         }
     }
     for (let key in quizImages) {
@@ -207,8 +225,10 @@ function loadContent() {
             quizImages[key].d = loadImage(quizImages[key].src, assetLoaded);
         } else if (quizImages[key].type === 'JSON') {
             quizImages[key].d = loadJSON(quizImages[key].src, assetLoaded);
-        } else if (quizImages[key].type === 'WAV' || content[key].type === 'MP3') {
+        } else if (quizImages[key].type === 'WAV' || quizImages[key].type === 'MP3') {
             quizImages[key].d = loadSound(quizImages[key].src, assetLoaded);
+        } else if (quizImages[key].type === 'TTF' || quizImages[key].type === 'OTF') {
+            quizImages[key].d = loadFont(quizImages[key].src, assetLoaded);
         }
     }
     loadTiles(); // Function to Load the Pre-Tiled Map
@@ -219,7 +239,6 @@ async function assetLoaded() { // Called for each successful load
     if (totalAssets == loadCount) {
         await setData();
         await setRoulette();
-        await updateQuestion();
         finishLoad = true;
     }
 }
@@ -273,10 +292,10 @@ function updateLoading() {
     // Start Button
     startButton.textSize = max(min(50, (width / 1920) * 50), 35);
     startButton.radius = max(min(50, (width / 1920) * 50), 25);
-    startButton.marginW = max(min(20, (width / 1920) * 20), 15);
+    startButton.marginW = max(min(35, (width / 1920) * 35), 25);
     startButton.marginH = max(min(15, (width / 1920) * 15), 10);
 
-    textFont(habitas_bold);
+    textFont(content.HabitasBold.d);
     textSize(startButton.textSize);
     startButton.w = textWidth(startButton.text) + startButton.marginW * 2;
     startButton.h = startButton.textSize + startButton.marginH * 2;
