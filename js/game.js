@@ -334,9 +334,14 @@ function updateDifficultyButtons() {
     classsicDifficulty.h = classsicDifficulty.textSize + classsicDifficulty.marginH * 2;
     classsicDifficulty.y = -classsicDifficulty.h / 10;
 
-    classsicDifficulty.translateX = max(classsicDifficulty.marginW + classsicDifficulty.w / 2,
-        width / 2 - classsicDifficulty.marginW * 3 - classsicDifficulty.w / 2);
-    classsicDifficulty.translateY = height / 2;
+    if (width > height) {
+        classsicDifficulty.translateX = max(classsicDifficulty.marginW + classsicDifficulty.w / 2,
+            width / 2 - classsicDifficulty.marginW * 3 - classsicDifficulty.w / 2);
+        classsicDifficulty.translateY = height / 2;
+    } else {
+        classsicDifficulty.translateX = width / 2;
+        classsicDifficulty.translateY = height / 2 - classsicDifficulty.h/2 - classsicDifficulty.marginW;
+    }
 
     //Challenge
     challengeDifficulty.textSize = max(min(50, (width / 1920) * 50), 35);
@@ -349,9 +354,14 @@ function updateDifficultyButtons() {
     challengeDifficulty.h = challengeDifficulty.textSize + challengeDifficulty.marginH * 2;
     challengeDifficulty.y = -challengeDifficulty.h / 10;
 
-    challengeDifficulty.translateX = min(width - challengeDifficulty.w/2 - challengeDifficulty.marginW,
-        width / 2 + challengeDifficulty.marginW * 3 + challengeDifficulty.w / 2);
-    challengeDifficulty.translateY = height / 2;
+    if (width > height) {
+        challengeDifficulty.translateX = min(width - challengeDifficulty.w / 2 - challengeDifficulty.marginW,
+            width / 2 + challengeDifficulty.marginW * 3 + challengeDifficulty.w / 2);
+        challengeDifficulty.translateY = height / 2;
+    } else {
+        challengeDifficulty.translateX = width / 2;
+        challengeDifficulty.translateY = height / 2 + classsicDifficulty.h/2 + classsicDifficulty.marginW;
+    }
 }
 
 function goBack() {

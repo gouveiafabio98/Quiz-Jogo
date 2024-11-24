@@ -267,7 +267,7 @@ function mapPosition() {
 function updateLoading() {
     // Text Size
     loadingTextSize.lv1 = max(min(40, (width / 1920) * 40), 30);
-    loadingTextSize.lv2 = max(min(70, (width / 1920) * 70), 65);
+    loadingTextSize.lv2 = max(min(70, (width / 1920) * 70), 45);
     loadingTextSize.lv3 = max(min(35, (width / 1920) * 35), 25);
 
     // Start Button
