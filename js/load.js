@@ -93,6 +93,7 @@ let content = {
 let loadCount = 0;
 let loadPercentage = 0;
 let loadOuterBar, loadInnerBar, displayInnerBar;
+let finishLoad = false;
 
 let loadingBackground = {
     w: 0,
@@ -135,7 +136,7 @@ function loadScreen() { // Loading Screen
 
     image(loadingImg, loadingBackground.x, loadingBackground.y, loadingBackground.w, loadingBackground.h);
 
-    if (loadPercentage < 1 - 0.0015 && !(totalAssets == loadCount))
+    if (loadPercentage < 1 - 0.0015 && !(totalAssets == loadCount) && !finishLoad)
         loadPercentage = lerp(loadPercentage, loadCount / totalAssets, loadCount * 0.015);
     else {
         loadPercentage = 1;
@@ -213,12 +214,13 @@ function loadContent() {
     loadTiles(); // Function to Load the Pre-Tiled Map
 }
 
-function assetLoaded() { // Called for each successful load 
+async function assetLoaded() { // Called for each successful load 
     loadCount++;
     if (totalAssets == loadCount) {
-        setData();
-        setRoulette();
-        updateQuestion();
+        await setData();
+        await setRoulette();
+        await updateQuestion();
+        finishLoad = true;
     }
 }
 
@@ -231,7 +233,7 @@ function loadTiles() { // Function to Load the Pre-Tiled Map
     }
 }
 
-function setData() {
+async function setData() {
     quizTopics = content.quizData.d.topics.map(topic => topic.topicName);
     numSections = quizTopics.length;
     anglePerSection = TWO_PI / numSections;

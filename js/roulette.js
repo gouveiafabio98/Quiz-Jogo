@@ -30,7 +30,7 @@ function drawRoulette() {
     pop();
 }
 
-function setRoulette() {
+async function setRoulette() {
     let w = content.roulette.w;
     let h = content.roulette.h;
 

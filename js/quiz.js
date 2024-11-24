@@ -273,7 +273,7 @@ function drawQuestion() {
     pop();
 }
 
-function updateQuestion() {
+async function updateQuestion() {
     let imageQuestion = questionText.image.display;
     questionText.image.mobile = (width > height);
 
