@@ -170,8 +170,8 @@ function loadScreen() { // Loading Screen
     displayInnerBar.mask(loadOuterBar);
 
     push();
-    translate(0, -180);
-    scale(.5);
+    translate(0, -loadingWheel.height / 2 * outZoom - loadingTextSize.lv1 / 2);
+    scale(outZoom);
     image(content.mill.d, -content.mill.d.width / 2, -content.mill.d.height / 2);
     push();
     translate(0, -110);
@@ -196,8 +196,8 @@ function loadScreen() { // Loading Screen
         image(displayInnerBar, - loadInnerBar.width / 2, loadingTextSize.lv1 * 2 + loadingTextSize.lv2 / 2 + loadingTextSize.lv3 * 2);
     }
     pop();
-    
-    if(loadPercentage == 1) {
+
+    if (loadPercentage == 1) {
         textFont(content.HabitasBold.d);
         drawButton(startButton.text, startButton.y,
             startButton.w, startButton.h,
@@ -301,8 +301,8 @@ function updateLoading() {
     startButton.h = startButton.textSize + startButton.marginH * 2;
     startButton.y = -startButton.h / 10;
 
-    startButton.translateX = width/2;
-    startButton.translateY = height/2 + loadingTextSize.lv1 * 2 + loadingTextSize.lv2 / 2 + loadingTextSize.lv3 * 2 + startButton.h / 2;
+    startButton.translateX = width / 2;
+    startButton.translateY = height / 2 + loadingTextSize.lv1 * 2 + loadingTextSize.lv2 / 2 + loadingTextSize.lv3 * 2 + startButton.h / 2;
 
     // Loading Bar
     let screenRatio = width / height;
@@ -335,6 +335,13 @@ function updateLoading() {
     loadOuterBar.fill('#f3edb8');
     loadOuterBar.noStroke();
     loadOuterBar.rect(0, 0, loadOuterBar.width, startButton.h, startButton.h);
+
+    // Loading Scale
+    if (windowWidth > windowHeight) {
+        outZoom = min(0.5, windowWidth * 0.5 / 1920);
+    } else {
+        outZoom = min(0.5, windowHeight * 0.5 / 1000);
+    }
 }
 
 let startButton = {
