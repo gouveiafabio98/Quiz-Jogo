@@ -68,6 +68,7 @@ function mousePressed() {
         mouseY > startButton.translateY - startButton.h / 2 &&
         mouseY < startButton.translateY + startButton.h / 2) {
         playStage = 1;
+        setRoulette();
         content.clickSound.d.play();
     } else if (playStage == 1) {
         // Dificulty
