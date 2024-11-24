@@ -46,7 +46,7 @@ function setRoulette() {
     for (let i = 0; i < numSections; i++) {
         // Calculate the angle for each section
         let angleText = (i * anglePerSection) + anglePerSection / 2 + HALF_PI;
-        
+
         rouletteGraphic.push();
         rouletteGraphic.translate(w / 2, h / 2); // Translate to the center of the graphic
         rouletteGraphic.rotate(angleText); // Rotate to the correct angle for each section
@@ -54,12 +54,24 @@ function setRoulette() {
         rouletteGraphic.text(quizTopics[i].toUpperCase(), 0, 0, w / 4, 100);
         rouletteGraphic.pop();
     }
+    pSpinAngle = 0;
 }
+
+let pSpinAngle = 0;
 
 function updateRoulette() {
     if (isSpinning) {
         rouletteAngle = lerp(rouletteAngle, finalAngle, spinSpeed);
-        if (finalAngle - rouletteAngle < 0.01) {
+        if (finalAngle - rouletteAngle < 0.1) {
+            rouletteAngle = finalAngle;
+        }
+
+        if (rouletteAngle + anglePerSection / 2 - pSpinAngle >= anglePerSection) {
+            content.popSound.d.play();
+            pSpinAngle += anglePerSection;
+        }
+
+        if (finalAngle == rouletteAngle) {
             isSpinning = false;
             rouletteAngle = rouletteAngle % TWO_PI;
 
@@ -98,5 +110,6 @@ function rouletteRotation() {
             finalAngle = TWO_PI * int(random(minRotation, maxRotation)) + random(TWO_PI);
         }
         isSpinning = true;
+        pSpinAngle = 0;
     }
 }

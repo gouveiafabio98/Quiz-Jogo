@@ -315,7 +315,6 @@ function updateQuestion() {
     topicText.h = questionText.textLeading;
 
     // Topic Box
-    //topicBox.color = color("#B25757");
     topicBox.radius = max(min(50, (width / 1920) * 50), 25);
     topicBox.margin = max(min(25, (width / 1920) * 25), 15);
     topicBox.w = topicText.w + topicBox.margin * 2;
@@ -578,15 +577,20 @@ function setScore(result, id) {
     updateScore();
 
     setTimeout(() => {
-        playStage = 2;
+        if (true) {
+            playStage = 1;
+            mapPosition();
+        } else {
+            playStage = 2;
+            goToObject(content.roulette);
+        }
         playStageChange = false;
-        goToObject(content.roulette);
         rouletteBlock = true;
         selectedAnswer = null;
     }, 2500);
 }
 
 function answerSound(answer) {
-    if (answer) content.rightSong.d.play();
-    else content.wrongSong.d.play();
+    if (answer) content.rightSound.d.play();
+    else content.wrongSound.d.play();
 }

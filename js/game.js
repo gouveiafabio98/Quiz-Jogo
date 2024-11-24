@@ -4,9 +4,9 @@ let totalRolls = 12;
 let missingOptions;
 let playStage = 0;
 let playStageChange = false;
-let difficulty = 1; // 0 - Clássico; 1 - Desafio;
+let difficulty = 0; // 0 - Clássico; 1 - Desafio;
 let classsicDifficulty = {
-    text: "Clássico",
+    text: "CLÁSSICO",
     textSize: 0,
     textLeading: 0,
     x: 0,
@@ -20,7 +20,7 @@ let classsicDifficulty = {
 };
 
 let challengeDifficulty = {
-    text: "Desafio",
+    text: "DESAFIO",
     textSize: 0,
     textLeading: 0,
     x: 0,
@@ -34,21 +34,20 @@ let challengeDifficulty = {
 };
 // 0 - Boot; 1 - Difficulty; 2 - Roulette; 3 - Question;
 
+let menuPosition = {
+    x: 6890,
+    y: 4850
+};
+
 let cursorPointer = false;
+
+let timerText;
 
 function draw() {
     cursorPointer = false;
     if (playStage == 0) {
         loadScreen();
-    } else if (playStage == 1) {
-        background(255, 0, 0);
-        drawButton(classsicDifficulty.text, classsicDifficulty.y,
-            classsicDifficulty.w, classsicDifficulty.h,
-            classsicDifficulty.radius, classsicDifficulty.translateX, classsicDifficulty.translateY, classsicDifficulty.textSize);
-        drawButton(challengeDifficulty.text, challengeDifficulty.y,
-            challengeDifficulty.w, challengeDifficulty.h,
-            challengeDifficulty.radius, challengeDifficulty.translateX, challengeDifficulty.translateY, challengeDifficulty.textSize);
-    } else if (playStage >= 2) {
+    } else {
         updateMapMovement();
         updateRoulette();
 
@@ -62,21 +61,44 @@ function draw() {
     }
 }
 
-function keyPressed() {
-    if (key === ' ') {
-        goToObject(content.roulette);
-    }
-}
-
 function mousePressed() {
-    if (playStage == 0 && loadPercentage == 1) {
+    if (playStage == 0 && loadPercentage == 1 &&
+        mouseX > startButton.translateX - startButton.w / 2 &&
+        mouseX < startButton.translateX + startButton.w / 2 &&
+        mouseY > startButton.translateY - startButton.h / 2 &&
+        mouseY < startButton.translateY + startButton.h / 2) {
         playStage = 1;
-        //newGame();
+        content.clickSound.d.play();
+    } else if (playStage == 1) {
+        // Dificulty
+        if (mouseX > classsicDifficulty.translateX - classsicDifficulty.w / 2 &&
+            mouseX < classsicDifficulty.translateX + classsicDifficulty.w / 2 &&
+            mouseY > classsicDifficulty.translateY - classsicDifficulty.h / 2 &&
+            mouseY < classsicDifficulty.translateY + classsicDifficulty.h / 2) {
+            newGame(0);
+            content.clickSound.d.play();
+        } else if (mouseX > challengeDifficulty.translateX - challengeDifficulty.w / 2 &&
+            mouseX < challengeDifficulty.translateX + challengeDifficulty.w / 2 &&
+            mouseY > challengeDifficulty.translateY - challengeDifficulty.h / 2 &&
+            mouseY < challengeDifficulty.translateY + challengeDifficulty.h / 2) {
+            newGame(1);
+            content.clickSound.d.play();
+        }
     } else if (playStage == 2 && rouletteBlock &&
+        // Spin Roulette
         dist(mouseX, mouseY, content.spinButton.x - offsetX, content.spinButton.y - offsetY) < content.spinButton.d.width / 2 * currentZoom) {
         rouletteRotation();
         rouletteBlock = false;
     } else if (playStage == 3) answerSelection();
+
+    if (playStage >= 2 &&
+        mouseX > content.backButton.x - content.backButton.w / 2 &&
+        mouseX < content.backButton.x + content.backButton.w / 2 &&
+        mouseY > content.backButton.y - content.backButton.h / 2 &&
+        mouseY < content.backButton.y + content.backButton.h / 2) {
+        goBack();
+        content.clickSound.d.play();
+    }
 }
 
 function drawContent() { // Draw all map and assets content
@@ -89,40 +111,53 @@ function drawContent() { // Draw all map and assets content
 
     drawObject(content.mill);
     drawRoulette();
-    drawObject(content.pointer);
-    drawObject(content.spinButton, rouletteBlock);
 
     imageMode(CENTER);
 
-    if (playStage == 3) {
-        drawQuestion();
-        // Timer
-        if (difficulty == 1) drawTimer();
+    if (playStage == 1) {
+        textFont(habitas_bold);
+        drawButton(classsicDifficulty.text, classsicDifficulty.y,
+            classsicDifficulty.w, classsicDifficulty.h,
+            classsicDifficulty.radius, classsicDifficulty.translateX, classsicDifficulty.translateY,
+            classsicDifficulty.textSize, "#4DA0C1", true);
+        drawButton(challengeDifficulty.text, challengeDifficulty.y,
+            challengeDifficulty.w, challengeDifficulty.h,
+            challengeDifficulty.radius, challengeDifficulty.translateX, challengeDifficulty.translateY,
+            challengeDifficulty.textSize, "#B25757", true);
+    } else if (playStage >= 2) {
+        drawObject(content.pointer);
+        drawObject(content.spinButton, rouletteBlock);
+        if (playStage == 3) {
+            drawQuestion();
+            // Timer
+            if (difficulty == 1) drawTimer();
+        }
+        // Score
+        textFont(habitas_bold);
+        drawButton(score.text, score.y, score.w, score.h, score.radius, score.translateX, score.translateY, score.textSize);
+        // Info
+        drawIcon(content.infoButton.d,
+            content.infoButton.w, content.infoButton.h,
+            content.infoButton.x, content.infoButton.y,
+            "#589359", true);
+        // Back
+        drawIcon(content.backButton.d,
+            content.backButton.w, content.backButton.h,
+            content.backButton.x, content.backButton.y,
+            "#589359", true);
     }
-    // Score
-    drawButton(score.text, score.y, score.w, score.h, score.radius, score.translateX, score.translateY, score.textSize);
-    // Info
-    drawIcon(content.infoButton.d,
-        content.infoButton.w, content.infoButton.h,
-        content.infoButton.x, content.infoButton.y,
-        "#589359");
-    // Back
-    drawIcon(content.backButton.d,
-        content.backButton.w, content.backButton.h,
-        content.backButton.x, content.backButton.y,
-        "#589359");
 }
 
-function newGame() {
+function newGame(dif) {
+    difficulty = dif;
     nRolls = 0;
     rouletteBlock = true;
     missingOptions = [...quizTopics];
     playStage = 2;
-    rightAnswers = 0;
-    wrongAnswers = 0;
-    currentZoom = bootZoom;
-    targetZoom = inZoom;
+    score.right = 0;
+    score.wrong = 0;
     currentPanSpeed = bootSpeed;
+    mapPosition();
 }
 
 function windowResized() {
@@ -150,17 +185,22 @@ function scaleResize(windowWidth, windowHeight) {
         inZoom = min(1, windowHeight / 1500);
         outZoom = min(0.5, windowHeight * 0.5 / 1500);
     }
-
-    targetZoom = inZoom;
 }
 
-function drawButton(txt, y, w, h, radius, tX, tY, txtSize, color = "#589359") {
+function drawButton(txt, y, w, h, radius, tX, tY, txtSize, color = "#589359", interact = false) {
     textAlign(CENTER, CENTER);
     rectMode(CENTER);
     textSize(txtSize);
 
     push();
     translate(tX, tY);
+
+    if (interact &&
+        mouseX > tX - w / 2 && mouseX < tX + w / 2 &&
+        mouseY > tY - h / 2 && mouseY < tY + h / 2) {
+        cursorPointer = true;
+        scale(1.05);
+    }
 
     noStroke();
     fill(color);
@@ -181,7 +221,7 @@ function drawTimer() {
     let displayMinutes = nf(minutes, 2);
     let displaySeconds = nf(seconds, 2);
 
-    let timerText = displayMinutes + ":" + displaySeconds;
+    if (!playStageChange) timerText = displayMinutes + ":" + displaySeconds;
 
     textAlign(CENTER, CENTER);
     rectMode(CENTER);
@@ -189,18 +229,33 @@ function drawTimer() {
     textSize(startTime.textSize);
     textLeading(startTime.textLeading);
 
-    drawButton(timerText, startTime.y, startTime.w, startTime.h, startTime.radius, startTime.translateX, startTime.translateY, startTime.textSize, color = "#589359")
+    let txtColor;
+    if (remainingTime % 60 > 10) txtColor = "#589359";
+    else txtColor = "#B25757";
+
+    drawButton(timerText, startTime.y, startTime.w, startTime.h, startTime.radius, startTime.translateX, startTime.translateY, startTime.textSize, txtColor)
 
     if (remainingTime < 0 && !playStageChange) setScore(false, -1);
 }
 
-function drawIcon(img, w, h, x, y, color) {
+function drawIcon(img, w, h, x, y, color, interact = false) {
     imageMode(CENTER);
     rectMode(CENTER);
     noStroke();
     fill(color);
-    ellipse(x, y, w, h);
-    image(img, x, y, w, h);
+
+    push();
+    translate(x, y);
+    if (interact &&
+        mouseX > x - w / 2 && mouseX < x + w / 2 &&
+        mouseY > y - h / 2 && mouseY < y + h / 2) {
+        cursorPointer = true;
+        scale(1.05);
+    }
+
+    ellipse(0, 0, w, h);
+    image(img, 0, 0, w, h);
+    pop();
 }
 
 function updateElements() {
@@ -216,33 +271,34 @@ function updateElements() {
 
 function updateTimer() {
     // Timer
-    startTime.textSize = max(min(50, (width / 1920) * 50), 25);
+    startTime.textSize = max(min(35, (width / 1920) * 35), 20);
     startTime.radius = max(min(50, (width / 1920) * 50), 25);
-    startTime.marginW = max(min(20, (width / 1920) * 20), 15);
+    startTime.marginW = max(min(25, (width / 1920) * 25), 15);
     startTime.marginH = max(min(15, (width / 1920) * 15), 10);
 
     textSize(startTime.textSize);
     startTime.w = textWidth("88:88") + startTime.marginW * 2;
     startTime.h = startTime.textSize + startTime.marginH * 2;
-    startTime.y = -startTime.h / 10;
+    startTime.y = -startTime.textSize / 8;
 
     startTime.translateX = width - startTime.marginW - startTime.w / 2;
     startTime.translateY = startTime.marginW + startTime.h / 2;
 }
 
 function updateScore() {
+    textFont(habitas_bold);
     // Score
-    score.text = "Pontuação: " + score.right + "/" + score.total;
+    score.text = "PONTUAÇÃO: " + score.right + "/" + score.total;
 
-    score.textSize = max(min(50, (width / 1920) * 50), 25);
+    score.textSize = max(min(35, (width / 1920) * 35), 20);
     score.radius = max(min(50, (width / 1920) * 50), 25);
-    score.marginW = max(min(20, (width / 1920) * 20), 15);
+    score.marginW = max(min(25, (width / 1920) * 25), 15);
     score.marginH = max(min(15, (width / 1920) * 15), 10);
 
     textSize(score.textSize);
     score.w = textWidth(score.text) + score.marginW * 2;
     score.h = score.textSize + score.marginH * 2;
-    score.y = -score.h / 10;
+    score.y = -score.textSize / 8;
 
     score.translateX = score.marginW + score.w / 2;
     score.translateY = score.marginW + score.h / 2;
@@ -265,8 +321,9 @@ function updateButtons() {
 }
 
 function updateDifficultyButtons() {
+    textFont(habitas_bold);
     // Classic
-    classsicDifficulty.textSize = max(min(50, (width / 1920) * 50), 25);
+    classsicDifficulty.textSize = max(min(50, (width / 1920) * 50), 35);
     classsicDifficulty.radius = max(min(50, (width / 1920) * 50), 25);
     classsicDifficulty.marginW = max(min(20, (width / 1920) * 20), 15);
     classsicDifficulty.marginH = max(min(15, (width / 1920) * 15), 10);
@@ -276,11 +333,12 @@ function updateDifficultyButtons() {
     classsicDifficulty.h = classsicDifficulty.textSize + classsicDifficulty.marginH * 2;
     classsicDifficulty.y = -classsicDifficulty.h / 10;
 
-    classsicDifficulty.translateX = width / 2 - classsicDifficulty.marginW - classsicDifficulty.w/2;
+    classsicDifficulty.translateX = max(classsicDifficulty.marginW + classsicDifficulty.w / 2,
+        width / 2 - classsicDifficulty.marginW * 3 - classsicDifficulty.w / 2);
     classsicDifficulty.translateY = height / 2;
 
     //Challenge
-    challengeDifficulty.textSize = max(min(50, (width / 1920) * 50), 25);
+    challengeDifficulty.textSize = max(min(50, (width / 1920) * 50), 35);
     challengeDifficulty.radius = max(min(50, (width / 1920) * 50), 25);
     challengeDifficulty.marginW = max(min(20, (width / 1920) * 20), 15);
     challengeDifficulty.marginH = max(min(15, (width / 1920) * 15), 10);
@@ -290,34 +348,14 @@ function updateDifficultyButtons() {
     challengeDifficulty.h = challengeDifficulty.textSize + challengeDifficulty.marginH * 2;
     challengeDifficulty.y = -challengeDifficulty.h / 10;
 
-    challengeDifficulty.translateX = width / 2 + challengeDifficulty.marginW + challengeDifficulty.w/2;
+    challengeDifficulty.translateX = min(width - challengeDifficulty.w/2 - challengeDifficulty.marginW,
+        width / 2 + challengeDifficulty.marginW * 3 + challengeDifficulty.w / 2);
     challengeDifficulty.translateY = height / 2;
 }
 
-/*let classsicDifficulty = {
-    text: "Clássico",
-    textSize: 0,
-    textLeading: 0,
-    x: 0,
-    y: 0,
-    w: 0,
-    h: 0,
-    marginW: 0,
-    marginH: 0,
-    radius: 0,
-    color: 255
-};
-
-let challengeDifficulty = {
-    text: "Desafio",
-    textSize: 0,
-    textLeading: 0,
-    x: 0,
-    y: 0,
-    w: 0,
-    h: 0,
-    marginW: 0,
-    marginH: 0,
-    radius: 0,
-    color: 255
-};*/
+function goBack() {
+    if (playStage >= 2) {
+        playStage = 1;
+        goToObject(menuPosition, false, bootZoom);
+    }
+}

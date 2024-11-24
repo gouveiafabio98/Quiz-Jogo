@@ -9,6 +9,8 @@ let mainFont;
 let loadingImg;
 let loadingWheel;
 
+let habitas_semiBold, habitas_bold, habitas_light;
+
 // Load Content
 let totalAssets;
 let content = {
@@ -59,13 +61,21 @@ let content = {
         interaction: false,
         w: 0,
         h: 0
-    }, rightSong: {
-        src: 'data/sound1.wav',
-        type: 'WAV',
+    }, rightSound: {
+        src: 'data/right.mp3',
+        type: 'MP3',
         d: null
-    }, wrongSong: {
-        src: 'data/sound2.wav',
-        type: 'WAV',
+    }, wrongSound: {
+        src: 'data/wrong.mp3',
+        type: 'MP3',
+        d: null
+    }, clickSound: {
+        src: 'data/click.mp3',
+        type: 'MP3',
+        d: null
+    }, popSound: {
+        src: 'data/pop.mp3',
+        type: 'MP3',
         d: null
     }, backButton: {
         src: 'data/backButton.png',
@@ -89,10 +99,20 @@ let loadingBackground = {
     h: 0,
     x: 0,
     y: 0,
-}
+};
+
+let loadingTextSize = {
+    lv1: 0,
+    lv2: 0,
+    lv3: 0
+};
 
 function preload() { // Preload Content
     mainFont = loadFont('data/fonts/HubotSans_Condensed-ExtraBold.ttf');
+    habitas_semiBold = loadFont('data/fonts/Habitas-Semibold.otf');
+    habitas_bold = loadFont('data/fonts/Habitas-Bold.otf');
+    habitas_light = loadFont('data/fonts/Habitas-Light.otf');
+
     loadingImg = loadImage('data/loadingScreen.png');
     loadingWheel = loadImage('data/wheelLoad.png');
     content.mill.d = loadImage(content.mill.src);
@@ -115,37 +135,58 @@ function loadScreen() { // Loading Screen
 
     image(loadingImg, loadingBackground.x, loadingBackground.y, loadingBackground.w, loadingBackground.h);
 
-    if (loadPercentage < 1 - 0.01)
-        loadPercentage = lerp(loadPercentage, loadCount / totalAssets, loadCount * 0.005);
+    if (loadPercentage < 1 - 0.0015)
+        loadPercentage = lerp(loadPercentage, loadCount / totalAssets, loadCount * 0.015);
     else {
         loadPercentage = 1;
     }
 
     push();
-    translate(width/2, height/2);
-    text("Jogo", 0, 0);
-    text("GeoAtlântico", 0, 40);
-    text("Rotas do Património", 0, 80);
+    translate(width / 2, height / 2);
 
     loadInnerBar.clear();
     loadInnerBar.fill('#bcdfe1');
     loadInnerBar.noStroke();
-    loadInnerBar.rect(0, 0, width / 3 * loadPercentage, 50, 50);
+    loadInnerBar.rect(0, 0, loadInnerBar.width * loadPercentage, startButton.h, startButton.h);
 
     displayInnerBar = loadInnerBar.get();
     displayInnerBar.mask(loadOuterBar);
-    
-
-    image(content.mill.d, -content.mill.d.width/2, -content.mill.d.height/2);
 
     push();
-    rotate(loadPercentage*TWO_PI*4);
-    image(loadingWheel, -loadingWheel.width/2, -loadingWheel.height/2);
+    translate(0, -180);
+    scale(.5);
+    image(content.mill.d, -content.mill.d.width / 2, -content.mill.d.height / 2);
+    push();
+    translate(0, -110);
+    rotate(loadPercentage * TWO_PI * 4);
+    image(loadingWheel, -loadingWheel.width / 2, -loadingWheel.height / 2);
+    pop();
     pop();
 
-    image(loadOuterBar, - loadOuterBar.width / 2, 160);
-    image(displayInnerBar, - loadInnerBar.width / 2, 160);
+    fill(255);
+    textFont(habitas_semiBold);
+    textSize(loadingTextSize.lv1);
+    text("JOGO", 0, 0);
+    textFont(habitas_bold);
+    textSize(loadingTextSize.lv2);
+    text("GeoAtlântico", 0, loadingTextSize.lv1 / 2 + loadingTextSize.lv2 / 2);
+    textFont(habitas_light);
+    textSize(loadingTextSize.lv3);
+    text("Rotas do Património", 0, loadingTextSize.lv1 * 2 + loadingTextSize.lv2 / 2);
+
+    if (loadPercentage != 1) {
+        image(loadOuterBar, - loadOuterBar.width / 2, loadingTextSize.lv1 * 2 + loadingTextSize.lv2 / 2 + loadingTextSize.lv3 * 2);
+        image(displayInnerBar, - loadInnerBar.width / 2, loadingTextSize.lv1 * 2 + loadingTextSize.lv2 / 2 + loadingTextSize.lv3 * 2);
+    }
     pop();
+    
+    if(loadPercentage == 1) {
+        textFont(habitas_bold);
+        drawButton(startButton.text, startButton.y,
+            startButton.w, startButton.h,
+            startButton.radius, startButton.translateX, startButton.translateY,
+            startButton.textSize, "#589359", true);
+    }
 }
 
 function loadContent() {
@@ -156,7 +197,7 @@ function loadContent() {
             content[key].d = loadImage(content[key].src, assetLoaded);
         } else if (content[key].type === 'JSON') {
             content[key].d = loadJSON(content[key].src, assetLoaded);
-        } else if (content[key].type === 'WAV') {
+        } else if (content[key].type === 'WAV' || content[key].type === 'MP3') {
             content[key].d = loadSound(content[key].src, assetLoaded);
         }
     }
@@ -165,7 +206,7 @@ function loadContent() {
             quizImages[key].d = loadImage(quizImages[key].src, assetLoaded);
         } else if (quizImages[key].type === 'JSON') {
             quizImages[key].d = loadJSON(quizImages[key].src, assetLoaded);
-        } else if (quizImages[key].type === 'WAV') {
+        } else if (quizImages[key].type === 'WAV' || content[key].type === 'MP3') {
             quizImages[key].d = loadSound(quizImages[key].src, assetLoaded);
         }
     }
@@ -195,8 +236,8 @@ function setData() {
     numSections = quizTopics.length;
     anglePerSection = TWO_PI / numSections;
 
-    targetX = content.roulette.x - width / 2;
-    targetY = content.roulette.y - height / 2
+    targetX = menuPosition.x - width / 2;
+    targetY = menuPosition.y - height / 2
     offsetX = targetX;
     offsetY = targetY;
 
@@ -209,7 +250,40 @@ function setData() {
     updateElements();
 }
 
+function mapPosition() {
+    if (playStage == 1) {
+        targetX = menuPosition.x - width / 2;
+        targetY = menuPosition.y - height / 2;
+        targetZoom = bootZoom;
+    } else if (playStage == 2) {
+        targetX = content.roulette.x - width / 2;
+        targetY = content.roulette.y - height / 2;
+        targetZoom = inZoom;
+    }
+}
+
 function updateLoading() {
+    // Text Size
+    loadingTextSize.lv1 = max(min(40, (width / 1920) * 40), 30);
+    loadingTextSize.lv2 = max(min(70, (width / 1920) * 70), 65);
+    loadingTextSize.lv3 = max(min(35, (width / 1920) * 35), 25);
+
+    // Start Button
+    startButton.textSize = max(min(50, (width / 1920) * 50), 35);
+    startButton.radius = max(min(50, (width / 1920) * 50), 25);
+    startButton.marginW = max(min(20, (width / 1920) * 20), 15);
+    startButton.marginH = max(min(15, (width / 1920) * 15), 10);
+
+    textFont(habitas_bold);
+    textSize(startButton.textSize);
+    startButton.w = textWidth(startButton.text) + startButton.marginW * 2;
+    startButton.h = startButton.textSize + startButton.marginH * 2;
+    startButton.y = -startButton.h / 10;
+
+    startButton.translateX = width/2;
+    startButton.translateY = height/2 + loadingTextSize.lv1 * 2 + loadingTextSize.lv2 / 2 + loadingTextSize.lv3 * 2 + startButton.h / 2;
+
+    // Loading Bar
     let screenRatio = width / height;
 
     let loadWidth = loadingImg.width;
@@ -224,16 +298,34 @@ function updateLoading() {
         loadingBackground.w = width;
         loadingBackground.h = width / loadRatio;
     }
-    
+
     loadingBackground.x = (width - loadingBackground.w) / 2;
     loadingBackground.y = (height - loadingBackground.h) / 2;
 
-    // Loading Bar
-    loadOuterBar = createGraphics(width / 3, 50);
-    loadInnerBar = createGraphics(width / 3, 50);
+    if (width > height) {
+        loadOuterBar = createGraphics(width / 3, startButton.h);
+        loadInnerBar = createGraphics(width / 3, startButton.h);
+    } else {
+        loadOuterBar = createGraphics(width / 1.5, startButton.h);
+        loadInnerBar = createGraphics(width / 1.5, startButton.h);
+    }
 
     loadOuterBar.clear();
     loadOuterBar.fill('#f3edb8');
     loadOuterBar.noStroke();
-    loadOuterBar.rect(0, 0, width / 3, 50, 50);
+    loadOuterBar.rect(0, 0, loadOuterBar.width, startButton.h, startButton.h);
+}
+
+let startButton = {
+    text: "COMEÇAR",
+    textSize: 0,
+    textLeading: 0,
+    x: 0,
+    y: 0,
+    w: 0,
+    h: 0,
+    marginW: 0,
+    marginH: 0,
+    radius: 0,
+    color: 255
 }

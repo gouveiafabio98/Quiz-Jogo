@@ -6,8 +6,8 @@ let bootSpeed = 0.01;
 let currentPanSpeed = panSpeed;
 let inZoom = 1, outZoom = 0.5;
 let bootZoom = 0.4;
-let currentZoom = inZoom;
-let targetZoom = inZoom;
+let currentZoom = bootZoom;
+let targetZoom = bootZoom;
 
 function updateMapMovement() { // Update Map Location
     offsetX = lerp(offsetX, targetX, panSpeed);
@@ -59,7 +59,7 @@ function drawObject(obj, interaction = false) {
     scale(currentZoom);
 
     if (obj.interaction && interaction &&
-        dist(mouseX, mouseY, obj.x  - offsetX, obj.y  - offsetY) < obj.d.width / 2 * currentZoom){
+        dist(mouseX, mouseY, obj.x - offsetX, obj.y - offsetY) < obj.d.width / 2 * currentZoom) {
         cursorPointer = true;
         scale(1.1);
     }
@@ -70,9 +70,9 @@ function drawObject(obj, interaction = false) {
     pop();
 }
 
-function goToObject(object) { // Go to a Selected Object
+function goToObject(object, zoomBack = true, zoomOut = outZoom) { // Go to a Selected Object
     let x = object.x, y = object.y;
-    goToLocation(x, y); // Go to a Selected Position
+    goToLocation(x, y, zoomBack, zoomOut); // Go to a Selected Position
 }
 
 function goToCity(cityName) { // Go to a Selected City
@@ -80,12 +80,13 @@ function goToCity(cityName) { // Go to a Selected City
     goToLocation(city.coordinates[0].x, city.coordinates[0].y);  // Go to a Selected Position
 }
 
-function goToLocation(x, y) {  // Go to a Selected Position
+function goToLocation(x, y, zoomBack = true, zoomOut = outZoom) {  // Go to a Selected Position
     targetX = x - width / 2;
     targetY = y - height / 2;
-    targetZoom = outZoom;
+    targetZoom = zoomOut;
 
-    setTimeout(() => {
-        targetZoom = inZoom;
-    }, 1000);
+    if (zoomBack)
+        setTimeout(() => {
+            targetZoom = inZoom;
+        }, 1000);
 }
