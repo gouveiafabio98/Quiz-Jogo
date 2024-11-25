@@ -361,6 +361,7 @@ async function updateQuestion() {
     answerBox.margin = max(min(25, (width / 1920) * 25), 15);
     answerBox.radius = max(min(50, (width / 1920) * 50), 25);
     answerBox.h = answerTopicText.textLeading + answerBox.margin * 2;
+    
     if (width > height) { // Horizontal
         answerBox.w = (questionBox.w - questionBox.margin * 3) / 2;
         // -- X
@@ -435,7 +436,7 @@ async function updateQuestion() {
             questionText.image.maskY = questionBox.y + questionText.image.maskH / 2 + questionBox.margin / 2;
         } else {
             questionText.image.maskW = questionBox.w - questionBox.margin * 2;
-            questionText.image.maskH = min(height - questionBox.margin * 3 - questionBox.marginTop, max(questionText.image.maskW, questionBox.h - questionBox.margin - questionBox.marginTop));
+            questionText.image.maskH = questionBox.h - questionBox.margin - questionBox.marginTop;
 
             questionText.image.maskX = questionBox.x + questionText.image.maskW / 2 + questionBox.margin;
             questionText.image.maskY = questionBox.y + questionText.image.maskH / 2 + questionBox.marginTop;

@@ -103,12 +103,12 @@ function mousePressed() {
 }
 
 function touchStarted() {
-    mouseClicked();
+    mousePressed();
     return false;
 }
 
 function touchMoved() {
-    mouseClicked();
+    mousePressed();
     return false;
 }
 
