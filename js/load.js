@@ -201,6 +201,7 @@ function loadScreen() { // Loading Screen
 let menuWheelRot = 0;
 
 function menuScreen() {
+    imageMode(CORNER);
     image(loadingImg, loadingBackground.x, loadingBackground.y, loadingBackground.w, loadingBackground.h);
 
     push();
@@ -283,18 +284,6 @@ async function setData() {
         }
     }
     updateElements();
-}
-
-function mapPosition() {
-    if (playStage == 1) {
-        targetX = menuPosition.x - width / 2;
-        targetY = menuPosition.y - height / 2;
-        targetZoom = bootZoom;
-    } else if (playStage == 2) {
-        targetX = content.roulette.x - width / 2;
-        targetY = content.roulette.y - height / 2;
-        targetZoom = inZoom;
-    }
 }
 
 function updateLoading() {

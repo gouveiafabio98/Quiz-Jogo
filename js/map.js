@@ -5,14 +5,14 @@ let panSpeed = 0.1;
 let bootSpeed = 0.01;
 let currentPanSpeed = panSpeed;
 let inZoom = 1, outZoom = 0.5;
-let bootZoom = 0.4;
+let bootZoom = 0.1;
 let currentZoom = bootZoom;
 let targetZoom = bootZoom;
 
 function updateMapMovement() { // Update Map Location
     offsetX = lerp(offsetX, targetX, panSpeed);
     offsetY = lerp(offsetY, targetY, panSpeed);
-    currentZoom = lerp(currentZoom, targetZoom, currentPanSpeed);
+    currentZoom = lerp(currentZoom, targetZoom, currentPanSpeed * .5);
     currentPanSpeed = lerp(currentPanSpeed, panSpeed, bootSpeed);
 }
 

@@ -314,7 +314,7 @@ async function updateQuestion() {
     // Topic Text
     textFont(content.HabitasBold.d);
     topicText.color = color("#F7EDDC");
-    topicText.textSize = max(min(50, (width / 1920) * 50), 25);
+    topicText.textSize = max(min(50, (width / 1920) * 50), 20);
     topicText.textLeading = topicText.textSize * 1;
     textSize(topicText.textSize);
     textLeading(topicText.textLeading);
@@ -435,7 +435,7 @@ async function updateQuestion() {
             questionText.image.maskY = questionBox.y + questionText.image.maskH / 2 + questionBox.margin / 2;
         } else {
             questionText.image.maskW = questionBox.w - questionBox.margin * 2;
-            questionText.image.maskH = questionBox.h - questionBox.margin - questionBox.marginTop;
+            questionText.image.maskH = min(height - questionBox.margin * 3 - questionBox.marginTop, max(questionText.image.maskW, questionBox.h - questionBox.margin - questionBox.marginTop));
 
             questionText.image.maskX = questionBox.x + questionText.image.maskW / 2 + questionBox.margin;
             questionText.image.maskY = questionBox.y + questionText.image.maskH / 2 + questionBox.marginTop;

@@ -48,21 +48,10 @@ function draw() {
     if (playStage == 0) {
         loadScreen();
     } else if (playStage == 1) {
-        menuWheelRot += 0.01;
-        menuScreen();
-        textFont(content.HabitasBold.d);
-        drawButton(classsicDifficulty.text, classsicDifficulty.y,
-            classsicDifficulty.w, classsicDifficulty.h,
-            classsicDifficulty.radius, classsicDifficulty.translateX, classsicDifficulty.translateY,
-            classsicDifficulty.textSize, "#4DA0C1", true);
-        drawButton(challengeDifficulty.text, challengeDifficulty.y,
-            challengeDifficulty.w, challengeDifficulty.h,
-            challengeDifficulty.radius, challengeDifficulty.translateX, challengeDifficulty.translateY,
-            challengeDifficulty.textSize, "#B25757", true);
+        mainMenu();
     } else if (playStage >= 2) {
         updateMapMovement();
         updateRoulette();
-
         drawContent(); // Draw all map and assets content
     }
 
@@ -113,6 +102,16 @@ function mousePressed() {
     }
 }
 
+function touchStarted() {
+    mouseClicked();
+    return false;
+}
+
+function touchMoved() {
+    mouseClicked();
+    return false;
+}
+
 function drawContent() { // Draw all map and assets content
     push();
     translate(width / 2, height / 2);
@@ -155,8 +154,12 @@ function newGame(dif) {
     playStage = 2;
     score.right = 0;
     score.wrong = 0;
+    currentZoom = bootZoom;
     currentPanSpeed = bootSpeed;
-    mapPosition();
+
+    targetX = content.roulette.x - width / 2;
+    targetY = content.roulette.y - height / 2;
+    targetZoom = inZoom;
 }
 
 function windowResized() {
@@ -369,4 +372,18 @@ function goBack() {
         isSpinning = false;
         rouletteAngle = rouletteAngle % TWO_PI;
     }
+}
+
+function mainMenu() {
+    menuWheelRot += 0.01;
+    menuScreen();
+    textFont(content.HabitasBold.d);
+    drawButton(classsicDifficulty.text, classsicDifficulty.y,
+        classsicDifficulty.w, classsicDifficulty.h,
+        classsicDifficulty.radius, classsicDifficulty.translateX, classsicDifficulty.translateY,
+        classsicDifficulty.textSize, "#4DA0C1", true);
+    drawButton(challengeDifficulty.text, challengeDifficulty.y,
+        challengeDifficulty.w, challengeDifficulty.h,
+        challengeDifficulty.radius, challengeDifficulty.translateX, challengeDifficulty.translateY,
+        challengeDifficulty.textSize, "#B25757", true);
 }
