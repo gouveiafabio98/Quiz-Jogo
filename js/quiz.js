@@ -24,6 +24,7 @@ let questionText = {
     textLeading: 0,
     color: null,
     image: {
+        name: null,
         display: true,
         w: 0,
         h: 0,
@@ -78,7 +79,7 @@ let answerBox = {
 };
 
 let quizImages = {
-    quizData: {
+    img1: {
         src: 'data/img-1.jpg',
         type: 'JPG',
         d: null
@@ -127,7 +128,7 @@ let startTime = {
 };
 
 let score = {
-    text: "Pontuação: 00:00",
+    text: "PERGUNTA: 0/12",
     textSize: 0,
     textLeading: 0,
     right: 0,
@@ -189,7 +190,7 @@ function drawQuestion() {
             mouseX > questionBox.translateX + answerBox.x[i] &&
             mouseX < questionBox.translateX + answerBox.x[i] + answerBox.w &&
             mouseY > questionBox.translateY + answerBox.y[i] &&
-            mouseY < questionBox.translateY + answerBox.y[i] + answerBox.h && !selectedAnswer) {
+            mouseY < questionBox.translateY + answerBox.y[i] + answerBox.h && selectedAnswer == null) {
             cursorPointer = true;
             scale(1.05);
         }
@@ -197,22 +198,22 @@ function drawQuestion() {
 
 
         if (selectedAnswer != null) {
-            if (selectedAnswer == i || selectedAnswer == -1)
-                if (answerText.answer[i] && !(selectedAnswer == -1)) fill(answerBox.colorActive);
-                else fill(answerBox.colorWrong);
-            else
-                fill(answerBox.colorDisable);
+            //if (selectedAnswer == i || selectedAnswer == -1)
+            if (answerText.answer[i]) fill(answerBox.colorActive);
+            else fill(answerBox.colorWrong);
+            //else
+            //fill(answerBox.colorDisable);
         } else {
             fill(answerBox.colorActive);
         }
         rect(0, 0, answerBox.w, answerBox.h, answerBox.radius);
 
         if (selectedAnswer != null) {
-            if (selectedAnswer == i)
-                if (answerText.answer[i]) fill(answerTopicText.colorActive);
-                else fill(answerTopicText.colorWrong);
-            else
-                fill(answerTopicText.colorDisable);
+            //if (selectedAnswer == i)
+            if (answerText.answer[i]) fill(answerTopicText.colorActive);
+            else fill(answerTopicText.colorWrong);
+            //else
+            //fill(answerTopicText.colorDisable);
         } else {
             fill(answerTopicText.colorActive);
         }
@@ -361,7 +362,7 @@ async function updateQuestion() {
     answerBox.margin = max(min(25, (width / 1920) * 25), 15);
     answerBox.radius = max(min(50, (width / 1920) * 50), 25);
     answerBox.h = answerTopicText.textLeading + answerBox.margin * 2;
-    
+
     if (width > height) { // Horizontal
         answerBox.w = (questionBox.w - questionBox.margin * 3) / 2;
         // -- X
@@ -451,8 +452,8 @@ async function updateQuestion() {
         );
 
         let maskRatio = questionText.image.maskW / questionText.image.maskH;
-        let imgW = quizImages.quizData.d.width;
-        let imgH = quizImages.quizData.d.height;
+        let imgW = quizImages[questionText.image.name].d.width;
+        let imgH = quizImages[questionText.image.name].d.height;
         let newW, newH;
 
         if (imgW / imgH > maskRatio) {
@@ -466,7 +467,7 @@ async function updateQuestion() {
         let imgX = (imgW - newW) / 2;
         let imgY = (imgH - newH) / 2;
 
-        questionText.image.mask = quizImages.quizData.d.get(imgX, imgY, newW, newH);
+        questionText.image.mask = quizImages[questionText.image.name].d.get(imgX, imgY, newW, newH);
         questionText.image.mask.mask(maskedImage);
 
 
@@ -497,7 +498,7 @@ async function updateQuestion() {
         imgX = (imgW - newW) / 2;
         imgY = (imgH - newH) / 2;
 
-        questionText.image.maskIcon = quizImages.quizData.d.get(imgX, imgY, newW, newH);
+        questionText.image.maskIcon = quizImages[questionText.image.name].d.get(imgX, imgY, newW, newH);
         questionText.image.maskIcon.mask(maskedImage);
     }
     updateElements();
@@ -534,7 +535,7 @@ function answerSelection() {
             mouseX > questionBox.translateX + answerBox.x[i] &&
             mouseX < questionBox.translateX + answerBox.x[i] + answerBox.w &&
             mouseY > questionBox.translateY + answerBox.y[i] &&
-            mouseY < questionBox.translateY + answerBox.y[i] + answerBox.h && !selectedAnswer) {
+            mouseY < questionBox.translateY + answerBox.y[i] + answerBox.h && selectedAnswer == null) {
             setScore(answerText.answer[i], i);
         }
     }
@@ -553,7 +554,9 @@ function setQuestion(topicId) {
 
     let question = topic.questions[int(random(topic.questions.length))];
     questionText.text = question.question;
-    questionText.image.name = true;
+    questionText.image.name = question.image;
+    if (questionText.image.name != null) questionText.image.display = true;
+    else questionText.image.display = false;
 
     let answers = shuffleArray(question.answers);
     for (let i = 0; i < answers.length; i++) {

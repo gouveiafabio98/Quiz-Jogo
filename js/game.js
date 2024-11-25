@@ -156,15 +156,15 @@ function newGame(dif) {
     score.right = 0;
     score.wrong = 0;
 
-    bootZoom = max(width / (tileSize * (mapCols - 1)),
-        height / (tileSize * (mapRows - 1)));
+    bootZoom = max(width / (tileSize * (mapCols - 2)),
+        height / (tileSize * (mapRows - 2)));
 
     currentZoom = bootZoom;
     targetZoom = bootZoom;
 
-    targetX = (tileSize * mapCols) / 2;
+    targetX = (tileSize * mapCols) / 2  - width / 2;
     offsetX = targetX;
-    targetY = (tileSize * mapRows) / 2;
+    targetY = (tileSize * mapRows) / 2  - height / 2;
     offsetY = targetY;
 
     setTimeout(function () {
@@ -193,11 +193,11 @@ function windowResized() {
 
 function scaleResize(windowWidth, windowHeight) {
     if (windowWidth > windowHeight) {
-        inZoom = min(1, windowWidth / 1920);
-        outZoom = min(0.5, windowWidth * 0.5 / 1920);
+        inZoom = min(1, windowWidth / 1500);
+        outZoom = min(0.5, windowWidth * 0.5 / 1500);
     } else {
-        inZoom = min(1, windowHeight / 1500);
-        outZoom = min(0.2, windowHeight * 0.2 / 1500);
+        inZoom = min(1, windowHeight / 1000);
+        outZoom = min(0.5, windowHeight * 0.5 / 1000);
     }
     targetZoom = inZoom;
 }
@@ -303,7 +303,7 @@ function updateTimer() {
 function updateScore() {
     textFont(content.HabitasBold.d);
     // Score
-    score.text = "PONTUAÇÃO: " + score.right + "/" + score.total;
+    score.text = "PERGUNTA: " + (score.right + score.wrong) + "/" + score.total;
 
     score.textSize = max(min(35, (width / 1920) * 35), 20);
     score.radius = max(min(50, (width / 1920) * 50), 25);
@@ -354,7 +354,7 @@ function updateDifficultyButtons() {
         classsicDifficulty.translateY = height / 2;
     } else {
         classsicDifficulty.translateX = width / 2;
-        classsicDifficulty.translateY = height / 2 - classsicDifficulty.h / 2 - classsicDifficulty.marginW;
+        classsicDifficulty.translateY = height / 2 + classsicDifficulty.h / 2 + classsicDifficulty.marginW;
     }
 
     //Challenge
@@ -371,10 +371,10 @@ function updateDifficultyButtons() {
     if (width > height) {
         challengeDifficulty.translateX = min(width - challengeDifficulty.w / 2 - challengeDifficulty.marginW,
             width / 2 + challengeDifficulty.marginW * 3 + challengeDifficulty.w / 2);
-        challengeDifficulty.translateY = height / 2;
+        challengeDifficulty.translateY = classsicDifficulty.translateY;
     } else {
-        challengeDifficulty.translateX = width / 2;
-        challengeDifficulty.translateY = height / 2 + classsicDifficulty.h / 2 + classsicDifficulty.marginW;
+        challengeDifficulty.translateX = classsicDifficulty.translateX;
+        challengeDifficulty.translateY = classsicDifficulty.translateY + classsicDifficulty.h + classsicDifficulty.marginW;
     }
 }
 
@@ -403,7 +403,7 @@ function mainMenu() {
 
 function playMusic() {
     let initialVolume = 0;
-    let defaultVolume = 1;
+    let defaultVolume = 0.15;
     let duration = 5000;
 
     content.music.d.play();

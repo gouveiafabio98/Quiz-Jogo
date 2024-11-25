@@ -13,48 +13,43 @@
             "questions": [
                 {
                     "question": "- Cantanhede 1",
+                    "image": "img1",
                     "answers": [
                         {
-                            "option": "A",
                             "text": "Berlin",
                             "isCorrect": false
                         },
                         {
-                            "option": "B",
                             "text": "Madrid",
                             "isCorrect": false
                         },
                         {
-                            "option": "C",
                             "text": "Paris",
                             "isCorrect": true
                         },
                         {
-                            "option": "D",
                             "text": "Rome",
                             "isCorrect": false
                         }
                     ]
-                }, {
+                },
+                {
                     "question": "- Cantanhede 2",
+                    "image": "img1",
                     "answers": [
                         {
-                            "option": "A",
                             "text": "Berlin",
                             "isCorrect": false
                         },
                         {
-                            "option": "B",
                             "text": "Madrid",
                             "isCorrect": false
                         },
                         {
-                            "option": "C",
                             "text": "Paris",
                             "isCorrect": true
                         },
                         {
-                            "option": "D",
                             "text": "Rome",
                             "isCorrect": false
                         }
@@ -62,7 +57,6 @@
                 }
             ]
         },
-        
         {
             "topicName": "Penacova",
             "displayName": "Penacova",
@@ -76,48 +70,43 @@
             "questions": [
                 {
                     "question": "Penacova 1",
+                    "image": "img1",
                     "answers": [
                         {
-                            "option": "A",
                             "text": "Berlin",
                             "isCorrect": false
                         },
                         {
-                            "option": "B",
                             "text": "Madrid",
                             "isCorrect": false
                         },
                         {
-                            "option": "C",
                             "text": "Paris",
                             "isCorrect": true
                         },
                         {
-                            "option": "D",
                             "text": "Rome",
                             "isCorrect": false
                         }
                     ]
-                }, {
+                },
+                {
                     "question": "Penacova 2",
+                    "image": "img1",
                     "answers": [
                         {
-                            "option": "A",
                             "text": "Berlin",
                             "isCorrect": false
                         },
                         {
-                            "option": "B",
                             "text": "Madrid",
                             "isCorrect": false
                         },
                         {
-                            "option": "C",
                             "text": "Paris",
                             "isCorrect": true
                         },
                         {
-                            "option": "D",
                             "text": "Rome",
                             "isCorrect": false
                         }
@@ -125,7 +114,6 @@
                 }
             ]
         },
-
         {
             "topicName": "Mealhada",
             "displayName": "Mealhada",
@@ -139,48 +127,43 @@
             "questions": [
                 {
                     "question": "Mealhada 1",
+                    "image": "img1",
                     "answers": [
                         {
-                            "option": "A",
                             "text": "Berlin",
                             "isCorrect": false
                         },
                         {
-                            "option": "B",
                             "text": "Madrid",
                             "isCorrect": false
                         },
                         {
-                            "option": "C",
                             "text": "Paris",
                             "isCorrect": true
                         },
                         {
-                            "option": "D",
                             "text": "Rome",
                             "isCorrect": false
                         }
                     ]
-                }, {
+                },
+                {
                     "question": "Mealhada 2",
+                    "image": "img1",
                     "answers": [
                         {
-                            "option": "A",
                             "text": "Berlin",
                             "isCorrect": false
                         },
                         {
-                            "option": "B",
                             "text": "Madrid",
                             "isCorrect": false
                         },
                         {
-                            "option": "C",
                             "text": "Paris",
                             "isCorrect": true
                         },
                         {
-                            "option": "D",
                             "text": "Rome",
                             "isCorrect": false
                         }
@@ -188,7 +171,6 @@
                 }
             ]
         },
-
         {
             "topicName": "Montemor- -o-Velho",
             "displayName": "Montemor-o-Velho",
@@ -202,48 +184,43 @@
             "questions": [
                 {
                     "question": "- Montemor-o-Velho 1",
+                    "image": null,
                     "answers": [
                         {
-                            "option": "A",
                             "text": "Berlin",
                             "isCorrect": false
                         },
                         {
-                            "option": "B",
                             "text": "Madrid",
                             "isCorrect": false
                         },
                         {
-                            "option": "C",
                             "text": "Paris",
                             "isCorrect": true
                         },
                         {
-                            "option": "D",
                             "text": "Rome",
                             "isCorrect": false
                         }
                     ]
-                }, {
+                },
+                {
                     "question": "- Montemor-o-Velho 2",
+                    "image": null,
                     "answers": [
                         {
-                            "option": "A",
                             "text": "Berlin",
                             "isCorrect": false
                         },
                         {
-                            "option": "B",
                             "text": "Madrid",
                             "isCorrect": false
                         },
                         {
-                            "option": "C",
                             "text": "Paris",
                             "isCorrect": true
                         },
                         {
-                            "option": "D",
                             "text": "Rome",
                             "isCorrect": false
                         }
@@ -251,7 +228,6 @@
                 }
             ]
         },
-
         {
             "topicName": "Figueira da Foz",
             "displayName": "Figueira da Foz",
@@ -265,48 +241,43 @@
             "questions": [
                 {
                     "question": "- Figueira da Foz 1",
+                    "image": null,
                     "answers": [
                         {
-                            "option": "A",
                             "text": "Berlin",
                             "isCorrect": false
                         },
                         {
-                            "option": "B",
                             "text": "Madrid",
                             "isCorrect": false
                         },
                         {
-                            "option": "C",
                             "text": "Paris",
                             "isCorrect": true
                         },
                         {
-                            "option": "D",
                             "text": "Rome",
                             "isCorrect": false
                         }
                     ]
-                }, {
+                },
+                {
                     "question": "- Figueira da Foz 2",
+                    "image": null,
                     "answers": [
                         {
-                            "option": "A",
                             "text": "Berlin",
                             "isCorrect": false
                         },
                         {
-                            "option": "B",
                             "text": "Madrid",
                             "isCorrect": false
                         },
                         {
-                            "option": "C",
                             "text": "Paris",
                             "isCorrect": true
                         },
                         {
-                            "option": "D",
                             "text": "Rome",
                             "isCorrect": false
                         }
@@ -314,7 +285,6 @@
                 }
             ]
         },
-
         {
             "topicName": "Mira",
             "displayName": "Mira",
@@ -328,48 +298,43 @@
             "questions": [
                 {
                     "question": "- Mira 1",
+                    "image": null,
                     "answers": [
                         {
-                            "option": "A",
                             "text": "Berlin",
                             "isCorrect": false
                         },
                         {
-                            "option": "B",
                             "text": "Madrid",
                             "isCorrect": false
                         },
                         {
-                            "option": "C",
                             "text": "Paris",
                             "isCorrect": true
                         },
                         {
-                            "option": "D",
                             "text": "Rome",
                             "isCorrect": false
                         }
                     ]
-                }, {
+                },
+                {
                     "question": "- Mira 2",
+                    "image": null,
                     "answers": [
                         {
-                            "option": "A",
                             "text": "Berlin",
                             "isCorrect": false
                         },
                         {
-                            "option": "B",
                             "text": "Madrid",
                             "isCorrect": false
                         },
                         {
-                            "option": "C",
                             "text": "Paris",
                             "isCorrect": true
                         },
                         {
-                            "option": "D",
                             "text": "Rome",
                             "isCorrect": false
                         }
