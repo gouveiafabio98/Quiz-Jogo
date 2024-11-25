@@ -154,12 +154,24 @@ function newGame(dif) {
     playStage = 2;
     score.right = 0;
     score.wrong = 0;
+
+    bootZoom = max(width / (tileSize * (mapCols - 1)),
+        height / (tileSize * (mapRows - 1)));
+
     currentZoom = bootZoom;
+    targetZoom = bootZoom;
     currentPanSpeed = bootSpeed;
 
-    targetX = content.roulette.x - width / 2;
-    targetY = content.roulette.y - height / 2;
-    targetZoom = inZoom;
+    targetX = (tileSize * mapCols) / 2;
+    offsetX = targetX;
+    targetY = (tileSize * mapRows) / 2;
+    offsetY = targetY;
+
+    setTimeout(function () {
+        targetX = content.roulette.x - width / 2;
+        targetY = content.roulette.y - height / 2;
+        targetZoom = inZoom;
+    }, 1500);
 }
 
 function windowResized() {
