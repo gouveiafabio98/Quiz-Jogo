@@ -161,7 +161,6 @@ function newGame(dif) {
 
     currentZoom = bootZoom;
     targetZoom = bootZoom;
-    currentPanSpeed = bootSpeed;
 
     targetX = (tileSize * mapCols) / 2;
     offsetX = targetX;

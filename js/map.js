@@ -12,8 +12,8 @@ let targetZoom = bootZoom;
 function updateMapMovement() { // Update Map Location
     offsetX = lerp(offsetX, targetX, panSpeed);
     offsetY = lerp(offsetY, targetY, panSpeed);
-    currentZoom = lerp(currentZoom, targetZoom, currentPanSpeed * .5);
-    currentPanSpeed = lerp(currentPanSpeed, panSpeed, bootSpeed);
+    currentZoom = lerp(currentZoom, targetZoom, panSpeed * 0.5);
+    //currentPanSpeed = lerp(currentPanSpeed, panSpeed, bootSpeed);
 }
 
 function drawMap() { // Draw Map Tiles
