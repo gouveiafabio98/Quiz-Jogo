@@ -70,6 +70,7 @@ function mousePressed() {
         mouseY < startButton.translateY + startButton.h / 2) {
         playStage = 1;
         content.clickSound.d.play();
+        playMusic();
     } else if (playStage == 1) {
         // Dificulty
         if (mouseX > classsicDifficulty.translateX - classsicDifficulty.w / 2 &&
@@ -399,4 +400,22 @@ function mainMenu() {
         challengeDifficulty.w, challengeDifficulty.h,
         challengeDifficulty.radius, challengeDifficulty.translateX, challengeDifficulty.translateY,
         challengeDifficulty.textSize, "#B25757", true);
+}
+
+function playMusic() {
+    let initialVolume = 0;
+    let defaultVolume = 1;
+    let duration = 5000;
+
+    content.music.d.play();
+    content.music.d.loop();
+    let volumeInterval = setInterval(() => {
+        if (initialVolume < defaultVolume) {
+            initialVolume += 0.01;
+            content.music.d.setVolume(initialVolume);
+        } else {
+            content.music.d.setVolume(defaultVolume);
+            clearInterval(volumeInterval);
+        }
+    }, duration / 100);
 }

@@ -104,6 +104,10 @@ let content = {
         src: "data/fonts/Habitas-Semibold.otf",
         type: 'OTF',
         d: null
+    }, music: {
+        src: 'data/music.mp3',
+        type: 'MP3',
+        d: null
     }
 };
 
