@@ -47,7 +47,19 @@ function draw() {
     cursorPointer = false;
     if (playStage == 0) {
         loadScreen();
-    } else {
+    } else if (playStage == 1) {
+        menuWheelRot += 0.01;
+        menuScreen();
+        textFont(content.HabitasBold.d);
+        drawButton(classsicDifficulty.text, classsicDifficulty.y,
+            classsicDifficulty.w, classsicDifficulty.h,
+            classsicDifficulty.radius, classsicDifficulty.translateX, classsicDifficulty.translateY,
+            classsicDifficulty.textSize, "#4DA0C1", true);
+        drawButton(challengeDifficulty.text, challengeDifficulty.y,
+            challengeDifficulty.w, challengeDifficulty.h,
+            challengeDifficulty.radius, challengeDifficulty.translateX, challengeDifficulty.translateY,
+            challengeDifficulty.textSize, "#B25757", true);
+    } else if (playStage >= 2) {
         updateMapMovement();
         updateRoulette();
 
@@ -113,39 +125,26 @@ function drawContent() { // Draw all map and assets content
     drawRoulette();
 
     imageMode(CENTER);
-
-    if (playStage == 1) {
-        textFont(content.HabitasBold.d);
-        drawButton(classsicDifficulty.text, classsicDifficulty.y,
-            classsicDifficulty.w, classsicDifficulty.h,
-            classsicDifficulty.radius, classsicDifficulty.translateX, classsicDifficulty.translateY,
-            classsicDifficulty.textSize, "#4DA0C1", true);
-        drawButton(challengeDifficulty.text, challengeDifficulty.y,
-            challengeDifficulty.w, challengeDifficulty.h,
-            challengeDifficulty.radius, challengeDifficulty.translateX, challengeDifficulty.translateY,
-            challengeDifficulty.textSize, "#B25757", true);
-    } else if (playStage >= 2) {
-        drawObject(content.pointer);
-        drawObject(content.spinButton, rouletteBlock);
-        if (playStage == 3) {
-            drawQuestion();
-            // Timer
-            if (difficulty == 1) drawTimer();
-        }
-        // Score
-        textFont(content.HabitasBold.d);
-        drawButton(score.text, score.y, score.w, score.h, score.radius, score.translateX, score.translateY, score.textSize);
-        // Info
-        drawIcon(content.infoButton.d,
-            content.infoButton.w, content.infoButton.h,
-            content.infoButton.x, content.infoButton.y,
-            "#589359", true);
-        // Back
-        drawIcon(content.backButton.d,
-            content.backButton.w, content.backButton.h,
-            content.backButton.x, content.backButton.y,
-            "#589359", true);
+    drawObject(content.pointer);
+    drawObject(content.spinButton, rouletteBlock);
+    if (playStage == 3) {
+        drawQuestion();
+        // Timer
+        if (difficulty == 1) drawTimer();
     }
+    // Score
+    textFont(content.HabitasBold.d);
+    drawButton(score.text, score.y, score.w, score.h, score.radius, score.translateX, score.translateY, score.textSize);
+    // Info
+    drawIcon(content.infoButton.d,
+        content.infoButton.w, content.infoButton.h,
+        content.infoButton.x, content.infoButton.y,
+        "#589359", true);
+    // Back
+    drawIcon(content.backButton.d,
+        content.backButton.w, content.backButton.h,
+        content.backButton.x, content.backButton.y,
+        "#589359", true);
 }
 
 function newGame(dif) {

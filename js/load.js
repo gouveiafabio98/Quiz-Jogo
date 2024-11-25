@@ -150,16 +150,18 @@ function loadScreen() { // Loading Screen
     textAlign(CENTER, CENTER);
     textSize(40);
 
-    image(loadingImg, loadingBackground.x, loadingBackground.y, loadingBackground.w, loadingBackground.h);
-
-    if (loadPercentage < 1 - 0.0015 && !(totalAssets == loadCount) && !finishLoad)
-        loadPercentage = lerp(loadPercentage, loadCount / totalAssets, loadCount * 0.015);
-    else {
-        loadPercentage = 1;
-    }
+    menuScreen();
 
     push();
     translate(width / 2, height / 2);
+
+    if (loadPercentage < 1 - 0.0015 && !(totalAssets == loadCount) && !finishLoad) {
+        loadPercentage = lerp(loadPercentage, loadCount / totalAssets, loadCount * 0.015);
+        menuWheelRot = loadPercentage * TWO_PI * 4;
+    } else {
+        loadPercentage = 1;
+        menuWheelRot += 0.01;
+    }
 
     loadInnerBar.clear();
     loadInnerBar.fill('#bcdfe1');
@@ -168,17 +170,6 @@ function loadScreen() { // Loading Screen
 
     displayInnerBar = loadInnerBar.get();
     displayInnerBar.mask(loadOuterBar);
-
-    push();
-    translate(0, -loadingWheel.height / 2 * outZoom - loadingTextSize.lv1 / 2);
-    scale(outZoom);
-    image(content.mill.d, -content.mill.d.width / 2, -content.mill.d.height / 2);
-    push();
-    translate(0, -110);
-    rotate(loadPercentage * TWO_PI * 4);
-    image(loadingWheel, -loadingWheel.width / 2, -loadingWheel.height / 2);
-    pop();
-    pop();
 
     fill(255);
     textFont(content.HabitasSemibold.d);
@@ -195,6 +186,7 @@ function loadScreen() { // Loading Screen
         image(loadOuterBar, - loadOuterBar.width / 2, loadingTextSize.lv1 * 2 + loadingTextSize.lv2 / 2 + loadingTextSize.lv3 * 2);
         image(displayInnerBar, - loadInnerBar.width / 2, loadingTextSize.lv1 * 2 + loadingTextSize.lv2 / 2 + loadingTextSize.lv3 * 2);
     }
+
     pop();
 
     if (loadPercentage == 1) {
@@ -204,6 +196,28 @@ function loadScreen() { // Loading Screen
             startButton.radius, startButton.translateX, startButton.translateY,
             startButton.textSize, "#589359", true);
     }
+}
+
+let menuWheelRot = 0;
+
+function menuScreen() {
+    image(loadingImg, loadingBackground.x, loadingBackground.y, loadingBackground.w, loadingBackground.h);
+
+    push();
+    translate(width / 2, height / 2);
+
+    push();
+    translate(0, -loadingWheel.height / 2 * outZoom - loadingTextSize.lv1 / 2);
+    scale(outZoom);
+    image(content.mill.d, -content.mill.d.width / 2, -content.mill.d.height / 2);
+    push();
+    translate(0, -110);
+    rotate(menuWheelRot);
+    image(loadingWheel, -loadingWheel.width / 2, -loadingWheel.height / 2);
+    pop();
+    pop();
+
+    pop();
 }
 
 function loadContent() {
