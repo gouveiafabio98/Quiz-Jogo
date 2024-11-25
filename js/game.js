@@ -197,8 +197,9 @@ function scaleResize(windowWidth, windowHeight) {
         outZoom = min(0.5, windowWidth * 0.5 / 1920);
     } else {
         inZoom = min(1, windowHeight / 1500);
-        outZoom = min(0.5, windowHeight * 0.5 / 1500);
+        outZoom = min(0.2, windowHeight * 0.2 / 1500);
     }
+    targetZoom = inZoom;
 }
 
 function drawButton(txt, y, w, h, radius, tX, tY, txtSize, color = "#589359", interact = false) {
