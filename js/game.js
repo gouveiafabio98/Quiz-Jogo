@@ -162,9 +162,9 @@ function newGame(dif) {
     currentZoom = bootZoom;
     targetZoom = bootZoom;
 
-    targetX = (tileSize * mapCols) / 2  - width / 2;
+    targetX = (tileSize * mapCols) / 2 - width / 2;
     offsetX = targetX;
-    targetY = (tileSize * mapRows) / 2  - height / 2;
+    targetY = (tileSize * mapRows) / 2 - height / 2;
     offsetY = targetY;
 
     setTimeout(function () {
@@ -193,11 +193,15 @@ function windowResized() {
 
 function scaleResize(windowWidth, windowHeight) {
     if (windowWidth > windowHeight) {
-        inZoom = min(1, windowWidth / 1500);
-        outZoom = min(0.5, windowWidth * 0.5 / 1500);
+        inZoom = max(min(.9, windowWidth / 1500),
+            max(width / (tileSize * (mapCols - 2)),
+                height / (tileSize * (mapRows - 2))));
+        outZoom = max(min(.4, windowWidth * .5 / 1500),
+            max(width / (tileSize * (mapCols - 2)),
+                height / (tileSize * (mapRows - 2))));
     } else {
-        inZoom = min(1, windowHeight / 1000);
-        outZoom = min(0.5, windowHeight * 0.5 / 1000);
+        inZoom = min(.9, windowHeight / 1000);
+        outZoom = min(.4, windowHeight * .5 / 1000);
     }
     targetZoom = inZoom;
 }

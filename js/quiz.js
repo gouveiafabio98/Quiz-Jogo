@@ -286,7 +286,7 @@ async function updateQuestion() {
     // Set Sizes
     let boxWidth;
     if (width > height)
-        boxWidth = width - (width / 4 * inZoom) * 2;
+        boxWidth = width - (width / 6 * inZoom) * 2;
     else
         boxWidth = width - (width / 10 * inZoom) * 2;
 
