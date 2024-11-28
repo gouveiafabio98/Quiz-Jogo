@@ -184,7 +184,7 @@
             "questions": [
                 {
                     "question": "- Montemor-o-Velho 1",
-                    "image": null,
+                    "image": "img1",
                     "answers": [
                         {
                             "text": "Berlin",
@@ -206,7 +206,7 @@
                 },
                 {
                     "question": "- Montemor-o-Velho 2",
-                    "image": null,
+                    "image": "img1",
                     "answers": [
                         {
                             "text": "Berlin",

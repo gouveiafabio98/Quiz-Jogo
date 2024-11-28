@@ -16,6 +16,7 @@ let questionBox = {
 
 let questionText = {
     text: "",
+    breakText: "",
     x: 0,
     y: 0,
     w: 0,
@@ -178,8 +179,8 @@ function drawQuestion() {
     fill(topicText.color);
     textSize(topicText.textSize);
     textLeading(topicText.textLeading);
-    textAlign(CENTER, CENTER);
-    text(topicText.text, topicText.x, topicText.y, topicBox.w, topicBox.h - topicText.textLeading / 3);
+    textAlign(LEFT, CENTER);
+    text(topicText.text, topicText.x, topicText.y, topicText.w, topicBox.h - topicText.textLeading / 3);
 
     // Answer Box
     for (let i = 0; i < 4; i++) {
@@ -264,6 +265,7 @@ function drawQuestion() {
             if (!questionText.image.hide) {
                 textSize(topicText.textSize);
                 textLeading(topicText.textLeading);
+                textAlign(CENTER, CENTER);
                 fill(questionBox.color);
                 textFont(content.HabitasBold.d);
                 text("X", questionText.image.maskIconX, questionText.image.maskIconY,
@@ -319,13 +321,24 @@ async function updateQuestion() {
     topicText.textLeading = topicText.textSize * 1;
     textSize(topicText.textSize);
     textLeading(topicText.textLeading);
-    topicText.w = textWidth(topicText.text);
-    topicText.h = questionText.textLeading;
 
     // Topic Box
     topicBox.radius = max(min(50, (width / 1920) * 50), 25);
     topicBox.marginW = max(min(35, (width / 1920) * 35), 25);
     topicBox.marginH = max(min(25, (width / 1920) * 25), 15);
+
+    // *-*
+    topicText.w = textWidth(topicText.text);
+    if (topicText.w > questionBox.w - (topicText.textLeading + topicBox.marginH * 2) - topicBox.marginW * 2) {
+        topicText.text = topicText.breakText;
+        topicText.w = questionBox.w - (topicText.textLeading + topicBox.marginH * 2) - topicBox.marginW * 2;
+        let data = getTextHeightAndMaxWidth(topicText);
+        topicText.h = data.textHeight;
+        topicText.w = data.maxWidth;
+    } else {
+        topicText.h = topicText.textLeading;
+    }
+
     topicBox.w = topicText.w + topicBox.marginW * 2;
     topicBox.h = topicText.h + topicBox.marginH * 2;
 
@@ -344,7 +357,7 @@ async function updateQuestion() {
     topicBox.y = questionBox.y - topicBox.h + topicBox.marginW;
 
     // Topic Text
-    topicText.x = topicBox.x;
+    topicText.x = topicBox.x + topicBox.marginW;
     topicText.y = topicBox.y;
 
     // Answer Topic Text
@@ -472,11 +485,11 @@ async function updateQuestion() {
 
 
         // Icon Masked Image
-        questionText.image.maskIconX = questionBox.w / 2 - topicBox.h;
-        questionText.image.maskIconY = topicBox.y;
-        questionText.image.maskIconW = topicBox.h;
-        questionText.image.maskIconH = topicBox.h;
-
+        questionText.image.maskIconW = topicText.textLeading+ topicBox.marginH * 2;
+        questionText.image.maskIconH = questionText.image.maskIconW;
+        questionText.image.maskIconX = questionBox.w / 2 - questionText.image.maskIconH;
+        questionText.image.maskIconY = questionBox.y - questionText.image.maskIconH + topicBox.marginW;;
+        
         maskedImage = createGraphics(questionText.image.maskIconW, questionText.image.maskIconH);
         maskedImage.noStroke();
         maskedImage.fill(255);
@@ -529,6 +542,40 @@ function getTextHeight(data) {
     return textHeight;
 }
 
+function getTextHeightAndMaxWidth(data) {
+    let txt = data.text;
+    let w = data.w;
+
+    textAlign(LEFT, BASELINE);
+    textSize(data.textSize);
+    textLeading(data.textLeading);
+
+    let words = txt.split(" ");
+    let lineCount = 0;
+    let currentLine = "";
+    let maxWidth = 0;
+
+    for (let word of words) {
+        let testLine = currentLine + word + " ";
+        let testWidth = textWidth(testLine);
+        if (testWidth > w) {
+            lineCount++;
+            currentLine = word + " ";
+            maxWidth = Math.max(maxWidth, textWidth(currentLine));
+        } else {
+            currentLine = testLine;
+            maxWidth = Math.max(maxWidth, testWidth);
+        }
+    }
+    lineCount++;
+    let textHeight = lineCount * data.textLeading;
+    
+    return {
+        textHeight: textHeight,
+        maxWidth: maxWidth
+    };
+}
+
 function answerSelection() {
     for (let i = 0; i < 4; i++) {
         if (((!questionText.image.mobile && questionText.image.hide) || questionText.image.mobile) &&
@@ -550,6 +597,7 @@ function answerSelection() {
 function setQuestion(topicId) {
     let topic = content.quizData.d.topics[topicId];
     topicText.text = topic.displayName.toUpperCase();
+    topicText.breakText = topic.topicName.toUpperCase();
     topicBox.color = color(topic.fill);
 
     let question = topic.questions[int(random(topic.questions.length))];

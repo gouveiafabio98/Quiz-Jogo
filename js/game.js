@@ -196,8 +196,8 @@ function scaleResize(windowWidth, windowHeight) {
         inZoom = min(1, windowWidth / 1500);
         outZoom = min(0.5, windowWidth * 0.5 / 1500);
     } else {
-        inZoom = min(1, windowHeight / 1000);
-        outZoom = min(0.5, windowHeight * 0.5 / 1000);
+        inZoom = min(0.6, windowHeight * 0.6 / 1000);
+        outZoom = min(0.4, windowHeight * 0.4 / 1400);
     }
     targetZoom = inZoom;
 }
