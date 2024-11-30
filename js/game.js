@@ -200,8 +200,8 @@ function scaleResize(windowWidth, windowHeight) {
             max(width / (tileSize * (mapCols - 2)),
                 height / (tileSize * (mapRows - 2))));
     } else {
-        inZoom = min(.9, windowHeight / 1000);
-        outZoom = min(.4, windowHeight * .5 / 1000);
+        inZoom = min(0.6, windowHeight * 0.6 / 1000);
+        outZoom = min(0.4, windowHeight * 0.4 / 1400);
     }
     targetZoom = inZoom;
 }
