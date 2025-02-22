@@ -97,13 +97,11 @@ function updateRoulette() {
 
 function rouletteRotation() {
     if (!isSpinning && nRolls < totalRolls) {
-        //if (missingOptions.length >= totalRolls - nRolls) {
-        if (true) {
+        if (missingOptions.length >= totalRolls - nRolls) {
             // ---- Forced Rotation
             // Select a random index
             let randomOption = missingOptions[int(random(missingOptions.length))];
             let forcedIndex = quizTopics.indexOf(randomOption);
-            forcedIndex = 4;
             // Calculate the Angle of the Desire Section
             let desiredAngle = (HALF_PI * 3 - forcedIndex * anglePerSection - anglePerSection / 2 + TWO_PI) % TWO_PI;
             finalAngle = TWO_PI * int(random(minRotation, maxRotation)) + desiredAngle + random(-anglePerSection / 2 + 0.01, anglePerSection / 2 - 0.01);

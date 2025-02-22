@@ -12,46 +12,574 @@
             ],
             "questions": [
                 {
-                    "question": "- Cantanhede 1",
-                    "image": "img1",
+                    "question": "Que tipo de rocha é predominante na região de Cantanhede?",
+                    "image": null,
                     "answers": [
                         {
-                            "text": "Berlin",
+                            "text": "Granito",
                             "isCorrect": false
                         },
                         {
-                            "text": "Madrid",
-                            "isCorrect": false
-                        },
-                        {
-                            "text": "Paris",
+                            "text": "Calcário margoso",
                             "isCorrect": true
                         },
                         {
-                            "text": "Rome",
+                            "text": "Basalto",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Areia consolidada",
                             "isCorrect": false
                         }
                     ]
                 },
                 {
-                    "question": "- Cantanhede 2",
-                    "image": "img1",
+                    "question": "Qual é a principal casta de uva cultivada na região de Cantanhede e Mealhada?",
+                    "image": null,
                     "answers": [
                         {
-                            "text": "Berlin",
+                            "text": "Alvarinho",
                             "isCorrect": false
                         },
                         {
-                            "text": "Madrid",
+                            "text": "Touriga Nacional",
                             "isCorrect": false
                         },
                         {
-                            "text": "Paris",
+                            "text": "Baga",
                             "isCorrect": true
                         },
                         {
-                            "text": "Rome",
+                            "text": "Tinta Roriz",
                             "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "O que torna os solos da região favoráveis para a agricultura?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "A sua origem vulcânica",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "A composição rica em calcário",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "A sua drenagem rápida",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "A fertilização com produtos modernos",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Que cor é típica da pedra de Ançã?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Cinzenta",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Branco-amarelada",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Vermelha",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Azulada",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Para que finalidade a pedra de Ançã foi usada durante os Descobrimentos?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Construção de portos marítimos",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Produção de esculturas e arquitetura",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Construção de igrejas fortificadas",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Decoração de navios",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Que tipo de construção usava cal produzida em Ançã?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Casas Gandaresas",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Mosteiros medievais",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Pontes romanas",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Palácios renascentistas",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "O que o Museu da Pedra em Cantanhede exibe em destaque?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Estátuas modernas de granito",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Obras feitas com pedra de Ançã",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Mapas históricos da região",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Ferramentas agrícolas antigas",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Em que ano o Museu da Pedra foi inaugurado?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "1987",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "1995",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "2010",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "2001",
+                            "isCorrect": true
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual é a principal função da captação de água dos Olhos da Fervença?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Abastecimento de águas do município de Cantanhede",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Irrigação de vinhas locais",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Fornecimento para um parque industrial",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Geração de energia hidroelétrica",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Em qual freguesia está localizada a Lagoa dos Teixoeiros?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Mira",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Tocha",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Quiaios",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Gândaras",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "O que originou a formação da Lagoa dos Teixoeiros?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Depressões criadas no sistema dunar",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Movimentos tectónicos recentes",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Abertura de minas de calcário",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Fluxos de lava de origem vulcânica",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Que recursos foram utilizados para estabilizar as dunas antigas do cordão dunar?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Construção de muros de areia",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Plantação de pinheiros e arbustos",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Revestimento com redes de contenção",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Barreiras de concreto",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Que praia em Cantanhede é conhecida pelos palheiros tradicionais?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Praia de Mira",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Praia da Figueira",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Praia da Tocha",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Praia de Quiaios",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual a prática de pesca tradicional que pode ser observada na Praia da Tocha?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Arte Xávega",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Pesca com redes de arrasto mecânicas",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Pesca com canas tradicionais",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Pesca submarina",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Quais os desportos que são populares na Praia da Tocha?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Corrida e caminhadas na areia",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Vela e remo",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Natação sincronizada e mergulho",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Surf, bodyboard e windsurf",
+                            "isCorrect": true
+                        }
+                    ]
+                },
+                {
+                    "question": "A Capela da Varziela é um importante local de:",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Eventos desportivos",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Peregrinação e culto religioso",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Comércio tradicional",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Administração municipal",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Em que distrito de Portugal se encontra a Capela da Varziela?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Porto",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Viseu",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Coimbra",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Leiria",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Cantanhede pertence a qual região vitivinícola de Portugal?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Douro",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Alentejo",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Bairrada",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Dão",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Além do tinto, que outro tipo de vinho é muito produzido em Cantanhede?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Vinho Verde",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Espumante",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Vinho do Porto",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Vinho Moscatel",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "O que é a Arte Xávega?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Um tipo de cerâmica tradicional",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Uma técnica de pesca artesanal",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Um estilo de escultura em madeira",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Uma forma de tecelagem antiga",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Tradicionalmente, como eram puxadas as redes da Arte Xávega?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Por barcos movidos a motor",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Por cavalos",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Manualmente ou com juntas de bois",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Por tratores desde o século XVI",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual o nome da praia fluvial que pode observar na fotografia?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Praia fluvial do Reconquinho",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Praia fluvial do Vimieiro",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Praia fluvial dos Olhos da Fervença",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Praia fluvial das Sete Fontes",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual o nome da praia que pode observar na fotografia?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Praia do Palheirão",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Praia da Tocha",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Praia de Mira",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Praia de Quiaios",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Quais as características do terreno que contribuíram para a formação da Lagoa da Salgueira?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Declive acentuado e rios subterrâneos",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Depressões, baixo declive e nível freático superficial",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Altas montanhas",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Presença de nascentes profundas",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual o nome deste museu, que integra a Rede Portuguesa de Museus?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Museu de Cantanhede",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Museu da Pedra",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Museu do Calcário",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Museu de Ançã",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "O que é possível observar nas Margas do Jurássico Inferior?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Rochas ígneas",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Metais preciosos",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Cristais de sal",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Fósseis",
+                            "isCorrect": true
                         }
                     ]
                 }
