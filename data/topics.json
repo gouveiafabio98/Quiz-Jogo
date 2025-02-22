@@ -1160,45 +1160,551 @@
             ],
             "questions": [
                 {
-                    "question": "Mealhada 1",
-                    "image": "img1",
+                    "question": "Qual é o ponto mais alto da serra do Bussaco?",
+                    "image": null,
                     "answers": [
                         {
-                            "text": "Berlin",
+                            "text": "Ninho de Águia",
                             "isCorrect": false
                         },
                         {
-                            "text": "Madrid",
-                            "isCorrect": false
-                        },
-                        {
-                            "text": "Paris",
+                            "text": "Cruz Alta",
                             "isCorrect": true
                         },
                         {
-                            "text": "Rome",
+                            "text": "Senhora do Monte Alto",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Livraria do Mondego",
                             "isCorrect": false
                         }
                     ]
                 },
                 {
-                    "question": "Mealhada 2",
-                    "image": "img1",
+                    "question": "Qual é o nome da água termal famosa extraída na serra do Bussaco?",
+                    "image": null,
                     "answers": [
                         {
-                            "text": "Berlin",
+                            "text": "Água de Santa Cristina",
                             "isCorrect": false
                         },
                         {
-                            "text": "Madrid",
+                            "text": "Água do Cruzeiro",
                             "isCorrect": false
                         },
                         {
-                            "text": "Paris",
+                            "text": "Água de Luso",
                             "isCorrect": true
                         },
                         {
-                            "text": "Rome",
+                            "text": "Água de Silves",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Em que século foi travada a Batalha do Bussaco?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Século XVII",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Século XVIII",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Século XIX",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Século XX",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "A que se deve a cor vermelha das rochas do “Grés de Silves”?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Minerais vulcânicos",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Óxido de ferro",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Presença de fósseis vegetais",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Influência de sedimentos marinhos",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Que tipo de árvores são predominantes na Mata Nacional do Bussaco?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Sobreiros e azinheiras",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Pinheiros e eucaliptos",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Carvalho e castanheiros",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Oliveiras e figueiras",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Durante que período geológico se formou a Bacia Carbonífera do Bussaco?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Ordovícico",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Carbónico",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Triássico",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Jurássico",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "O que é possível encontrar junto da Fonte de Santa Cristina?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Plantas fósseis",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Pegadas de dinossauros",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Rochas vulcânicas",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Águas termais",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual é a altitude do ponto mais alto da Serra do Bussaco?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "444 metros",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "780 metros",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "549 metros",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "654 metros",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Onde está localizado o Miradouro do Moinho de Sula?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Serra da Estrela",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Serra de Montemuro",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Serra do Bussaco",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Serra do Caramulo",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "A Água de Luso é conhecida por se infiltrar em:",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Rochas vulcânicas",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Rochas quartzíticas",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Rochas calcárias",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Camadas de areia",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Por que motivo as pessoas procuram a fonte em Santa Cristina?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Pela água cristalina recomendada para tratamentos",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Pelo cenário histórico com fósseis de dinossauros",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Para ver a cascata natural do local",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Pela ligação com a Água de Luso",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Onde é captada a Água do Cruzeiro?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Na vila de Luso",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Na povoação de Vacariça",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Na serra do Bussaco",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "No Cabo Mondego",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual é o nome da fonte localizada na Mata Nacional do Bussaco que parece uma cascata?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Fonte da Senhora do Monte Alto",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Fonte Fria",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Fonte de Santa Cristina",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Fonte do Cruzeiro",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "O que caracteriza a Água de Luso?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "É hipossalina e tem propriedades terapêuticas",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "É originária de fontes vulcânicas",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Contém um alto teor de sal",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "É usada como água na rede pública",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual era o principal uso das rochas do Carbónico?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Extração de petróleo",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Produção de carvão e combustível",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Construção de monumentos",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Extração de ouro",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Em que século foi construído o Palácio do Bussaco?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Século XV",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Século XVII",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Século XIX",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Século XXI",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual é o estilo arquitetônico predominante do Palácio do Bussaco?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Gótico",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Neomanuelino",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Barroco",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Modernista",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual destes elementos NÃO faz parte do Palácio do Bussaco?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Torre central",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Azulejos históricos",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Claustro carmelita",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Elevador panorâmico",
+                            "isCorrect": true
+                        }
+                    ]
+                },
+                {
+                    "question": "O que torna a Mata Nacional do Bussaco um local único?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "A presença de espécies botânicas raras",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "A proximidade do mar",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "O cultivo exclusivo de videiras",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "O clima árido",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual era a função original do Palácio do Bussaco?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Mosteiro",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Residência real",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Pousada militar",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Palácio de caça",
+                            "isCorrect": true
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual o nome da fonte localizada na Mata Nacional do Bussaco?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Fonte Verde",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Fonte de São João",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Fonte Fria",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Fonte de Santa Cristina",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Como se chama a fonte que pode observar na fotografia?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Fonte de Santa Cristina",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Fonte Fria",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Fonte do Rio",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Fonte Azul",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual o nome da fonte localizada no centro da vila do Luso?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Fonte de Santa Cristina",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Fonte Fria",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Fonte de São João",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Fonte Escura",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Observando a fotografia, indique o nome do miradouro localizado na serra do Bussaco?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Miradouro da Cruz Alta",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Mirante Emídio da Silva",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Miradouro Penedo do Castro",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Miradouro da Bandeira",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Após observar a fotografia, indique qual o nome do corte clássico do sinclinal do Bussaco.",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Corte Galhano",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Corte do Louriçal",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Corte Cácemes",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Corte de São Pedro",
                             "isCorrect": false
                         }
                     ]
@@ -1837,45 +2343,551 @@
             ],
             "questions": [
                 {
-                    "question": "- Mira 1",
+                    "question": "Quantos moinhos compõem o núcleo do conjunto molinológico situado entre a Lagoa de Mira e o lugar de Casal de São Tomé?",
                     "image": null,
                     "answers": [
                         {
-                            "text": "Berlin",
+                            "text": "Quatro",
                             "isCorrect": false
                         },
                         {
-                            "text": "Madrid",
+                            "text": "Cinco",
                             "isCorrect": false
                         },
                         {
-                            "text": "Paris",
+                            "text": "Seis",
                             "isCorrect": true
                         },
                         {
-                            "text": "Rome",
+                            "text": "Sete",
                             "isCorrect": false
                         }
                     ]
                 },
                 {
-                    "question": "- Mira 2",
+                    "question": "Qual é o nome do canal que integra a Barrinha de Mira?",
                     "image": null,
                     "answers": [
                         {
-                            "text": "Berlin",
+                            "text": "Canal de Aveiro",
                             "isCorrect": false
                         },
                         {
-                            "text": "Madrid",
+                            "text": "Canal da Gândara",
                             "isCorrect": false
                         },
                         {
-                            "text": "Paris",
+                            "text": "Canal de Mira",
                             "isCorrect": true
                         },
                         {
-                            "text": "Rome",
+                            "text": "Canal da Gafanha",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual é a importância ecológica da Barrinha de Mira?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Serve como reserva de água potável para a Praia de Mira",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "É exclusivamente usada para atividades de lazer",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Atua como área agrícola para irrigação local",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "É uma área de conservação prioritária para a biodiversidade Europeia",
+                            "isCorrect": true
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual é a cor predominante do Conglomerado de Mira?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Cinzenta",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Amarelada",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Esbranquiçada",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Avermelhada",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "O que a Lagoa de Mira oferece aos visitantes?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Um parque de diversões",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Trilhos pedestres e observação de aves",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Parques de estacionamento e restaurantes",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Áreas de camping e alojamento rural",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Por que razão os locais onde se encontra o conglomerado de Mira estão atualmente difíceis de observar?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Foram removidos devido à construção de estradas",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Estão protegidos por legislação ambiental",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Estão cobertos por areias",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Foram desgastados pela ação do vento",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "A Lagoa de Mira é um importante local para observação de:",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Mamíferos marinhos",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Peixes de água doce",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Biodiversidade da região",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Aves",
+                            "isCorrect": true
+                        }
+                    ]
+                },
+                {
+                    "question": "Os moinhos da Lagoa são conhecidos como:",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Moinhos de vento",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Moinhos de água",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Moinhos de rodízio",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Moinhos hidráulicos",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Quantos moinhos de rodízio funcionam na Lagoa de Mira?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Quatro",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Dois",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Seis",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Três",
+                            "isCorrect": true
+                        }
+                    ]
+                },
+                {
+                    "question": "O que é produzido frequentemente por um dos moinhos da Lagoa?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Farinha de trigo",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Farinha de milho",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Óleo de oliva",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Farinha de centeio",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "O que caracteriza o local onde estão situados os Moinhos da Lagoa?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Grande área florestal",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Cordão dunar e agricultura de subsistência",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Grande concentração de edifícios urbanos",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Zonas de pastagem para gado",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "A Barrinha de Mira foi formada por:",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "O fechamento de uma bacia marítima",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "A erosão das falésias",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "A ação de correntes marítimas",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "A regularização do rio Mondego",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Que tipo de fauna é encontrada na Barrinha de Mira?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Aves aquáticas e peixes",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Répteis e mamíferos",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Insetos raros",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Plantas endémicas",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Onde é possivel observar o conglomerado de Mira?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Na região do Pinhal do Mondego",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Na região do Pinhal do Louro e próximo do Moinho do Ribeiro",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Na Figueira da Foz",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Na região do Pinhal de Gafanhas",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "A que período geológico pertence o conglomerado de Mira?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Jurássico",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Triássico",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Cretácico Superior",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Campaniano a Maastrichtiano",
+                            "isCorrect": true
+                        }
+                    ]
+                },
+                {
+                    "question": "As Casas Gandaresas de Mira são tradicionalmente associadas a que tipo de economia?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Pastorícia",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Agricultura e pecuária",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Mineração",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Indústria naval",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual destes elementos é comum nas Casas Gandaresas?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Varandas de ferro forjado",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Telhados de colmo",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Portas e janelas pintadas de cores vivas",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Azulejos decorativos",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "As Casas Gandaresas são comuns em Mira e também noutras zonas da:",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": " Região Centro",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Madeira",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Beira Interior",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Costa Vicentina",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual o principal material utilizado na construção dos Palheiros de Mira?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Pedra",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Madeira",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Tijolo",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Concreto",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Os Palheiros de Mira são construídos sobre:",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Rochas",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Alvenaria de pedra",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Estacas de madeira",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Bases de tijolo",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual o nome da praia, afastada de áreas urbanizadas que pode observar na fotografia?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Praia de Mira",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Praia do Poço da Cruz",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Praia do Palheirão",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Praia da Tocha",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Observando a fotografia, o edificio às riscas azuis e brancas, na Praia de Mira é uma:",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Igreja",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Casa de pescador",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Capela",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Escola de surf",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual o nome do objeto que podemos visualizar na fotografia?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Arenito",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Pedra calcária",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Areia de Mira",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Conglomerado de Mira",
+                            "isCorrect": true
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual o nome da maior lagoa de Mira?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Barrinha de Mira",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Lagoa de Mira",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Lagoa dos Teixoeiros",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Lagoa da Salgueira",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual o nome do conjunto molinológico situado entre a Lagoa de Mira e o lugar de Casal de São Tomé?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Moinhos do Montanha",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Moinhos de Mira",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Moinhos da Fazendeira",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Moinhos da Serra da Atalhada",
                             "isCorrect": false
                         }
                     ]
