@@ -597,45 +597,551 @@
             ],
             "questions": [
                 {
-                    "question": "Penacova 1",
-                    "image": "img1",
+                    "question": "O que são as “conheiras” em Penacova?",
+                    "image": null,
                     "answers": [
                         {
-                            "text": "Berlin",
-                            "isCorrect": false
-                        },
-                        {
-                            "text": "Madrid",
-                            "isCorrect": false
-                        },
-                        {
-                            "text": "Paris",
+                            "text": "Pilhas de pedras deixadas por antigas minas de ouro",
                             "isCorrect": true
                         },
                         {
-                            "text": "Rome",
+                            "text": "Rochas naturais formadas pela erosão",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Monumentos históricos romanos",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Estruturas usadas para agricultura",
                             "isCorrect": false
                         }
                     ]
                 },
                 {
-                    "question": "Penacova 2",
-                    "image": "img1",
+                    "question": "Qual é a altura da serra da Atalhada, um miradouro em Penacova?",
+                    "image": null,
                     "answers": [
                         {
-                            "text": "Berlin",
+                            "text": "200 metros",
                             "isCorrect": false
                         },
                         {
-                            "text": "Madrid",
-                            "isCorrect": false
-                        },
-                        {
-                            "text": "Paris",
+                            "text": "367 metros",
                             "isCorrect": true
                         },
                         {
-                            "text": "Rome",
+                            "text": "500 metros",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "600 metros",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Para que serviam originalmente os moinhos de vento na serra da Atalhada?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Produzir energia elétrica",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Moer cereais",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Bombear água",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Abrigar turistas",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Por que motivo a “Livraria do Mondego” tem esse nome?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Por ter uma biblioteca ao lado",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Por ser um arquivo de documentos históricos",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Por ser um local frequentado por escritores",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Porque as rochas parecem livros empilhados",
+                            "isCorrect": true
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual é o nome do rio que passa por Penacova e é importante para a região?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Rio Tejo",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Rio Mondego",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Rio Dão",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Rio Zêzere",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Onde se encontra um dos conjunto de moinhos de vento em Penacova?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Miradouro Penedo do Castro",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Livraria do Mondego",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Portela de Oliveira",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Casal de Santo Amaro",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "O Miradouro Penedo do Castro localiza-se junto a que localidade?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Rebordosa",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Lorvão",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "São Pedro de Alva",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Penacova",
+                            "isCorrect": true
+                        }
+                    ]
+                },
+                {
+                    "question": "Que escritor famoso possuía moinhos em Portela de Oliveira?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Miguel Torga",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Vitorino Nemésio",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Eça de Queiroz",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Almeida Garrett",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Quem projetou a Pérgola localizada no centro da vila de Penacova?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Emídio da Silva",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Raúl Lino",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Nicola Bigaglia",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Augusto Mendes Simões Castro",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Em que localidade se localizam os Fornos de Cal em Penacova?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Gavinhos",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Chelo",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Casal de Santo Amaro",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Friúmes",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual o nome da praia fluvial localizada junto à vila de Penacova?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Praia Fluvial da Ereira",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Praia Fluvial de Ançã",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Praia Fluvial do Vimieiro",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Praia Fluvial do Reconquinho",
+                            "isCorrect": true
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual foi o principal objetivo da construção da Barragem da Aguieira?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Produzir energia hidroelétrica e controlar cheias",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Criar um espaço para pesca",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Reduzir a salinidade da água",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Facilitar o transporte de mercadorias",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "O que caracteriza os meandros encaixados do rio Mondego?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Podem ser observados apenas por vista aérea",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Têm uma profundidade de 100 metros",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "São artificiais e feitos pelo homem",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Estão localizados nas margens do rio",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual é a altura da Barragem da Raiva?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "20 metros",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "36 metros",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "50 metros",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "70 metros",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "O que caracteriza a água que brota na nascente localizada nas Caldas de Penacova?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "É altamente mineralizada",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Gasocarbónica",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Hipossalina, silicatada e cloretada sódica",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Contém grandes quantidades de cálcio",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Quem foi a figura histórica responsável pela fundação do Mosteiro de Lorvão?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "D. Afonso Henriques",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "D. Teresa de Leon",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "D. Sancho I",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "D. João III",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "O Mosteiro de Lorvão foi famoso pela produção de:",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Têxteis",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Manuscritos iluminados",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Cerâmica",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Vidro",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual o Rio em Penacova que esteve ligado à extração de Ouro nos tempos dos Romanos?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Rio Tejo",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Rio Douro",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Rio Alva",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Rio Zêzere",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual das seguintes atrações turísticas se encontra em Penacova?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Conímbriga",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Piódão",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Mosteiro de Lorvão",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Castelo de Leiria",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Penacova é conhecida pela produção artesanal de:",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Cerâmica",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Moinhos de vento e broa de milho",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Tapetes de Arraiolos",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Bordados da Madeira",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Onde estão localizados os moinhos presentes na fotografia?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Vila de Penacova",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Serra da Atalhada",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Perto da praia",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Serra da Boa Viagem",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual o nome do rio que podemos observar do Mirante Emídio da Silva?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Rio Mondego",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Rio Tejo",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Rio Douro",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Rio Alva",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual o nome da praia fluvial presente na fotografia?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Praia fluvial dos Olhos da Fervença",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Praia fluvial do Vimieiro",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Praia fluvial do Reconquinho",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Praia fluvial das Sete Fontes",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual o nome da barragem que podemos observar na fotografia?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Barragem da Aguieira",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Barragem de Ranhados",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Barragem do Cabril",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Barragem de Crestuma",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual o nome da construção existente no Casal de Santo Amaro que podemos observar na fotografia?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Fornos de cal do Casal de Santo Amaro",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Refúgio do Casal de Santo Amaro",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Fornalha do Casal de Santo Amaro",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Abrigo do Casal de Santo Amaro",
                             "isCorrect": false
                         }
                     ]
