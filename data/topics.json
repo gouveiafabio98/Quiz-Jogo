@@ -240,45 +240,551 @@
             ],
             "questions": [
                 {
-                    "question": "- Figueira da Foz 1",
+                    "question": "O Palácio Sotto Maior é conhecido pela sua arquitetura de que estilo arquitéctónico?",
                     "image": null,
                     "answers": [
                         {
-                            "text": "Berlin",
+                            "text": "Barroco",
                             "isCorrect": false
                         },
                         {
-                            "text": "Madrid",
+                            "text": "Gótico",
                             "isCorrect": false
                         },
                         {
-                            "text": "Paris",
+                            "text": "Neoclássico",
                             "isCorrect": true
                         },
                         {
-                            "text": "Rome",
+                            "text": "Modernista",
                             "isCorrect": false
                         }
                     ]
                 },
                 {
-                    "question": "- Figueira da Foz 2",
+                    "question": "Qual o objetivo principal do Núcleo Museológico do Mar?",
                     "image": null,
                     "answers": [
                         {
-                            "text": "Berlin",
+                            "text": "Expor arte contemporânea",
                             "isCorrect": false
                         },
                         {
-                            "text": "Madrid",
+                            "text": "Exibir equipamentos tecnológicos modernos",
                             "isCorrect": false
                         },
                         {
-                            "text": "Paris",
+                            "text": "Expor artefatos arqueológicos",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Recuperar e divulgar as memórias históricas e práticas piscatórias",
+                            "isCorrect": true
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual é a área aproximada da Lagoa das Braças?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "50 hectares",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "30 hectares",
                             "isCorrect": true
                         },
                         {
-                            "text": "Rome",
+                            "text": "15 hectares",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "70 hectares",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Como foi formada a Lagoa das Braças?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Floresta tropical",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Depressões no sistema dunar com nível freático superficial",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Áreas de montanha com vegetação rara",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Zonas agrícolas irrigadas",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "A Lagoa das Braças é um local privilegiado para observar que tipo de fauna?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Aves",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Mamíferos aquáticos",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Reptéis",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Insetos",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual é a maior lagoa do litoral centro de Portugal?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Lagoa dos Teixoeiros",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Lagoa da Vela",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Lagoa de Mira",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Lagoa de Quiaios",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "A Ilha da Morraceira foi formada devido à deposição de que tipo de materiais?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Rochas calcárias",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Areias e pedras de construção",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Materiais vulcânicos",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Sedimentos aluvionares (areias e lodos)",
+                            "isCorrect": true
+                        }
+                    ]
+                },
+                {
+                    "question": "A Ilha da Morraceira é um local importante para:",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Pesca comercial",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Agricultura intensiva",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Observação de aves",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Turismo ecológico",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "A Praia do Cabedelo é conhecida por ter:",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Águas cristalinas e tranquilas",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Ondulação perfeita para desportos de onda",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Propriedades terapêuticas no seu areal",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Uma grande área de dunas móveis",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Que desportos são populares na Praia do Cabedelo?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Surf e bodyboard",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Futebol de praia",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Vela e windsurf",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Corridas de kitesurf",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "A Figueira da Foz possui uma das maiores praias urbanas da:",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Europa",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Espanha",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Grécia",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "França",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Onde está localizado o Miradouro da Bandeira?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Na Serra da Estrela",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Na Serra da Boa Viagem",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "No Monte da Senhora da Estrela",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "No Monte de São João",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Em dias claros, o Miradouro da Montanha permite observar qual característica geográfica importante?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Mata do Bussaco",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "O curso do rio Tejo",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "O cordão dunar e a foz do rio Mondego",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Livraria do Mondego",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Onde se pode encontrar o melhor afloramento, a nível internacional, para a idade do Bajociano?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Cabo Mondego",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Serra do Bussaco",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Serra da Atalhada",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Livraria do Mondego",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual atividade mineira que teve início no Cabo Mondego em 1773?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Extração de carvão mineral",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Extração de ouro",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Extração de granito",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Extração de sal",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual é uma das características marcantes do Mosteiro de Santa Maria de Seiça?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "A sua Arquitetura gótica",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "A sua fachada barroca",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "O claustro renascentista",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "O portal manuelino",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "O que é o Dólmen das Carniçosas, localizado na Serra das Alhadas?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Um castelo medieval",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Um monumento megalítico",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Uma igreja românica",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Um forte militar",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "A Torre do Relógio da Figueira da Foz está situada junto a que praia?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Praia da Nazaré",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Praia de Quiaios",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Praia da Claridade",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Praia do Meco",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "O Palácio Sotto Mayor foi construído no início do século:",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "XVI",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "XVIII",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "XX",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "XXI",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "O Palácio Sotto Mayor está rodeado por:",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Um grande jardim e lagos",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Um mosteiro antigo",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Uma muralha medieval",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Uma zona industrial",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Como se chama a pequena aldeia, situada na freguesia de Quiaios, visível do Miradouro da Bandeira?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Murtinheira",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Leirosa",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Buarcos",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Costa de lavos",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual o nome do miradouro, situado na Serra da Boa Viagem, que pode observar na fotografia?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Miradouro da Senhora do Monte",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Miradouro da Montanha",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Miradouro da Vila",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Miradouro da Boa Viagem",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual o nome da área, que serve tanto como habitat para aves migratórias quanto para a produção de sal?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Ilha de São Jorge",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Ilha de Tavira",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Ilha do Fogo",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Ilha da Morraceira",
+                            "isCorrect": true
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual o nome da praia que pode observar na fotografia?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Praia do Cabedelinho",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Praia do Forte",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Praia do Molhe Norte",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Praia da Claridade",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Que atividade de pesca pode ser observada na Praia da Leirosa?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Pesca comercial",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Pesca com arpão",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Pesca pela Arte Xávega",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Pesca submarina",
                             "isCorrect": false
                         }
                     ]

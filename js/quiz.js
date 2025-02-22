@@ -180,7 +180,7 @@ function drawQuestion() {
     textSize(topicText.textSize);
     textLeading(topicText.textLeading);
     textAlign(LEFT, CENTER);
-    text(topicText.text, topicText.x, topicText.y, topicText.w, topicBox.h - topicText.textLeading / 3);
+    text(topicText.text, topicText.x, topicText.y - topicText.textLeading / 6, topicText.w, topicBox.h);
 
     // Answer Box
     for (let i = 0; i < 4; i++) {
@@ -236,9 +236,7 @@ function drawQuestion() {
         textAlign(LEFT, CENTER);
         textSize(answerText.textSize);
         textLeading(answerText.textLeading);
-        text(answerText.text[i], answerText.x, 0,
-            answerText.w, answerText.h - answerText.textLeading / 2
-        );
+        text(answerText.text[i], answerText.x, 0, answerText.w, answerText.h - answerText.textLeading / 2);
 
         pop();
     }
@@ -317,7 +315,7 @@ async function updateQuestion() {
     // Topic Text
     textFont(content.HabitasBold.d);
     topicText.color = color("#F7EDDC");
-    topicText.textSize = max(min(50, (width / 1920) * 50), 20);
+    topicText.textSize = max(min(45, (width / 1920) * 40), 20);
     topicText.textLeading = topicText.textSize * 1;
     textSize(topicText.textSize);
     textLeading(topicText.textLeading);
@@ -328,7 +326,7 @@ async function updateQuestion() {
     topicBox.marginH = max(min(25, (width / 1920) * 25), 15);
 
     // *-*
-    topicText.w = textWidth(topicText.text);
+    topicText.w = textWidth(topicText.text) + topicBox.marginW/2;
     if (topicText.w > questionBox.w - (topicText.textLeading + topicBox.marginH * 2) - topicBox.marginW * 2) {
         topicText.text = topicText.breakText;
         topicText.w = questionBox.w - (topicText.textLeading + topicBox.marginH * 2) - topicBox.marginW * 2;
@@ -428,11 +426,12 @@ async function updateQuestion() {
     answerText.color = color("#F7EDDC");
     answerText.textSize = max(min(25, (width / 1920) * 25), 15);
     answerText.textLeading = answerText.textSize * 1;
-    answerText.w = answerBox.h;
     // -- X
     answerText.x = answerTopicText.w + answerBox.margin;
     // -- Y
     answerText.y = answerTopicText.y;
+
+    answerText.w = answerBox.w - answerText.x;
     answerText.h = answerBox.h;
 
     questionBox.translateX = width / 2;
@@ -485,11 +484,11 @@ async function updateQuestion() {
 
 
         // Icon Masked Image
-        questionText.image.maskIconW = topicText.textLeading+ topicBox.marginH * 2;
+        questionText.image.maskIconW = topicText.textLeading + topicBox.marginH * 2;
         questionText.image.maskIconH = questionText.image.maskIconW;
         questionText.image.maskIconX = questionBox.w / 2 - questionText.image.maskIconH;
         questionText.image.maskIconY = questionBox.y - questionText.image.maskIconH + topicBox.marginW;;
-        
+
         maskedImage = createGraphics(questionText.image.maskIconW, questionText.image.maskIconH);
         maskedImage.noStroke();
         maskedImage.fill(255);
@@ -569,7 +568,7 @@ function getTextHeightAndMaxWidth(data) {
     }
     lineCount++;
     let textHeight = lineCount * data.textLeading;
-    
+
     return {
         textHeight: textHeight,
         maxWidth: maxWidth
