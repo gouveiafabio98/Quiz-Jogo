@@ -1,0 +1,38 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.topic {
+    margin-bottom: 20px;
+}
+
+.topic-name {
+    margin: 100px 0 50px 0;
+    font-size: 24px;
+    color: #333;
+}
+
+.question {
+    font-size: 18px;
+    margin-top: 55px; /* Add spacing between questions */
+}
+
+.answers {
+    margin-top: 10px;
+    list-style-type: decimal; /* Use decimal numbering for ordered list */
+}
+
+.answer {
+    margin: 5px 0;
+}
