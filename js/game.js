@@ -214,7 +214,7 @@ function drawButton(txt, y, w, h, radius, tX, tY, txtSize, color = "#589359", in
     push();
     translate(tX, tY);
 
-    if (interact &&
+    if (!isMobileDevice() && interact &&
         mouseX > tX - w / 2 && mouseX < tX + w / 2 &&
         mouseY > tY - h / 2 && mouseY < tY + h / 2) {
         cursorPointer = true;
@@ -265,7 +265,7 @@ function drawIcon(img, w, h, x, y, color, interact = false) {
 
     push();
     translate(x, y);
-    if (interact &&
+    if (!isMobileDevice() && interact &&
         mouseX > x - w / 2 && mouseX < x + w / 2 &&
         mouseY > y - h / 2 && mouseY < y + h / 2) {
         cursorPointer = true;
@@ -421,4 +421,8 @@ function playMusic() {
             clearInterval(volumeInterval);
         }
     }, duration / 100);
+}
+
+function isMobileDevice() {
+    return /Mobi|Android/i.test(navigator.userAgent);
 }

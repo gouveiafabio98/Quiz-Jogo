@@ -656,7 +656,3 @@ function answerSound(answer) {
     if (answer) content.rightSound.d.play();
     else content.wrongSound.d.play();
 }
-
-function isMobileDevice() {
-    return /Mobi|Android/i.test(navigator.userAgent);
-}
