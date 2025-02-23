@@ -187,7 +187,8 @@ function drawQuestion() {
         push();
         translate(answerBox.x[i], answerBox.y[i]);
         translate(answerBox.w / 2, answerBox.h / 2);
-        if (((!questionText.image.mobile && questionText.image.hide) || questionText.image.mobile) &&
+        if (!isMobileDevice() &&
+            ((!questionText.image.mobile && questionText.image.hide) || questionText.image.mobile) &&
             mouseX > questionBox.translateX + answerBox.x[i] &&
             mouseX < questionBox.translateX + answerBox.x[i] + answerBox.w &&
             mouseY > questionBox.translateY + answerBox.y[i] &&
@@ -654,4 +655,8 @@ function setScore(result, id) {
 function answerSound(answer) {
     if (answer) content.rightSound.d.play();
     else content.wrongSound.d.play();
+}
+
+function isMobileDevice() {
+    return /Mobi|Android/i.test(navigator.userAgent);
 }
