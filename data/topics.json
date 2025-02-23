@@ -1723,45 +1723,551 @@
             ],
             "questions": [
                 {
-                    "question": "- Montemor-o-Velho 1",
-                    "image": "img1",
+                    "question": "O Paul do Taipal é uma Zona de Proteção Especial para:",
+                    "image": null,
                     "answers": [
                         {
-                            "text": "Berlin",
-                            "isCorrect": false
-                        },
-                        {
-                            "text": "Madrid",
-                            "isCorrect": false
-                        },
-                        {
-                            "text": "Paris",
+                            "text": "Aves",
                             "isCorrect": true
                         },
                         {
-                            "text": "Rome",
+                            "text": "Árvores",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Rios",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Plantas aquáticas",
                             "isCorrect": false
                         }
                     ]
                 },
                 {
-                    "question": "- Montemor-o-Velho 2",
-                    "image": "img1",
+                    "question": "Qual é a principal característica do Paul do Taipal?",
+                    "image": null,
                     "answers": [
                         {
-                            "text": "Berlin",
+                            "text": "Zona de pesca",
                             "isCorrect": false
                         },
                         {
-                            "text": "Madrid",
+                            "text": "Produção de arroz",
                             "isCorrect": false
                         },
                         {
-                            "text": "Paris",
+                            "text": "Diversidade de flora",
                             "isCorrect": true
                         },
                         {
-                            "text": "Rome",
+                            "text": "Campo de dunas",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual modalidade é praticada no Centro Náutico de Montemor-o-Velho?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Surf",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Canoagem",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Pesca",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Caminhadas",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual é o comprimento do plano de água do Centro Náutico de Montemor-o-Velho?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "2000 metros",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "1000 metros",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "500 metros",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "3000 metros",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "O plano de água do Centro Náutico de Montemor-o-Velho foi criado a partir de quê?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Uma antiga lagoa",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Um reservatório artificial",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Uma nascente natural",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Um leito abandonado do rio Mondego",
+                            "isCorrect": true
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual a praia fluvial mais conhecida no concelho de Montemor-o-Velho?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Praia fluvial da Ereira",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Praia Fluvial do Reconquinho",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Praia fluvial dos Olhos da Fervença",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Praia fluvial das Sete Fontes",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Que produto é cultivado nos campos alagados do baixo Mondego?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Milho",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Arroz Carolino",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Trigo",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Cevada",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual é o nome atual da capela próxima ao Esteiro da Ereira?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Nossa Senhora do Rosário",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Santo António",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "São João Batista",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Nossa Senhora da Conceição",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual é o símbolo da Reserva Natural do Paul de Arzila?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Lontra",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Águia-real",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Garça-vermelha",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Cegonha-branca",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "A Reserva Natural do Paul de Arzila é uma área importante para:",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Roedores",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Plantas aquáticas",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Reptéis raros",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Aves migratórias",
+                            "isCorrect": true
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual o nome do monumento religioso que se encontra no interior da muralha do castelo de Montemor-o-Velho?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Capela da Varziela",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Igreja de Nossa Senhora do Ó",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Igreja de Santa Maria da Alcáçova",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Mosteiro de Nossa Senhora dos Anjos",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "O que se extraía na pedreira de Montemor-o-Velho?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Calcário margoso",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Granito",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Basalto",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Areia",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Em que construção foi utilizada a pedra extraída da pedreira de Montemor-o-Velho?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Castelo de Montemor-o-Velho",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Catedral de Coimbra",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Mosteiro da Batalha",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Torre dos Clérigos",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "O Castelo de Montemor-o-Velho está classificado como:",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Património Mundial",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Monumento Nacional",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Reserva Natural",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Sítio RAMSAR",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Que tipo de paisagem pode ser vista do Castelo de Montemor-o-Velho para o sul?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "A cidade de Coimbra",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "A serra da Boa Viagem",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "O Oceano Atlântico",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Planície aluvial do Mondego",
+                            "isCorrect": true
+                        }
+                    ]
+                },
+                {
+                    "question": "Em que século foi fundado o Convento de Nossa Senhora do Carmo de Tentúgal?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Século XV",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Século XVI",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Século XVII",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Século XVIII",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": " Que rei concedeu benefícios em mantimentos às religiosas do Convento de Nossa Senhora do Carmo de Tentúgal em 1596?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "D. Manuel I",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "D. João IV",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "D. Filipe",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "D. Pedro II",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual a origem do Convento de Nossa Senhora dos Anjos, em Montemor-o-Velho",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Uma antiga fortaleza medieval",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Uma pequena ermida pertencente a Diogo da Azambuja",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Uma capela real mandada construir por D. Manuel I",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Um templo romano adaptado",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual foi a primeira estrutura a ser construída no Convento de Nossa Senhora dos Anjos, em Montemor-o-Velho?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "O claustro",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "A igreja",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "A sacristia",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "A sala do capítulo",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "No século XX, o Convento de Nossa Senhora dos Anjos, em Montemor-o-Velho, foi classificado como:",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Património Mundial da UNESCO",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Monumento Nacional",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Tesouro Nacional",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Património Cultural Imaterial",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual o nome do castelo que pode observar na fotografia?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Castelo dos Mouro",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Castelo de Montemor-o-Velho",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Castelo de Óbidos",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Castelo de S. Jorge",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual destas modalidades NÃO é praticada no Centro Náutico de Montemor-o-Velho?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Canoagem",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Remo",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Mergulho",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Triatlo",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Qual o nome do monumento religioso que pode observar na fotografia?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Igreja de Nossa Senhora do Ó",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Mosteiro de Santa Maria de Seiça",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Mosteiro de Nossa Senhora dos Anjos",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Capela da Varziela",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Observando a fotografia, indique o nome desta área localizada na proximidade de Montemor-o-Velho.",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Reserva Natural do Paul de Arzila",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Paul do Taipal",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Centro Náutico de Montemor-o-Velho",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Praia Fluvial da Ereira",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Que infraestruturas desportivas existem na Praia Fluvial da Ereira?",
+                    "image": null,
+                    "answers": [
+                        {
+                            "text": "Piscina olímpica e campo de ténis",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Campos para prática de voleibol de praia",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Pista de atletismo",
+                            "isCorrect": false
+                        },
+                        {
+                            "text": "Circuito de ciclismo",
                             "isCorrect": false
                         }
                     ]
