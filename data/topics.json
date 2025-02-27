@@ -475,7 +475,7 @@
                 },
                 {
                     "question": "Qual o nome da praia fluvial que pode observar na fotografia?",
-                    "image": null,
+                    "image": "cantanhede1",
                     "answers": [
                         {
                             "text": "Praia fluvial do Reconquinho",
@@ -497,7 +497,7 @@
                 },
                 {
                     "question": "Qual o nome da praia que pode observar na fotografia?",
-                    "image": null,
+                    "image": "cantanhede2",
                     "answers": [
                         {
                             "text": "Praia do Palheirão",
@@ -519,7 +519,7 @@
                 },
                 {
                     "question": "Quais as características do terreno que contribuíram para a formação da Lagoa da Salgueira?",
-                    "image": null,
+                    "image": "cantanhede3",
                     "answers": [
                         {
                             "text": "Declive acentuado e rios subterrâneos",
@@ -541,7 +541,7 @@
                 },
                 {
                     "question": "Qual o nome deste museu, que integra a Rede Portuguesa de Museus?",
-                    "image": null,
+                    "image": "cantanhede5",
                     "answers": [
                         {
                             "text": "Museu de Cantanhede",
@@ -563,7 +563,7 @@
                 },
                 {
                     "question": "O que é possível observar nas Margas do Jurássico Inferior?",
-                    "image": null,
+                    "image": "cantanhede4",
                     "answers": [
                         {
                             "text": "Rochas ígneas",
@@ -1038,7 +1038,7 @@
                 },
                 {
                     "question": "Onde estão localizados os moinhos presentes na fotografia?",
-                    "image": null,
+                    "image": "penacova1",
                     "answers": [
                         {
                             "text": "Vila de Penacova",
@@ -1060,7 +1060,7 @@
                 },
                 {
                     "question": "Qual o nome do rio que podemos observar do Mirante Emídio da Silva?",
-                    "image": null,
+                    "image": "penacova2",
                     "answers": [
                         {
                             "text": "Rio Mondego",
@@ -1082,7 +1082,7 @@
                 },
                 {
                     "question": "Qual o nome da praia fluvial presente na fotografia?",
-                    "image": null,
+                    "image": "penacova3",
                     "answers": [
                         {
                             "text": "Praia fluvial dos Olhos da Fervença",
@@ -1104,7 +1104,7 @@
                 },
                 {
                     "question": "Qual o nome da barragem que podemos observar na fotografia?",
-                    "image": null,
+                    "image": "penacova4",
                     "answers": [
                         {
                             "text": "Barragem da Aguieira",
@@ -1126,7 +1126,7 @@
                 },
                 {
                     "question": "Qual o nome da construção existente no Casal de Santo Amaro que podemos observar na fotografia?",
-                    "image": null,
+                    "image": "penacova5",
                     "answers": [
                         {
                             "text": "Fornos de cal do Casal de Santo Amaro",
@@ -1601,7 +1601,7 @@
                 },
                 {
                     "question": "Qual o nome da fonte localizada na Mata Nacional do Bussaco?",
-                    "image": null,
+                    "image": "mealhada2",
                     "answers": [
                         {
                             "text": "Fonte Verde",
@@ -1623,7 +1623,7 @@
                 },
                 {
                     "question": "Como se chama a fonte que pode observar na fotografia?",
-                    "image": null,
+                    "image": "mealhada4",
                     "answers": [
                         {
                             "text": "Fonte de Santa Cristina",
@@ -1645,7 +1645,7 @@
                 },
                 {
                     "question": "Qual o nome da fonte localizada no centro da vila do Luso?",
-                    "image": null,
+                    "image": "mealhada3",
                     "answers": [
                         {
                             "text": "Fonte de Santa Cristina",
@@ -1667,7 +1667,7 @@
                 },
                 {
                     "question": "Observando a fotografia, indique o nome do miradouro localizado na serra do Bussaco?",
-                    "image": null,
+                    "image": "mealhada1",
                     "answers": [
                         {
                             "text": "Miradouro da Cruz Alta",
@@ -1689,7 +1689,7 @@
                 },
                 {
                     "question": "Após observar a fotografia, indique qual o nome do corte clássico do sinclinal do Bussaco.",
-                    "image": null,
+                    "image": "mealhada5",
                     "answers": [
                         {
                             "text": "Corte Galhano",
@@ -2164,7 +2164,7 @@
                 },
                 {
                     "question": "Qual o nome do castelo que pode observar na fotografia?",
-                    "image": null,
+                    "image": "montemor2",
                     "answers": [
                         {
                             "text": "Castelo dos Mouro",
@@ -2186,7 +2186,7 @@
                 },
                 {
                     "question": "Qual destas modalidades NÃO é praticada no Centro Náutico de Montemor-o-Velho?",
-                    "image": null,
+                    "image": "montemor3",
                     "answers": [
                         {
                             "text": "Canoagem",
@@ -2208,7 +2208,7 @@
                 },
                 {
                     "question": "Qual o nome do monumento religioso que pode observar na fotografia?",
-                    "image": null,
+                    "image": "montemor4",
                     "answers": [
                         {
                             "text": "Igreja de Nossa Senhora do Ó",
@@ -2230,7 +2230,7 @@
                 },
                 {
                     "question": "Observando a fotografia, indique o nome desta área localizada na proximidade de Montemor-o-Velho.",
-                    "image": null,
+                    "image": "montemor1",
                     "answers": [
                         {
                             "text": "Reserva Natural do Paul de Arzila",
@@ -2252,7 +2252,7 @@
                 },
                 {
                     "question": "Que infraestruturas desportivas existem na Praia Fluvial da Ereira?",
-                    "image": null,
+                    "image": "montemor5",
                     "answers": [
                         {
                             "text": "Piscina olímpica e campo de ténis",
@@ -2727,7 +2727,7 @@
                 },
                 {
                     "question": "Como se chama a pequena aldeia, situada na freguesia de Quiaios, visível do Miradouro da Bandeira?",
-                    "image": null,
+                    "image": "figueira1",
                     "answers": [
                         {
                             "text": "Murtinheira",
@@ -2749,7 +2749,7 @@
                 },
                 {
                     "question": "Qual o nome do miradouro, situado na Serra da Boa Viagem, que pode observar na fotografia?",
-                    "image": null,
+                    "image": "figueira2",
                     "answers": [
                         {
                             "text": "Miradouro da Senhora do Monte",
@@ -2771,7 +2771,7 @@
                 },
                 {
                     "question": "Qual o nome da área, que serve tanto como habitat para aves migratórias quanto para a produção de sal?",
-                    "image": null,
+                    "image": "figueira3",
                     "answers": [
                         {
                             "text": "Ilha de São Jorge",
@@ -2793,7 +2793,7 @@
                 },
                 {
                     "question": "Qual o nome da praia que pode observar na fotografia?",
-                    "image": null,
+                    "image": "figueira4",
                     "answers": [
                         {
                             "text": "Praia do Cabedelinho",
@@ -2815,7 +2815,7 @@
                 },
                 {
                     "question": "Que atividade de pesca pode ser observada na Praia da Leirosa?",
-                    "image": null,
+                    "image": "figueira5",
                     "answers": [
                         {
                             "text": "Pesca comercial",
@@ -3290,7 +3290,7 @@
                 },
                 {
                     "question": "Qual o nome da praia, afastada de áreas urbanizadas que pode observar na fotografia?",
-                    "image": null,
+                    "image": "mira1",
                     "answers": [
                         {
                             "text": "Praia de Mira",
@@ -3312,7 +3312,7 @@
                 },
                 {
                     "question": "Observando a fotografia, o edificio às riscas azuis e brancas, na Praia de Mira é uma:",
-                    "image": null,
+                    "image": "mira2",
                     "answers": [
                         {
                             "text": "Igreja",
@@ -3334,7 +3334,7 @@
                 },
                 {
                     "question": "Qual o nome do objeto que podemos visualizar na fotografia?",
-                    "image": null,
+                    "image": "mira4",
                     "answers": [
                         {
                             "text": "Arenito",
@@ -3356,7 +3356,7 @@
                 },
                 {
                     "question": "Qual o nome da maior lagoa de Mira?",
-                    "image": null,
+                    "image": "mira5",
                     "answers": [
                         {
                             "text": "Barrinha de Mira",
@@ -3378,7 +3378,7 @@
                 },
                 {
                     "question": "Qual o nome do conjunto molinológico situado entre a Lagoa de Mira e o lugar de Casal de São Tomé?",
-                    "image": null,
+                    "image": "mira3",
                     "answers": [
                         {
                             "text": "Moinhos do Montanha",

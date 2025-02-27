@@ -80,9 +80,54 @@ let answerBox = {
 };
 
 let quizImages = {
-    img1: {
-        src: 'data/img-1.jpg',
-        type: 'JPG',
+    cantanhede1: {
+        src: 'data/topicImg/cantanhede/1.png',
+        type: 'PNG',
+        d: null
+    },
+    cantanhede2: {
+        src: 'data/topicImg/cantanhede/2.png',
+        type: 'PNG',
+        d: null
+    },
+    cantanhede3: {
+        src: 'data/topicImg/cantanhede/3.png',
+        type: 'PNG',
+        d: null
+    },
+    cantanhede4: {
+        src: 'data/topicImg/cantanhede/4.png',
+        type: 'PNG',
+        d: null
+    },
+    cantanhede5: {
+        src: 'data/topicImg/cantanhede/5.png',
+        type: 'PNG',
+        d: null
+    },
+    penacova1: {
+        src: 'data/topicImg/penacova/1.png',
+        type: 'PNG',
+        d: null
+    },
+    penacova2: {
+        src: 'data/topicImg/penacova/2.png',
+        type: 'PNG',
+        d: null
+    },
+    penacova3: {
+        src: 'data/topicImg/penacova/3.png',
+        type: 'PNG',
+        d: null
+    },
+    penacova4: {
+        src: 'data/topicImg/penacova/4.png',
+        type: 'PNG',
+        d: null
+    },
+    penacova5: {
+        src: 'data/topicImg/penacova/5.png',
+        type: 'PNG',
         d: null
     }
 }
@@ -601,6 +646,7 @@ function setQuestion(topicId) {
     topicBox.color = color(topic.fill);
 
     let question = topic.questions[int(random(topic.questions.length))];
+
     questionText.text = question.question;
     questionText.image.name = question.image;
     if (questionText.image.name != null) questionText.image.display = true;

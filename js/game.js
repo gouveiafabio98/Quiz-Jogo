@@ -145,8 +145,6 @@ function drawContent() { // Draw all map and assets content
         content.backButton.w, content.backButton.h,
         content.backButton.x, content.backButton.y,
         "#589359", true);
-    text(highscore);
-    console.log(highscore);
 }
 
 function newGame(dif) {
