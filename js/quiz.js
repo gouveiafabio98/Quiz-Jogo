@@ -129,6 +129,106 @@ let quizImages = {
         src: 'data/topicImg/penacova/5.png',
         type: 'PNG',
         d: null
+    },
+    mealhada1: {
+        src: 'data/topicImg/mealhada/1.png',
+        type: 'PNG',
+        d: null
+    },
+    mealhada2: {
+        src: 'data/topicImg/mealhada/2.png',
+        type: 'PNG',
+        d: null
+    },
+    mealhada3: {
+        src: 'data/topicImg/mealhada/3.png',
+        type: 'PNG',
+        d: null
+    },
+    mealhada4: {
+        src: 'data/topicImg/mealhada/4.png',
+        type: 'PNG',
+        d: null
+    },
+    mealhada5: {
+        src: 'data/topicImg/mealhada/5.png',
+        type: 'PNG',
+        d: null
+    },
+    montemor1: {
+        src: 'data/topicImg/montemor/1.png',
+        type: 'PNG',
+        d: null
+    },
+    montemor2: {
+        src: 'data/topicImg/montemor/2.png',
+        type: 'PNG',
+        d: null
+    },
+    montemor3: {
+        src: 'data/topicImg/montemor/3.png',
+        type: 'PNG',
+        d: null
+    },
+    montemor4: {
+        src: 'data/topicImg/montemor/4.png',
+        type: 'PNG',
+        d: null
+    },
+    montemor5: {
+        src: 'data/topicImg/montemor/5.png',
+        type: 'PNG',
+        d: null
+    },
+    figueira1: {
+        src: 'data/topicImg/figueira/1.png',
+        type: 'PNG',
+        d: null
+    },
+    figueira2: {
+        src: 'data/topicImg/figueira/2.png',
+        type: 'PNG',
+        d: null
+    },
+    figueira3: {
+        src: 'data/topicImg/figueira/3.png',
+        type: 'PNG',
+        d: null
+    },
+    figueira4: {
+        src: 'data/topicImg/figueira/4.png',
+        type: 'PNG',
+        d: null
+    },
+    figueira5: {
+        src: 'data/topicImg/figueira/5.png',
+        type: 'PNG',
+        d: null
+    },
+    mira1: {
+        src: 'data/topicImg/mira/1.png',
+        type: 'PNG',
+        d: null
+    },
+    mira2: {
+        src: 'data/topicImg/mira/2.png',
+        type: 'PNG',
+        d: null
+    },
+    mira3: {
+        src: 'data/topicImg/mira/3.png',
+        type: 'PNG',
+        d: null
+    },
+    mira4: {
+        src: 'data/topicImg/mira/4.png',
+        type: 'PNG',
+        d: null
+    },
+    mira5: {
+        src: 'data/topicImg/mira/5.png',
+        type: 'PNG',
+        d: null
     }
 }
 
