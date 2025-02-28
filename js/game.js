@@ -32,7 +32,64 @@ let challengeDifficulty = {
     radius: 0,
     color: 255
 };
-// 0 - Boot; 1 - Difficulty; 2 - Roulette; 3 - Question;
+
+let endGameMenu = {
+    color: null,
+    x: 0,
+    y: 0,
+    w: 0,
+    h: 0,
+    margin: 0,
+    radius: 0,
+
+    text: {
+        text: null,
+        bad: "Ainda há caminho a percorrer, mas estás a aprender! 💪",
+        good: "Estás quase lá! Bom trabalho! 😉",
+        veryGood: "Muito bom! Só faltou um pouco para a perfeição! 👏",
+        perfect: "És imbatível! Perfeito 🌟",
+        textSize: 0,
+        textLeading: 0,
+        x: 0,
+        y: 0,
+        w: 0,
+        h: 0,
+        color: null
+    },
+
+    answerBox: {
+        color: null,
+        x: 0,
+        y: 0,
+        w: 0,
+        h: 0,
+        margin: 0,
+        radius: 0,
+
+        topic: {
+            text: "PONTUAÇÃO",
+            color: null,
+            x: 0,
+            y: 0,
+            w: 0,
+            h: 0,
+            textSize: 0,
+            textLeading: 0
+        },
+
+        amount: {
+            text: "00/00",
+            color: null,
+            x: 0,
+            y: 0,
+            w: 0,
+            h: 0,
+            textSize: 0,
+            textLeading: 0
+        }
+    }
+}
+// 0 - Boot; 1 - Difficulty; 2 - Roulette; 3 - Question; 4 - End
 
 let menuPosition = {
     x: 6890,
@@ -131,6 +188,8 @@ function drawContent() { // Draw all map and assets content
         drawQuestion();
         // Timer
         if (difficulty == 1) drawTimer();
+    } else if (playStage == 4) {
+        drawEndGame();
     }
     // Score
     textFont(content.HabitasBold.d);
@@ -145,6 +204,103 @@ function drawContent() { // Draw all map and assets content
         content.backButton.w, content.backButton.h,
         content.backButton.x, content.backButton.y,
         "#589359", true);
+}
+
+function drawEndGame() {
+    rectMode(CORNER);
+
+    // Main Box
+    fill(endGameMenu.color);
+    rect(endGameMenu.x, endGameMenu.y, endGameMenu.w, endGameMenu.h, endGameMenu.radius);
+    // Score Box
+    fill(endGameMenu.answerBox.color);
+    rect(endGameMenu.answerBox.x, endGameMenu.answerBox.y,
+        endGameMenu.answerBox.w, endGameMenu.answerBox.h, endGameMenu.answerBox.radius);
+
+    // Score Text
+    textAlign(LEFT, CENTER);
+    fill(endGameMenu.answerBox.topic.color);
+    textSize(endGameMenu.answerBox.topic.textSize);
+    textLeading(endGameMenu.answerBox.topic.textLeading);
+    text(endGameMenu.answerBox.topic.text, endGameMenu.answerBox.topic.x, endGameMenu.answerBox.topic.y,
+        endGameMenu.answerBox.topic.w);
+
+    fill(endGameMenu.answerBox.amount.color);
+    textSize(endGameMenu.answerBox.amount.textSize);
+    textLeading(endGameMenu.answerBox.amount.textLeading);
+    text(endGameMenu.answerBox.amount.text, endGameMenu.answerBox.amount.x, endGameMenu.answerBox.amount.y,
+        endGameMenu.answerBox.amount.w);
+
+    // Message
+    textAlign(LEFT, TOP);
+    fill(endGameMenu.text.color);
+    textSize(endGameMenu.text.textSize);
+    textLeading(endGameMenu.text.textLeading);
+
+    text(endGameMenu.text.text, endGameMenu.text.x, endGameMenu.text.y,
+        endGameMenu.text.w, endGameMenu.text.h);
+}
+
+function updateEndGame() {
+    //Main Box
+    endGameMenu.w = width - (width / 3 * inZoom) * 2;
+    endGameMenu.h = height - (height / 3 * inZoom) * 2;
+    endGameMenu.x = (width - endGameMenu.w) / 2;
+    endGameMenu.y = (height - endGameMenu.h) / 2;
+    endGameMenu.margin = max(min(30, (width / 1920) * 30), 20);
+    endGameMenu.radius = max(min(50, (width / 1920) * 50), 25);
+    endGameMenu.color = color("#6DB671");
+
+    // Topic Box
+    endGameMenu.answerBox.color = color("#589359");
+    endGameMenu.answerBox.x = endGameMenu.x + endGameMenu.margin;
+    endGameMenu.answerBox.y = endGameMenu.y + endGameMenu.margin;
+    endGameMenu.answerBox.margin = max(min(15, (width / 1920) * 15), 10);
+    endGameMenu.answerBox.radius = max(min(50, (width / 1920) * 50), 25);
+
+    // Topic Content
+    endGameMenu.answerBox.topic.textSize = max(min(25, (width / 1920) * 25), 10);
+    endGameMenu.answerBox.topic.textLeading = endGameMenu.answerBox.topic.textSize * 1;
+    endGameMenu.answerBox.topic.color = color("#EFD2AB");
+    textSize(endGameMenu.answerBox.topic.textSize);
+    textLeading(endGameMenu.answerBox.topic.textLeading);
+
+    endGameMenu.answerBox.topic.w = textWidth(endGameMenu.answerBox.topic.text);
+    endGameMenu.answerBox.topic.h = endGameMenu.answerBox.topic.textLeading;
+    endGameMenu.answerBox.topic.x = endGameMenu.answerBox.x + endGameMenu.answerBox.margin;
+
+    // Amount Content
+    endGameMenu.answerBox.amount.textSize = max(min(50, (width / 1920) * 50), 25);
+    endGameMenu.answerBox.amount.textLeading = endGameMenu.answerBox.amount.textSize * 1;
+    endGameMenu.answerBox.amount.color = color("#FFFFFF");
+    textSize(endGameMenu.answerBox.amount.textSize);
+    textLeading(endGameMenu.answerBox.amount.textLeading);
+
+    endGameMenu.answerBox.amount.w = textWidth(endGameMenu.answerBox.amount.text);
+    endGameMenu.answerBox.amount.h = endGameMenu.answerBox.amount.textLeading;
+    endGameMenu.answerBox.amount.x = endGameMenu.answerBox.topic.x + endGameMenu.answerBox.topic.w + endGameMenu.answerBox.margin / 2;
+    endGameMenu.answerBox.amount.y = endGameMenu.answerBox.y + endGameMenu.answerBox.amount.h/2.4 + endGameMenu.answerBox.margin;
+
+    endGameMenu.answerBox.topic.y = endGameMenu.answerBox.amount.y;
+
+
+    // Topic Box
+    endGameMenu.answerBox.w = endGameMenu.answerBox.topic.w + endGameMenu.answerBox.amount.w + endGameMenu.answerBox.margin * 3;
+    endGameMenu.answerBox.h = max(endGameMenu.answerBox.amount.h, endGameMenu.answerBox.topic.h) + endGameMenu.answerBox.margin * 2;
+
+    // Message Content
+    endGameMenu.text.color = color("#FFFFFF");
+    endGameMenu.text.textSize = max(min(35, (width / 1920) * 35), 20);
+    endGameMenu.text.textLeading = endGameMenu.text.textSize * 1;
+    endGameMenu.text.text = endGameMenu.text.bad;
+    textSize(endGameMenu.text.textSize);
+    textLeading(endGameMenu.text.textLeading);
+
+    // Message Position
+    endGameMenu.text.x = endGameMenu.x + endGameMenu.margin;
+    endGameMenu.text.y = endGameMenu.answerBox.y + endGameMenu.answerBox.h + endGameMenu.margin;
+    endGameMenu.text.w = endGameMenu.w - endGameMenu.margin * 2;
+    endGameMenu.text.h = getTextHeight(endGameMenu.text);
 }
 
 function newGame(dif) {
@@ -187,6 +343,7 @@ function windowResized() {
 
     if (playStage == 0) updateLoading();
     if (playStage == 3) updateQuestion();
+    if (playStage == 4) updateEndGame();
 
     updateElements();
 }
@@ -286,6 +443,7 @@ function updateElements() {
     updateButtons();
     // Difficulty
     updateDifficultyButtons();
+    // End Game
 }
 
 function updateTimer() {
